@@ -1,0 +1,284 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PyLegend &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=2fedd6bc" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api/api.html" />
+ 
+<link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueindex.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="_static/js/ag_grid_init.js"></script>
+<script src="_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="#">
+    <img class="logo" src="_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="pylegend">
+<h1>PyLegend<a class="headerlink" href="#pylegend" title="Link to this heading">&#61633;</a></h1>
+<p><span class="raw-html"><p style="font-size: 1.2em; color: #555; font-style: italic;">Python client library for Legend ecosystem with interactive TDS query building and execution</p></span></p>
+<p><span class="raw-html"><p style="color: #666; font-size: 0.9em;"></span>
+<strong>Release:</strong> <em>0.1.0</em> | <strong>Date:</strong> <em>Feb 13, 2026</em> | <strong>License:</strong> <em>Apache 2.0</em>
+<span class="raw-html"></p></span></p>
+<p><span class="raw-html"><hr /></span></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">&#61633;</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PyLegend</span></code> is a Python client library that provides seamless integration with the
+<a class="reference external" href="https://legend.finos.org/">FINOS Legend</a> ecosystem,
+enabling interactive TabularDataSet (TDS) query building and push-down execution capabilities.</p>
+<p>Whether you&#8217;re a data analyst, data scientist, or software engineer, PyLegend bridges
+the gap between Legend&#8217;s powerful data modeling capabilities and Python&#8217;s rich data
+analysis ecosystem.</p>
+<section id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">&#61633;</a></h3>
+<p><span class="raw-html"><table width="100%" style="border-collapse: collapse;"></span>
+<span class="raw-html"><tr></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#128279; Seamless Integration</strong></p>
+<p>Connect directly to Legend services and functions from Python without complex setup.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#128269; Interactive Query Building</strong></p>
+<p>Build TDS queries interactively with a fluent, pandas-like API.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"></tr></span>
+<span class="raw-html"><tr></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#9889; Push-down Optimization</strong></p>
+<p>Execute queries with full push-down optimization for maximum performance.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#128060; Pandas Compatible</strong></p>
+<p>Load results directly into Pandas DataFrames for analysis and visualization.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"></tr></span>
+<span class="raw-html"><tr></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#128260; Data Transformations</strong></p>
+<p>Perform powerful transformations: filter, join, group, extend, sort, and more.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"><td width="50%" style="padding: 10px; vertical-align: top;"></span></p>
+<p><strong>&#128202; Type Safety</strong></p>
+<p>Leverage Legend&#8217;s type system for safer, more reliable data operations.</p>
+<p><span class="raw-html"></td></span>
+<span class="raw-html"></tr></span>
+<span class="raw-html"></table></span></p>
+<p><span class="raw-html"><hr /></span></p>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">&#61633;</a></h2>
+<p>Install PyLegend using <strong>pip</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylegend</span></code></p>
+<p>Or using <strong>Poetry</strong>: <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">add</span> <span class="pre">pylegend</span></code></p>
+<p><span class="raw-html"><hr /></span></p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">&#61633;</a></h2>
+<p><span class="raw-html"><table width="100%"></span>
+<span class="raw-html"><tr></span></p>
+<p><span class="raw-html"><td class="card" width="45%" valign="top" style="margin: 10px;"></span>
+<span class="raw-html"><span style="color:#2980B9;font-size:20px;">&#128218; API Reference</span></span>
+<span class="raw-html"><p>Detailed documentation of all PyLegend classes and methods.</p></span></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/legendql_tds_frame.html">LegendQL TDS Frame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#row-selection-methods">Row Selection Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#head">head</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#limit">limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#drop">drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#slice">slice</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#column-selection-methods">Column Selection Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#select">select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#distinct">distinct</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#sorting-and-filtering">Sorting and Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#sort">sort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#filter">filter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#column-transformation-methods">Column Transformation Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#rename">rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#extend">extend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#project">project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#cast">cast</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#combining-frames">Combining Frames</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#concatenate">concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#join">join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#inner-join">inner_join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#left-join">left_join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#right-join">right_join</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#aggregation">Aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#group-by">group_by</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html#window-functions">Window Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#rows">rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#range">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#window">window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#window-extend">window_extend</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><span class="raw-html"></td></span></p>
+<p><span class="raw-html"></tr></span>
+<span class="raw-html"></table></span></p>
+<p><span class="raw-html"><hr /></span></p>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">&#61633;</a></h2>
+<ul class="simple">
+<li><p><strong>GitHub Issues:</strong> Report bugs or request features on our <a class="reference external" href="https://github.com/finos/pylegend/issues">GitHub repository</a></p></li>
+<li><p><strong>Documentation:</strong> Browse the API Reference for detailed usage information</p></li>
+</ul>
+<p><span class="raw-html"><hr /></span></p>
+</section>
+<section id="indices-and-search">
+<h2>Indices and Search<a class="headerlink" href="#indices-and-search" title="Link to this heading">&#61633;</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="_sources/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

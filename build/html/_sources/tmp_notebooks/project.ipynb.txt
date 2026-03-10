@@ -1,0 +1,276 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "657206b1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pylegend\n",
+    "frame = pylegend.samples.legendql_api.northwind_orders_frame()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "427d0429",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Order Number</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>10248</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>10249</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>10250</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>10251</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>10252</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Order Number\n",
+       "0         10248\n",
+       "1         10249\n",
+       "2         10250\n",
+       "3         10251\n",
+       "4         10252"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Project single column (copy with new name)\n",
+    "frame.project((\"Order Number\", lambda r: r[\"Order Id\"])).head(5).to_pandas()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "95e3de5d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Order Number</th>\n",
+       "      <th>Vessel</th>\n",
+       "      <th>Vessel Lower</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>10248</td>\n",
+       "      <td>VINS ET ALCOOLS CHEVALIER</td>\n",
+       "      <td>vins et alcools chevalier</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>10249</td>\n",
+       "      <td>TOMS SPEZIALITÄTEN</td>\n",
+       "      <td>toms spezialitäten</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>10250</td>\n",
+       "      <td>HANARI CARNES</td>\n",
+       "      <td>hanari carnes</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>10251</td>\n",
+       "      <td>VICTUAILLES EN STOCK</td>\n",
+       "      <td>victuailles en stock</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>10252</td>\n",
+       "      <td>SUPRÊMES DÉLICES</td>\n",
+       "      <td>suprêmes délices</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Order Number                     Vessel               Vessel Lower\n",
+       "0         10248  VINS ET ALCOOLS CHEVALIER  vins et alcools chevalier\n",
+       "1         10249         TOMS SPEZIALITÄTEN         toms spezialitäten\n",
+       "2         10250              HANARI CARNES              hanari carnes\n",
+       "3         10251       VICTUAILLES EN STOCK       victuailles en stock\n",
+       "4         10252           SUPRÊMES DÉLICES           suprêmes délices"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Project multiple columns with transformations\n",
+    "frame.project([\n",
+    "    (\"Order Number\", lambda r: r[\"Order Id\"]),\n",
+    "    (\"Vessel\", lambda r: r[\"Ship Name\"].upper()),\n",
+    "    (\"Vessel Lower\", lambda r: r[\"Ship Name\"].lower())\n",
+    "]).head(5).to_pandas()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "126f6590",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>ID</th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Date</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>10248</td>\n",
+       "      <td>Vins et alcools Chevalier</td>\n",
+       "      <td>1996-07-04</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>10249</td>\n",
+       "      <td>Toms Spezialitäten</td>\n",
+       "      <td>1996-07-05</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>10250</td>\n",
+       "      <td>Hanari Carnes</td>\n",
+       "      <td>1996-07-08</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>10251</td>\n",
+       "      <td>Victuailles en stock</td>\n",
+       "      <td>1996-07-08</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>10252</td>\n",
+       "      <td>Suprêmes délices</td>\n",
+       "      <td>1996-07-09</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "      ID                       Name       Date\n",
+       "0  10248  Vins et alcools Chevalier 1996-07-04\n",
+       "1  10249         Toms Spezialitäten 1996-07-05\n",
+       "2  10250              Hanari Carnes 1996-07-08\n",
+       "3  10251       Victuailles en stock 1996-07-08\n",
+       "4  10252           Suprêmes délices 1996-07-09"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Project with existing column values\n",
+    "frame.project([\n",
+    "    (\"ID\", lambda r: r[\"Order Id\"]),\n",
+    "    (\"Name\", lambda r: r[\"Ship Name\"]),\n",
+    "    (\"Date\", lambda r: r[\"Order Date\"])\n",
+    "]).head(5).to_pandas()"
+   ]
+  }
+ ],
+ "metadata": {
+  "nbsphinx": {
+   "orphan": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,269 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Reference &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=2fedd6bc" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LegendQL TDS Frame" href="legendql_tds_frame.html" />
+    <link rel="prev" title="PyLegend" href="../index.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueapi/api.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html">LegendQL TDS Frame</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">&#61633;</a></h1>
+<p>The reference guide consists detailed description of all user-facing APIs of <code class="docutils literal notranslate"><span class="pre">pylegend</span></code> library.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legendql_tds_frame.html">LegendQL TDS Frame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#row-selection-methods">Row Selection Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#head">head</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.head"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.head()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#limit">limit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.limit"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.limit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#drop">drop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.drop"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.drop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#slice">slice</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.slice"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.slice()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#column-selection-methods">Column Selection Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#select">select</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.select"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.select()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#distinct">distinct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.distinct"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.distinct()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#sorting-and-filtering">Sorting and Filtering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#sort">sort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.sort"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.sort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#filter">filter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.filter"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.filter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#column-transformation-methods">Column Transformation Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#rename">rename</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rename"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.rename()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#extend">extend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.extend"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.extend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#project">project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.project"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.project()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#cast">cast</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.cast"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.cast()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#combining-frames">Combining Frames</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#concatenate">concatenate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.concatenate"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.concatenate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#join">join</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.join"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.join()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#inner-join">inner_join</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.inner_join"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.inner_join()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#left-join">left_join</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.left_join"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.left_join()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#right-join">right_join</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.right_join"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.right_join()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#aggregation">Aggregation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#group-by">group_by</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.group_by"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.group_by()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html#window-functions">Window Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#rows">rows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.rows()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#range">range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.range()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#window">window</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.window()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="legendql_tds_frame.html#window-extend">window_extend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window_extend"><code class="docutils literal notranslate"><span class="pre">LegendQLApiTdsFrame.window_extend()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/api/api.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

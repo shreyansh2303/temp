@@ -1,0 +1,1578 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=2fedd6bc" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/tds/legendql_api/frames/legendql_api_tds_frame.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2025 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendBoolean</span><span class="p">,</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span> <span class="n">PyLegendPrimitiveCollection</span><span class="p">,</span> \
+    <span class="n">PyLegendPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.legendql_api.legendql_api_custom_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LegendQLApiPrimitive</span><span class="p">,</span>
+    <span class="n">LegendQLApiSortInfo</span><span class="p">,</span>
+    <span class="n">LegendQLApiWindow</span><span class="p">,</span>
+    <span class="n">LegendQLApiPartialFrame</span><span class="p">,</span>
+    <span class="n">LegendQLApiWindowReference</span><span class="p">,</span>
+    <span class="n">LegendQLApiWindowFrame</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.legendql_api.legendql_api_tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">LegendQLApiTdsRow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendTdsFrame</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendCallable</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+    <span class="n">PyLegendList</span><span class="p">,</span>
+    <span class="n">PyLegendOptional</span><span class="p">,</span>
+    <span class="n">PyLegendTuple</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.cast_helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CastTarget</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LegendQLApiTdsFrame</span><span class="p">(</span><span class="n">PyLegendTdsFrame</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.head">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.head">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n rows of the TDS frame.</span>
+
+<span class="sd">        This function returns the first `count` rows from the frame.</span>
+<span class="sd">        It is useful for quickly inspecting the data without loading the entire dataset.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        count : int, default 5</span>
+<span class="sd">            Number of rows to return.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the first n rows.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        limit : Alias for head.</span>
+<span class="sd">        drop : Skip the first n rows.</span>
+<span class="sd">        slice : Return a subset of rows by index range.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get first 5 rows (default)</span>
+<span class="sd">            frame.head().to_pandas()</span>
+
+<span class="sd">            # Get first 3 rows</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.limit">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.limit">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n rows of the TDS frame.</span>
+
+<span class="sd">        Alias for :meth:`head`. This function returns the first `count` rows</span>
+<span class="sd">        from the frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        count : int, default 5</span>
+<span class="sd">            Number of rows to return.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the first n rows.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Equivalent method.</span>
+<span class="sd">        drop : Skip the first n rows.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Limit to 2 rows</span>
+<span class="sd">            frame.limit(2).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.drop">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.drop">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Skip the first n rows of the TDS frame.</span>
+
+<span class="sd">        Return a new TDS frame with the first `count` rows removed.</span>
+<span class="sd">        This is useful for pagination or skipping header-like rows.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        count : int, default 5</span>
+<span class="sd">            Number of rows to skip from the beginning.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the first n rows removed.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        slice : Return a subset of rows by index range.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Skip first 5 rows (default), then show next 5</span>
+<span class="sd">            frame.drop().head(5).to_pandas()</span>
+
+<span class="sd">            # Skip first 10 rows</span>
+<span class="sd">            frame.drop(10).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.slice">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.slice">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_row</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_row_exclusive</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a subset of rows by index range.</span>
+
+<span class="sd">        Select rows from `start_row` (inclusive) to `end_row_exclusive` (exclusive).</span>
+<span class="sd">        This is similar to Python&#39;s list slicing behavior.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start_row : int</span>
+<span class="sd">            Starting row index (0-based, inclusive).</span>
+<span class="sd">        end_row_exclusive : int</span>
+<span class="sd">            Ending row index (0-based, exclusive).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the rows in the specified range.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        drop : Skip the first n rows.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get rows 0-4 (first 5 rows)</span>
+<span class="sd">            frame.slice(0, 5).to_pandas()</span>
+
+<span class="sd">            # Get rows 5-9</span>
+<span class="sd">            frame.slice(5, 10).to_pandas()</span>
+
+<span class="sd">            # Get rows 2-6</span>
+<span class="sd">            frame.slice(2, 7).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.distinct">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.distinct">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="nb">str</span><span class="p">,</span>
+                <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span>
+                    <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">]]</span>
+                <span class="p">]</span>
+            <span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return unique rows based on specified columns.</span>
+
+<span class="sd">        Remove duplicate rows from the TDS frame. If columns are specified,</span>
+<span class="sd">        uniqueness is determined based on those columns only. If no columns</span>
+<span class="sd">        are specified, all columns are used to determine uniqueness.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        columns : str, list of str, callable, or None, default None</span>
+<span class="sd">            Column(s) to consider for identifying duplicates:</span>
+
+<span class="sd">            - ``None`` : Use all columns to determine uniqueness.</span>
+<span class="sd">            - ``str`` : Single column name.</span>
+<span class="sd">            - ``list of str`` : List of column names.</span>
+<span class="sd">            - ``callable`` : A function that takes a TDS row and returns</span>
+<span class="sd">              column(s) to use for uniqueness.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with duplicate rows removed.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        select : Select specific columns.</span>
+<span class="sd">        filter : Filter rows based on a condition.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get distinct values for a single column</span>
+<span class="sd">            frame.distinct(&quot;Ship Name&quot;).head(10).to_pandas()</span>
+
+<span class="sd">            # Get distinct combinations of multiple columns</span>
+<span class="sd">            frame.distinct([&quot;Ship Name&quot;, &quot;Order Date&quot;]).head(10).to_pandas()</span>
+
+<span class="sd">            # Using a callable to specify columns</span>
+<span class="sd">            frame.distinct(lambda r: [r[&quot;Ship Name&quot;], r[&quot;Order Date&quot;]]).head(10).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.select">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.select">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="nb">str</span><span class="p">,</span>
+                <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span>
+                    <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">]]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Select specific columns from the TDS frame.</span>
+
+<span class="sd">        Return a new TDS frame containing only the specified columns.</span>
+<span class="sd">        This is useful for reducing the data to only the columns of interest.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        columns : str, list of str, or callable</span>
+<span class="sd">            Column(s) to select:</span>
+
+<span class="sd">            - ``str`` : Single column name.</span>
+<span class="sd">            - ``list of str`` : List of column names.</span>
+<span class="sd">            - ``callable`` : A function that takes a TDS row and returns</span>
+<span class="sd">              the column(s) to select.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the selected columns.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        distinct : Get unique rows.</span>
+<span class="sd">        project : Create new computed columns.</span>
+<span class="sd">        extend : Add new columns while keeping existing ones.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Select a single column</span>
+<span class="sd">            frame.select(&quot;Ship Name&quot;).head(5).to_pandas()</span>
+
+<span class="sd">            # Select multiple columns</span>
+<span class="sd">            frame.select([&quot;Order Id&quot;, &quot;Ship Name&quot;, &quot;Order Date&quot;]).head(5).to_pandas()</span>
+
+<span class="sd">            # Using a callable to select columns</span>
+<span class="sd">            frame.select(lambda r: [r[&quot;Order Id&quot;], r[&quot;Ship Name&quot;]]).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.sort">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.sort">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">sort_infos</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="nb">str</span><span class="p">,</span>
+                <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span>
+                    <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span>
+                        <span class="n">LegendQLApiPrimitive</span><span class="p">,</span>
+                        <span class="n">LegendQLApiSortInfo</span><span class="p">,</span>
+                        <span class="n">PyLegendList</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">LegendQLApiSortInfo</span><span class="p">]],</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sort the TDS frame by specified columns.</span>
+
+<span class="sd">        Return a new TDS frame sorted by the given column(s). Supports</span>
+<span class="sd">        ascending and descending sort orders.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sort_infos : str, list of str, or callable</span>
+<span class="sd">            Column(s) to sort by:</span>
+
+<span class="sd">            - ``str`` : Single column name (ascending order).</span>
+<span class="sd">            - ``list of str`` : List of column names (all ascending order).</span>
+<span class="sd">            - ``callable`` : A function that takes a TDS row and returns:</span>
+<span class="sd">                - A column (ascending order by default).</span>
+<span class="sd">                - A ``LegendQLApiSortInfo`` with direction (use ``.ascending()``</span>
+<span class="sd">                  or ``.descending()`` on columns).</span>
+<span class="sd">                - A list of columns and/or ``LegendQLApiSortInfo`` objects.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with rows sorted according to the specified criteria.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        filter : Filter rows based on a condition.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Sort by single column (ascending by default)</span>
+<span class="sd">            frame.sort(&quot;Ship Name&quot;).head(5).to_pandas()</span>
+
+<span class="sd">            # Sort by multiple columns (all ascending)</span>
+<span class="sd">            frame.sort([&quot;Ship Name&quot;, &quot;Order Date&quot;]).head(5).to_pandas()</span>
+
+<span class="sd">            # Sort with explicit direction using callable</span>
+<span class="sd">            frame.sort(lambda r: r[&quot;Ship Name&quot;].descending()).head(5).to_pandas()</span>
+
+<span class="sd">            # Sort by multiple columns with different directions</span>
+<span class="sd">            frame.sort(</span>
+<span class="sd">                lambda r: [r[&quot;Ship Name&quot;].ascending(), r[&quot;Order Id&quot;].descending()]</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.concatenate">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.concatenate">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concatenate two TDS frames vertically.</span>
+
+<span class="sd">        Append the rows of another TDS frame to the current frame.</span>
+<span class="sd">        Both frames must have compatible schemas (same columns).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The TDS frame to append to the current frame.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing all rows from both frames.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : Combine frames horizontally based on a condition.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get first 3 rows and rows 10-12, then concatenate</span>
+<span class="sd">            first_rows = frame.head(3)</span>
+<span class="sd">            other_rows = frame.slice(10, 13)</span>
+<span class="sd">            first_rows.concatenate(other_rows).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.filter">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.filter">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">filter_function</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter rows based on a condition.</span>
+
+<span class="sd">        Return a new TDS frame containing only the rows that satisfy</span>
+<span class="sd">        the given condition.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filter_function : callable</span>
+<span class="sd">            A function that takes a TDS row and returns a boolean value.</span>
+<span class="sd">            Rows where the function returns ``True`` are kept.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the rows that match the condition.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        distinct : Remove duplicate rows.</span>
+<span class="sd">        head : Return the first n rows.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Filter by equality</span>
+<span class="sd">            frame.filter(lambda r: r[&quot;Ship Name&quot;] == &quot;Wolski Zajazd&quot;).head(5).to_pandas()</span>
+
+<span class="sd">            # Filter with comparison operators</span>
+<span class="sd">            frame.filter(lambda r: r[&quot;Order Id&quot;] &gt; 10500).head(5).to_pandas()</span>
+
+<span class="sd">            # Filter with multiple conditions (AND)</span>
+<span class="sd">            frame.filter(</span>
+<span class="sd">                lambda r: (r[&quot;Order Id&quot;] &gt; 10250) &amp; (r[&quot;Order Id&quot;] &lt; 10560)</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.rename">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rename">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rename</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">column_renames</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span><span class="n">PyLegendTuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span>
+                    <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span>
+                        <span class="n">PyLegendTuple</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                        <span class="n">PyLegendList</span><span class="p">[</span><span class="n">PyLegendTuple</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rename columns in the TDS frame.</span>
+
+<span class="sd">        Return a new TDS frame with specified columns renamed.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_renames : tuple, list of tuples, or callable</span>
+<span class="sd">            Column rename specification:</span>
+
+<span class="sd">            - ``tuple (str, str)`` : Single rename as (old_name, new_name).</span>
+<span class="sd">            - ``list of tuples`` : Multiple renames as [(old1, new1), (old2, new2), ...].</span>
+<span class="sd">            - ``callable`` : A function that takes a TDS row and returns</span>
+<span class="sd">              tuple(s) of (column, new_name).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the specified columns renamed.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        select : Select specific columns.</span>
+<span class="sd">        extend : Add new columns.</span>
+<span class="sd">        project : Create new computed columns.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rename a single column</span>
+<span class="sd">            frame.rename((&quot;Ship Name&quot;, &quot;Vessel Name&quot;)).head(3).to_pandas()</span>
+
+<span class="sd">            # Rename multiple columns</span>
+<span class="sd">            frame.rename(</span>
+<span class="sd">                [(&quot;Ship Name&quot;, &quot;Vessel Name&quot;), (&quot;Order Date&quot;, &quot;Date Ordered&quot;)]</span>
+<span class="sd">            ).head(3).to_pandas()</span>
+
+<span class="sd">            # Using a callable to rename columns</span>
+<span class="sd">            frame.rename(lambda r: (r[&quot;Ship Name&quot;], &quot;Vessel Name&quot;)).head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.extend">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.extend">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extend</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">extend_columns</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span>
+                        <span class="n">PyLegendTuple</span><span class="p">[</span>
+                            <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]</span>
+                        <span class="p">],</span>
+                        <span class="n">PyLegendTuple</span><span class="p">[</span>
+                            <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                        <span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add new computed columns to the TDS frame.</span>
+
+<span class="sd">        Return a new TDS frame with additional columns computed from</span>
+<span class="sd">        existing data. The original columns are preserved.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        extend_columns : tuple or list of tuples</span>
+<span class="sd">            Column extension specification:</span>
+
+<span class="sd">            - ``tuple (name, func)`` : Add a column with given name using the</span>
+<span class="sd">              function to compute values from each row.</span>
+<span class="sd">            - ``tuple (name, func, agg_func)`` : Add a column with an aggregation</span>
+<span class="sd">              function applied.</span>
+<span class="sd">            - ``list of tuples`` : Add multiple columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the additional computed columns.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        project : Create new columns (replacing existing).</span>
+<span class="sd">        rename : Rename existing columns.</span>
+<span class="sd">        select : Select specific columns.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Add a single computed column</span>
+<span class="sd">            extended = frame.extend((&quot;Ship Name Upper&quot;, lambda r: r[&quot;Ship Name&quot;].upper()))</span>
+<span class="sd">            extended.select([&quot;Ship Name&quot;, &quot;Ship Name Upper&quot;]).head(5).to_pandas()</span>
+
+<span class="sd">            # Add multiple computed columns</span>
+<span class="sd">            cols = [&quot;Ship Name&quot;, &quot;Ship Name Upper&quot;, &quot;Ship Name Lower&quot;]</span>
+<span class="sd">            frame.extend([</span>
+<span class="sd">                (&quot;Ship Name Upper&quot;, lambda r: r[&quot;Ship Name&quot;].upper()),</span>
+<span class="sd">                (&quot;Ship Name Lower&quot;, lambda r: r[&quot;Ship Name&quot;].lower())</span>
+<span class="sd">            ]).select(cols).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.join">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.join">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">],</span>
+            <span class="n">join_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;LEFT_OUTER&#39;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Join two TDS frames based on a condition.</span>
+
+<span class="sd">        Combine columns from two TDS frames based on a join condition.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        join_condition : callable</span>
+<span class="sd">            A function that takes two TDS rows (left, right) and returns</span>
+<span class="sd">            a boolean indicating whether the rows should be joined.</span>
+<span class="sd">        join_type : str, default &#39;LEFT_OUTER&#39;</span>
+<span class="sd">            Type of join to perform:</span>
+
+<span class="sd">            - ``&#39;INNER&#39;`` : Only matching rows from both frames.</span>
+<span class="sd">            - ``&#39;LEFT_OUTER&#39;`` : All rows from left, matching from right.</span>
+<span class="sd">            - ``&#39;RIGHT_OUTER&#39;`` : All rows from right, matching from left.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with columns from both frames.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        inner_join : Convenience method for inner join.</span>
+<span class="sd">        left_join : Convenience method for left outer join.</span>
+<span class="sd">        right_join : Convenience method for right outer join.</span>
+<span class="sd">        as_of_join : Join based on temporal proximity.</span>
+<span class="sd">        concatenate : Combine frames vertically.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            orders = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Self-join example: join orders with a filtered version</span>
+<span class="sd">            # Rename duplicate columns to avoid conflicts</span>
+<span class="sd">            cols = [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            renames = [(&quot;Order Id&quot;, &quot;Right Order Id&quot;), (&quot;Ship Name&quot;, &quot;Filtered Ship Name&quot;)]</span>
+<span class="sd">            filtered_orders = orders.filter(</span>
+<span class="sd">                lambda r: r[&quot;Order Id&quot;] &gt; 10300</span>
+<span class="sd">            ).select(cols).rename(renames)</span>
+<span class="sd">            orders.join(</span>
+<span class="sd">                filtered_orders,</span>
+<span class="sd">                lambda l, r: l[&quot;Order Id&quot;] == r[&quot;Right Order Id&quot;],</span>
+<span class="sd">                &quot;INNER&quot;</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.inner_join">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.inner_join">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner_join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform an inner join with another TDS frame.</span>
+
+<span class="sd">        Return only the rows that have matching values in both frames.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        join_condition : callable</span>
+<span class="sd">            A function that takes two TDS rows (left, right) and returns</span>
+<span class="sd">            a boolean indicating whether the rows should be joined.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only matching rows from both frames.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : General join method with configurable join type.</span>
+<span class="sd">        left_join : Left outer join.</span>
+<span class="sd">        right_join : Right outer join.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            orders = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Inner join with filtered data</span>
+<span class="sd">            # Rename duplicate columns to avoid conflicts</span>
+<span class="sd">            cols = [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            renames = [(&quot;Order Id&quot;, &quot;Right Order Id&quot;), (&quot;Ship Name&quot;, &quot;Filtered Ship Name&quot;)]</span>
+<span class="sd">            filtered = orders.filter(</span>
+<span class="sd">                lambda r: r[&quot;Order Id&quot;] &gt; 10300</span>
+<span class="sd">            ).select(cols).rename(renames)</span>
+<span class="sd">            orders.inner_join(</span>
+<span class="sd">                filtered,</span>
+<span class="sd">                lambda l, r: l[&quot;Order Id&quot;] == r[&quot;Right Order Id&quot;]</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.left_join">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.left_join">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">left_join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform a left outer join with another TDS frame.</span>
+
+<span class="sd">        Return all rows from the left frame, with matching rows from the</span>
+<span class="sd">        right frame. Non-matching rows will have null values for the</span>
+<span class="sd">        right frame columns.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        join_condition : callable</span>
+<span class="sd">            A function that takes two TDS rows (left, right) and returns</span>
+<span class="sd">            a boolean indicating whether the rows should be joined.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with all left rows and matching right rows.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : General join method with configurable join type.</span>
+<span class="sd">        inner_join : Inner join.</span>
+<span class="sd">        right_join : Right outer join.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            orders = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Left join - all orders with filtered info where available</span>
+<span class="sd">            # Rename duplicate columns to avoid conflicts</span>
+<span class="sd">            cols = [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            renames = [(&quot;Order Id&quot;, &quot;Right Order Id&quot;), (&quot;Ship Name&quot;, &quot;Filtered Ship Name&quot;)]</span>
+<span class="sd">            filtered_info = orders.filter(</span>
+<span class="sd">                lambda r: r[&quot;Order Id&quot;] &gt; 10300</span>
+<span class="sd">            ).select(cols).rename(renames).head(10)</span>
+<span class="sd">            orders.head(15).left_join(</span>
+<span class="sd">                filtered_info,</span>
+<span class="sd">                lambda l, r: l[&quot;Order Id&quot;] == r[&quot;Right Order Id&quot;]</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.right_join">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.right_join">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">right_join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform a right outer join with another TDS frame.</span>
+
+<span class="sd">        Return all rows from the right frame, with matching rows from the</span>
+<span class="sd">        left frame. Non-matching rows will have null values for the</span>
+<span class="sd">        left frame columns.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        join_condition : callable</span>
+<span class="sd">            A function that takes two TDS rows (left, right) and returns</span>
+<span class="sd">            a boolean indicating whether the rows should be joined.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with all right rows and matching left rows.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : General join method with configurable join type.</span>
+<span class="sd">        inner_join : Inner join.</span>
+<span class="sd">        left_join : Left outer join.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            orders = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Right join example</span>
+<span class="sd">            # Rename duplicate columns to avoid conflicts</span>
+<span class="sd">            cols = [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            renames = [(&quot;Order Id&quot;, &quot;Right Order Id&quot;), (&quot;Ship Name&quot;, &quot;Filtered Ship Name&quot;)]</span>
+<span class="sd">            filtered_info = orders.filter(</span>
+<span class="sd">                lambda r: r[&quot;Order Id&quot;] &gt; 10300</span>
+<span class="sd">            ).select(cols).rename(renames).head(10)</span>
+<span class="sd">            orders.head(5).right_join(</span>
+<span class="sd">                filtered_info,</span>
+<span class="sd">                lambda l, r: l[&quot;Order Id&quot;] == r[&quot;Right Order Id&quot;]</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">as_of_join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">match_function</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">],</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span>
+                <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]]</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.group_by">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.group_by">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">grouping_columns</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="nb">str</span><span class="p">,</span>
+                <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span>
+                    <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">]]</span>
+                <span class="p">]</span>
+            <span class="p">],</span>
+            <span class="n">aggregate_specifications</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span>
+                    <span class="n">PyLegendTuple</span><span class="p">[</span>
+                        <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                        <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Group rows and apply aggregate functions.</span>
+
+<span class="sd">        Group the TDS frame by the specified columns and compute</span>
+<span class="sd">        aggregate values for each group.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        grouping_columns : str, list of str, or callable</span>
+<span class="sd">            Column(s) to group by:</span>
+
+<span class="sd">            - ``str`` : Single column name.</span>
+<span class="sd">            - ``list of str`` : Multiple column names.</span>
+<span class="sd">            - ``callable`` : A function returning column(s) to group by.</span>
+
+<span class="sd">        aggregate_specifications : tuple or list of tuples</span>
+<span class="sd">            Aggregation specification as tuple(s) of:</span>
+<span class="sd">            ``(result_column_name, column_selector, aggregate_function)``</span>
+
+<span class="sd">            Common aggregate functions from ``pylegend.agg``:</span>
+
+<span class="sd">            - ``count()`` : Count of values.</span>
+<span class="sd">            - ``sum()`` : Sum of values.</span>
+<span class="sd">            - ``avg()`` : Average of values.</span>
+<span class="sd">            - ``min()`` : Minimum value.</span>
+<span class="sd">            - ``max()`` : Maximum value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with grouped and aggregated data.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        distinct : Get unique rows.</span>
+<span class="sd">        filter : Filter rows before grouping.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Group by single column with count using lambda syntax</span>
+<span class="sd">            frame.group_by(</span>
+<span class="sd">                lambda r: r[&quot;Ship Name&quot;],</span>
+<span class="sd">                (&quot;Order Count&quot;, lambda r: r[&quot;Order Id&quot;], lambda col: col.count())</span>
+<span class="sd">            ).head(10).to_pandas()</span>
+
+<span class="sd">            # Group by single column with multiple aggregations using lambda syntax</span>
+<span class="sd">            frame.group_by(</span>
+<span class="sd">                lambda r: r[&quot;Ship Name&quot;],</span>
+<span class="sd">                [</span>
+<span class="sd">                    (&quot;Order Count&quot;, lambda r: r[&quot;Order Id&quot;], lambda col: col.count()),</span>
+<span class="sd">                    (&quot;Min Order Id&quot;, lambda r: r[&quot;Order Id&quot;], lambda col: col.min()),</span>
+<span class="sd">                    (&quot;Max Order Id&quot;, lambda r: r[&quot;Order Id&quot;], lambda col: col.max())</span>
+<span class="sd">                ]</span>
+<span class="sd">            ).head(10).to_pandas()</span>
+
+<span class="sd">            # Chained group_by operations - grouping on result of previous aggregation</span>
+<span class="sd">            frame2 = frame.group_by(</span>
+<span class="sd">                lambda r: r[&quot;Ship Name&quot;],</span>
+<span class="sd">                (&quot;Order Count&quot;, lambda r: r[&quot;Order Id&quot;], lambda col: col.count())</span>
+<span class="sd">            )</span>
+<span class="sd">            frame2.group_by(</span>
+<span class="sd">                lambda r: r[&quot;Ship Name&quot;],</span>
+<span class="sd">                (&quot;Count of Counts&quot;, lambda r: r[&quot;Order Count&quot;], lambda col: col.count())</span>
+<span class="sd">            ).head(10).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.window">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">partition_by</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span>
+                <span class="n">PyLegendUnion</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[</span>
+                        <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                        <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">]]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span>
+                <span class="n">PyLegendUnion</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[</span>
+                        <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                        <span class="n">PyLegendUnion</span><span class="p">[</span>
+                            <span class="n">LegendQLApiPrimitive</span><span class="p">,</span>
+                            <span class="n">LegendQLApiSortInfo</span><span class="p">,</span>
+                            <span class="n">PyLegendList</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">LegendQLApiPrimitive</span><span class="p">,</span> <span class="n">LegendQLApiSortInfo</span><span class="p">]],</span>
+                        <span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">frame</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">LegendQLApiWindowFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LegendQLApiWindow</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a window specification for window functions.</span>
+
+<span class="sd">        Define how rows are partitioned, ordered, and framed for</span>
+<span class="sd">        window function calculations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        partition_by : str, list of str, callable, or None, optional</span>
+<span class="sd">            Column(s) to partition the data by. Each partition is processed</span>
+<span class="sd">            independently for window calculations.</span>
+
+<span class="sd">            - ``None`` : Entire dataset is one partition.</span>
+<span class="sd">            - ``str`` : Single column name.</span>
+<span class="sd">            - ``list of str`` : Multiple column names.</span>
+<span class="sd">            - ``callable`` : Function returning column(s).</span>
+
+<span class="sd">        order_by : str, list of str, callable, or None, optional</span>
+<span class="sd">            Column(s) to order rows within each partition.</span>
+
+<span class="sd">            - ``None`` : No specific order.</span>
+<span class="sd">            - ``str`` : Single column name (ascending).</span>
+<span class="sd">            - ``list of str`` : Multiple columns (ascending).</span>
+<span class="sd">            - ``callable`` : Function returning column(s) with optional</span>
+<span class="sd">              ``.ascending()`` or ``.descending()`` direction.</span>
+
+<span class="sd">        frame : LegendQLApiWindowFrame, optional</span>
+<span class="sd">            Window frame specification created by :meth:`rows` or :meth:`range`.</span>
+<span class="sd">            Defines which rows relative to the current row are included</span>
+<span class="sd">            in the calculation.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiWindow</span>
+<span class="sd">            A window specification for use with :meth:`window_extend`.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rows : Create a row-based window frame.</span>
+<span class="sd">        range : Create a range-based window frame.</span>
+<span class="sd">        window_extend : Apply window functions using the window specification.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.window_extend">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window_extend">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window_extend</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">window</span><span class="p">:</span> <span class="n">LegendQLApiWindow</span><span class="p">,</span>
+            <span class="n">extend_columns</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[</span>
+                        <span class="p">[</span><span class="n">LegendQLApiPartialFrame</span><span class="p">,</span> <span class="n">LegendQLApiWindowReference</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                        <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[</span>
+                        <span class="p">[</span><span class="n">LegendQLApiPartialFrame</span><span class="p">,</span> <span class="n">LegendQLApiWindowReference</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                        <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+                    <span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span>
+                    <span class="n">PyLegendUnion</span><span class="p">[</span>
+                        <span class="n">PyLegendTuple</span><span class="p">[</span>
+                            <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[</span>
+                                <span class="p">[</span><span class="n">LegendQLApiPartialFrame</span><span class="p">,</span> <span class="n">LegendQLApiWindowReference</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                                <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+                            <span class="p">]</span>
+                        <span class="p">],</span>
+                        <span class="n">PyLegendTuple</span><span class="p">[</span>
+                            <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[</span>
+                                <span class="p">[</span><span class="n">LegendQLApiPartialFrame</span><span class="p">,</span> <span class="n">LegendQLApiWindowReference</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span>
+                                <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+                            <span class="p">],</span>
+                            <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                        <span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add columns computed using window functions.</span>
+
+<span class="sd">        Extend the TDS frame with new columns calculated using window</span>
+<span class="sd">        functions over the specified window.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        window : LegendQLApiWindow</span>
+<span class="sd">            Window specification created by :meth:`window`.</span>
+<span class="sd">        extend_columns : tuple or list of tuples</span>
+<span class="sd">            Column specification(s) as:</span>
+
+<span class="sd">            - ``tuple (name, func)`` : Column name and function that receives</span>
+<span class="sd">              (partial_frame, window_ref, row) and returns a value.</span>
+<span class="sd">            - ``tuple (name, func, agg_func)`` : With aggregation function.</span>
+<span class="sd">            - ``list of tuples`` : Multiple window columns.</span>
+
+<span class="sd">            The function parameters:</span>
+
+<span class="sd">            - ``partial_frame`` : Access to partitioned frame data.</span>
+<span class="sd">            - ``window_ref`` : Window reference for functions like ``row_number()``,</span>
+<span class="sd">              ``rank()``, ``lead()``, ``lag()``.</span>
+<span class="sd">            - ``row`` : Current row data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with additional window-computed columns.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        window : Create a window specification.</span>
+<span class="sd">        rows : Create a row-based window frame.</span>
+<span class="sd">        range : Create a range-based window frame.</span>
+<span class="sd">        extend : Add computed columns without window functions.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Add a single window function column</span>
+<span class="sd">            win = frame.window(partition_by=&quot;Ship Name&quot;, order_by=&quot;Order Id&quot;)</span>
+<span class="sd">            frame.window_extend(</span>
+<span class="sd">                win,</span>
+<span class="sd">                (&quot;RowNumber&quot;, lambda p, w, r: p.row_number(r))</span>
+<span class="sd">            ).select(</span>
+<span class="sd">                [&quot;Ship Name&quot;, &quot;Order Id&quot;, &quot;RowNumber&quot;]</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">            # Add basic window function columns</span>
+<span class="sd">            frame.window_extend(</span>
+<span class="sd">                frame.window(partition_by=&quot;Ship Name&quot;, order_by=&quot;Order Id&quot;),</span>
+<span class="sd">                [</span>
+<span class="sd">                    (&quot;RowNumber&quot;, lambda p, w, r: p.row_number(r)),</span>
+<span class="sd">                    (&quot;Rank&quot;, lambda p, w, r: p.rank(w, r))</span>
+<span class="sd">                ]</span>
+<span class="sd">            ).select(</span>
+<span class="sd">               [&quot;Ship Name&quot;, &quot;Order Id&quot;, &quot;RowNumber&quot;, &quot;Rank&quot;]</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.project">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.project">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">project_columns</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span>
+                    <span class="n">PyLegendTuple</span><span class="p">[</span>
+                        <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new TDS frame with specified computed columns.</span>
+
+<span class="sd">        Unlike :meth:`extend`, which adds columns to existing ones,</span>
+<span class="sd">        ``project`` creates a new frame with only the specified columns.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        project_columns : tuple or list of tuples</span>
+<span class="sd">            Column specification(s) as ``(column_name, function)``:</span>
+
+<span class="sd">            - ``tuple (str, callable)`` : Single column with name and</span>
+<span class="sd">              computation function.</span>
+<span class="sd">            - ``list of tuples`` : Multiple columns.</span>
+
+<span class="sd">            The function takes a TDS row and returns the column value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the projected columns.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        extend : Add columns while keeping existing ones.</span>
+<span class="sd">        select : Select existing columns.</span>
+<span class="sd">        rename : Rename existing columns.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Project single column (copy with new name)</span>
+<span class="sd">            frame.project((&quot;Order Number&quot;, lambda r: r[&quot;Order Id&quot;])).head(5).to_pandas()</span>
+
+<span class="sd">            # Project multiple columns with transformations</span>
+<span class="sd">            frame.project([</span>
+<span class="sd">                (&quot;Order Number&quot;, lambda r: r[&quot;Order Id&quot;]),</span>
+<span class="sd">                (&quot;Vessel&quot;, lambda r: r[&quot;Ship Name&quot;].upper()),</span>
+<span class="sd">                (&quot;Vessel Lower&quot;, lambda r: r[&quot;Ship Name&quot;].lower())</span>
+<span class="sd">            ]).head(5).to_pandas()</span>
+
+<span class="sd">            # Project with existing column values</span>
+<span class="sd">            frame.project([</span>
+<span class="sd">                (&quot;ID&quot;, lambda r: r[&quot;Order Id&quot;]),</span>
+<span class="sd">                (&quot;Name&quot;, lambda r: r[&quot;Ship Name&quot;]),</span>
+<span class="sd">                (&quot;Date&quot;, lambda r: r[&quot;Order Date&quot;])</span>
+<span class="sd">            ]).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.rows">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rows</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">start</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+            <span class="n">end</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LegendQLApiWindowFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a row-based window frame specification.</span>
+
+<span class="sd">        Define a window frame based on row offsets relative to the current row.</span>
+<span class="sd">        Used with :meth:`window` and :meth:`window_extend` for window functions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start : str or int</span>
+<span class="sd">            Start boundary of the window:</span>
+
+<span class="sd">            - ``&quot;unbounded&quot;`` : From the first row of the partition.</span>
+<span class="sd">            - ``0`` : Current row.</span>
+<span class="sd">            - Negative int : That many rows before current row.</span>
+<span class="sd">            - Positive int : That many rows after current row.</span>
+
+<span class="sd">        end : str or int</span>
+<span class="sd">            End boundary of the window:</span>
+
+<span class="sd">            - ``&quot;unbounded&quot;`` : To the last row of the partition.</span>
+<span class="sd">            - ``0`` : Current row.</span>
+<span class="sd">            - Negative int : That many rows before current row.</span>
+<span class="sd">            - Positive int : That many rows after current row.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiWindowFrame</span>
+<span class="sd">            A window frame specification for use with window functions.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        range : Create a range-based window frame.</span>
+<span class="sd">        window : Create a window specification.</span>
+<span class="sd">        window_extend : Apply window functions.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.range">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">range</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="o">*</span><span class="p">,</span>
+            <span class="n">number_start</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">number_end</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration_start</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration_start_unit</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration_end</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">duration_end_unit</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LegendQLApiWindowFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a range-based window frame specification.</span>
+
+<span class="sd">        Define a window frame based on value ranges (numeric or duration)</span>
+<span class="sd">        relative to the current row&#39;s order-by column value.</span>
+<span class="sd">        Used with :meth:`window` and :meth:`window_extend` for window functions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        number_start : str, int, or float, optional</span>
+<span class="sd">            Numeric start boundary. Use ``&quot;unbounded&quot;`` for no lower limit.</span>
+<span class="sd">        number_end : str, int, or float, optional</span>
+<span class="sd">            Numeric end boundary. Use ``&quot;unbounded&quot;`` for no upper limit.</span>
+<span class="sd">        duration_start : str, int, or float, optional</span>
+<span class="sd">            Duration start boundary for time-based ranges.</span>
+<span class="sd">        duration_start_unit : str, optional</span>
+<span class="sd">            Time unit for duration_start (e.g., ``&quot;DAYS&quot;``, ``&quot;HOURS&quot;``).</span>
+<span class="sd">        duration_end : str, int, or float, optional</span>
+<span class="sd">            Duration end boundary for time-based ranges.</span>
+<span class="sd">        duration_end_unit : str, optional</span>
+<span class="sd">            Time unit for duration_end.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiWindowFrame</span>
+<span class="sd">            A window frame specification for use with window functions.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If neither numeric nor duration range is provided, or if both are provided.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rows : Create a row-based window frame.</span>
+<span class="sd">        window : Create a window specification.</span>
+<span class="sd">        window_extend : Apply window functions.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="LegendQLApiTdsFrame.cast">
+<a class="viewcode-back" href="../../../../../../api/legendql_tds_frame.html#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.cast">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cast</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">column_type_map</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CastTarget</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cast specific columns to new types.</span>
+
+<span class="sd">        Return a new TDS frame where the types of the specified columns</span>
+<span class="sd">        are updated according to the provided type map. All other columns</span>
+<span class="sd">        retain their original types.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_type_map : dict</span>
+<span class="sd">            A mapping from column names to target types. Use functions from</span>
+<span class="sd">            the `pylegend.type_factory` module to create target types.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the specified columns cast to the new types.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            from pylegend import type_factory as tf</span>
+<span class="sd">            from pylegend.core.tds.tds_column import PrimitiveTdsColumn</span>
+<span class="sd">            from pylegend.extensions.tds.legendql_api.frames.legendql_api_table_spec_input_frame import (</span>
+<span class="sd">                LegendQLApiTableSpecInputFrame</span>
+<span class="sd">            )</span>
+
+<span class="sd">            frame = LegendQLApiTableSpecInputFrame(</span>
+<span class="sd">                [&#39;db&#39;, &#39;schema&#39;, &#39;order&#39;],</span>
+<span class="sd">                [</span>
+<span class="sd">                    PrimitiveTdsColumn.integer_column(&quot;Order Id&quot;),</span>
+<span class="sd">                    PrimitiveTdsColumn.date_column(&quot;Order Date&quot;),</span>
+<span class="sd">                    PrimitiveTdsColumn.string_column(&quot;Ship Name&quot;),</span>
+<span class="sd">                    PrimitiveTdsColumn.float_column(&quot;Amount&quot;),</span>
+<span class="sd">                    PrimitiveTdsColumn.decimal_column(&quot;Discount&quot;),</span>
+<span class="sd">                ]</span>
+<span class="sd">            )</span>
+
+<span class="sd">            # Cast using simple types</span>
+<span class="sd">            cast_frame_1 = frame.cast({</span>
+<span class="sd">                &quot;Order Date&quot;: tf.datetime(),</span>
+<span class="sd">                &quot;Order Id&quot;: tf.number(),</span>
+<span class="sd">                &quot;Amount&quot;: tf.number(),</span>
+<span class="sd">            })</span>
+<span class="sd">            print(cast_frame_1.to_pure_query())</span>
+
+<span class="sd">            # Cast using precise primitive types (including parameterized)</span>
+<span class="sd">            cast_frame_2 = frame.cast({</span>
+<span class="sd">                &quot;Order Date&quot;: tf.timestamp(),</span>
+<span class="sd">                &quot;Order Id&quot;: tf.bigint(),</span>
+<span class="sd">                &quot;Ship Name&quot;: tf.varchar(200),</span>
+<span class="sd">                &quot;Amount&quot;: tf.float4(),</span>
+<span class="sd">                &quot;Discount&quot;: tf.numeric(10, 2),</span>
+<span class="sd">            })</span>
+<span class="sd">            print(cast_frame_2.to_pure_query())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>
