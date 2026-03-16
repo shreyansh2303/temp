@@ -32,6 +32,7 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pandas TDS Frame" href="pandas_tds_frame.html" />
     <link rel="prev" title="API Reference" href="api.html" />
  
 <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -148,6 +149,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_series.html">Pandas Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
 </ul>
 </li>
 </ul>
@@ -208,7 +213,7 @@ It is useful for quickly inspecting the data without loading the entire dataset.
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/d7736a86c997c25466ae153efaf6df93/head.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/4546c0fec09aa5a00e4e7ba1c1f4263f/LegendQLApiTdsFrame.head.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -217,11 +222,131 @@ It is useful for quickly inspecting the data without loading the entire dataset.
 <span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get first 3 rows</span>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get first 3 rows</span>
 <span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </pre></div>
 </div>
-</dd></dl>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
 
 </section>
 <section id="limit">
@@ -253,7 +378,7 @@ from the frame.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/717d4e1f3712403d533695c61a0dfd36/limit.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/b2cfc7de2314d19190409270234d051b/LegendQLApiTdsFrame.limit.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -338,7 +463,7 @@ This is useful for pagination or skipping header-like rows.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/4121464b91f566f2dc94d82ca04711e9/drop.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/db5158a2259e9664c4ffc894b320a3a3/LegendQLApiTdsFrame.drop.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -522,7 +647,7 @@ This is similar to Python&#8217;s list slicing behavior.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/0dddf3cb9504c4e9c1c6651b1f982bc4/slice.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/3d2d83989812e7bfea24e7c57d58aa70/LegendQLApiTdsFrame.slice.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -787,7 +912,7 @@ the column(s) to select.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/fb13fefd08b57edfb2f69c30c30d7b67/select.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/4625aa670c0f746b66be61d6a61659fd/LegendQLApiTdsFrame.select.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -995,7 +1120,7 @@ column(s) to use for uniqueness.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/61c41c9b0769d07391be315b3ed92f97/distinct.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/d595ec52d8f061dbcc60608255586767/LegendQLApiTdsFrame.distinct.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -1276,7 +1401,7 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/9c588cc3c1efc00b77bbc6b09802eb33/sort.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/3710cdf49f499f75376e9981bc1a9f42/LegendQLApiTdsFrame.sort.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -1313,14 +1438,6 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
   <tbody>
     <tr>
       <th>0</th>
-      <td>10835</td>
-      <td>1998-01-15</td>
-      <td>1998-02-12</td>
-      <td>1998-01-21</td>
-      <td>Alfred's Futterkiste</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>11011</td>
       <td>1998-04-09</td>
       <td>1998-05-07</td>
@@ -1328,15 +1445,7 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
       <td>Alfred's Futterkiste</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>10952</td>
-      <td>1998-03-16</td>
-      <td>1998-04-27</td>
-      <td>1998-03-24</td>
-      <td>Alfred's Futterkiste</td>
-    </tr>
-    <tr>
-      <th>3</th>
+      <th>1</th>
       <td>10692</td>
       <td>1997-10-03</td>
       <td>1997-10-31</td>
@@ -1344,11 +1453,27 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
       <td>Alfred's Futterkiste</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2</th>
       <td>10702</td>
       <td>1997-10-13</td>
       <td>1997-11-24</td>
       <td>1997-10-21</td>
+      <td>Alfred's Futterkiste</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10835</td>
+      <td>1998-01-15</td>
+      <td>1998-02-12</td>
+      <td>1998-01-21</td>
+      <td>Alfred's Futterkiste</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10952</td>
+      <td>1998-03-16</td>
+      <td>1998-04-27</td>
+      <td>1998-03-24</td>
       <td>Alfred's Futterkiste</td>
     </tr>
   </tbody>
@@ -1457,18 +1582,18 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
   <tbody>
     <tr>
       <th>0</th>
-      <td>10611</td>
-      <td>1997-07-25</td>
-      <td>1997-08-22</td>
-      <td>1997-08-01</td>
+      <td>10906</td>
+      <td>1998-02-25</td>
+      <td>1998-03-11</td>
+      <td>1998-03-03</td>
       <td>Wolski Zajazd</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10374</td>
-      <td>1996-12-05</td>
-      <td>1997-01-02</td>
-      <td>1996-12-09</td>
+      <td>10870</td>
+      <td>1998-02-04</td>
+      <td>1998-03-04</td>
+      <td>1998-02-13</td>
       <td>Wolski Zajazd</td>
     </tr>
     <tr>
@@ -1489,10 +1614,10 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
     </tr>
     <tr>
       <th>4</th>
-      <td>10906</td>
-      <td>1998-02-25</td>
-      <td>1998-03-11</td>
-      <td>1998-03-03</td>
+      <td>10611</td>
+      <td>1997-07-25</td>
+      <td>1997-08-22</td>
+      <td>1997-08-01</td>
       <td>Wolski Zajazd</td>
     </tr>
   </tbody>
@@ -1604,7 +1729,7 @@ Rows where the function returns <code class="docutils literal notranslate"><span
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/5e0f7c1c6273515e446e92631a87d50c/filter.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/53417b04a4e9a4ec16de9c6f5d20d853/LegendQLApiTdsFrame.filter.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -1870,7 +1995,7 @@ tuple(s) of (column, new_name).</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/4c31610596c0476895ac5b205f49d894/rename.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/26ad32c6ef9e6971eda75414710b7c9e/LegendQLApiTdsFrame.rename.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2087,7 +2212,7 @@ function applied.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/20b4024f3ef1f4b1e6afd6e93742ffaa/extend.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/8a2f654034f9099f558becce2bd318d4/LegendQLApiTdsFrame.extend.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2252,7 +2377,7 @@ computation function.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/d8e447a8c406f519c8be40302b7d5edd/project.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/783d08431d0be2397f8610705c9c4d8d/LegendQLApiTdsFrame.project.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2458,7 +2583,7 @@ the <cite>pylegend.type_factory</cite> module to create target types.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/347ccfde733ece2946ae66961bb23455/cast.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/72e1af6751fdde8aafb1bdb5d6174b29/LegendQLApiTdsFrame.cast.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pylegend</span><span class="w"> </span><span class="kn">import</span> <span class="n">type_factory</span> <span class="k">as</span> <span class="n">tf</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_column</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimitiveTdsColumn</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.extensions.tds.legendql_api.frames.legendql_api_table_spec_input_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -2539,7 +2664,7 @@ Both frames must have compatible schemas (same columns).</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/d7652cad6138212ce7f255f0307a7fa3/concatenate.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/4ef37d2f2408cc5b37895c898ad6bda8/LegendQLApiTdsFrame.concatenate.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2674,7 +2799,7 @@ a boolean indicating whether the rows should be joined.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/90e75fca07f459e308c5d3f96ae94183/join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/60fb184ab62ebaa2176413044faee70f/LegendQLApiTdsFrame.join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">orders</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2810,7 +2935,7 @@ a boolean indicating whether the rows should be joined.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/191315659a2f33c9f94f824aed174b8d/inner_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/d7a0f37f1dcb5237118f68aab9905982/LegendQLApiTdsFrame.inner_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">orders</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -2947,7 +3072,7 @@ a boolean indicating whether the rows should be joined.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/22449d86ddc530b05e5ff1f5569928d9/left_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/15af0abff1f6aef5cbd9c48f5f7d11ae/LegendQLApiTdsFrame.left_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">orders</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -3184,7 +3309,7 @@ a boolean indicating whether the rows should be joined.</p></li>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/e036cc5c57b056195ec492036929c1be/right_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/5546dbd77870bd9abd0b4a9542230245/LegendQLApiTdsFrame.right_join.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">orders</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -3202,137 +3327,7 @@ a boolean indicating whether the rows should be joined.</p></li>
 <span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </pre></div>
 </div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-      <th>Order Date</th>
-      <th>Required Date</th>
-      <th>Shipped Date</th>
-      <th>Ship Name</th>
-      <th>Right Order Id</th>
-      <th>Filtered Ship Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10301</td>
-      <td>Die Wandernde Kuh</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10302</td>
-      <td>Supr&#234;mes d&#233;lices</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10303</td>
-      <td>Godos Cocina T&#237;pica</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10304</td>
-      <td>Tortuga Restaurante</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10305</td>
-      <td>Old World Delicatessen</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10306</td>
-      <td>Romero y tomillo</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10307</td>
-      <td>Lonesome Pine Restaurant</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10308</td>
-      <td>Ana Trujillo Emparedados y helados</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10309</td>
-      <td>Hungry Owl All-Night Grocers</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>&lt;NA&gt;</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaT</td>
-      <td>NaN</td>
-      <td>10310</td>
-      <td>The Big Cheese</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
+</dd></dl>
 
 </section>
 </section>
@@ -3386,7 +3381,7 @@ aggregate values for each group.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/f74b70c355cd4897b5085e16e034c495/group_by.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/cabefc2c3ffd56ad8a457d749dbdd40b/LegendQLApiTdsFrame.group_by.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
@@ -3872,7 +3867,7 @@ functions over the specified window.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/031a3e395043cb89e2d2ad7cbb989b59/window_extend.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/8e33ec5c6eaac1dbabd3a320ea2ecd39/LegendQLApiTdsFrame.window_extend.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">legendql_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>

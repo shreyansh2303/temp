@@ -1,0 +1,2622 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=2fedd6bc" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/tds/pandas_api/frames/pandas_api_tds_frame.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Concatenate</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamSpec</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamSpec</span>  <span class="c1"># type: ignore</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendCallable</span><span class="p">,</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+    <span class="n">PyLegendOptional</span><span class="p">,</span>
+    <span class="n">PyLegendList</span><span class="p">,</span>
+    <span class="n">PyLegendSet</span><span class="p">,</span>
+    <span class="n">PyLegendTuple</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+    <span class="n">PyLegendHashable</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendPrimitive</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_aggregate_specification</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendAggInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiTdsRow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.boolean</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendBoolean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">AbstractTdsRow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendTdsFrame</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">Series</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiGroupbyTdsFrame</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.iloc</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiIlocIndexer</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.loc</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiLocIndexer</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PandasApiTdsFrame&quot;</span>
+<span class="p">]</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PandasApiTdsFrame</span><span class="p">(</span><span class="n">PyLegendTdsFrame</span><span class="p">):</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">,</span> <span class="s2">&quot;Series&quot;</span><span class="p">]:</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+<div class="viewcode-block" id="PandasApiTdsFrame.assign">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.assign">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">assign</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">PandasApiTdsRow</span><span class="p">],</span>
+                <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+            <span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add or overwrite columns using keyword arguments.</span>
+
+<span class="sd">        Return a new TDS frame with new columns added (or existing columns</span>
+<span class="sd">        overwritten). Each keyword argument defines a column name and a</span>
+<span class="sd">        callable that computes the column&#39;s value from each row.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **kwargs : callable</span>
+<span class="sd">            Each keyword argument is a column name mapped to a function</span>
+<span class="sd">            that takes a ``PandasApiTdsRow`` and returns a scalar value.</span>
+<span class="sd">            Supported return types are ``int``, ``float``, ``bool``, ``str``,</span>
+<span class="sd">            ``date``, ``datetime``, and ``PyLegendPrimitive``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the additional (or overwritten) columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If the callable returns an unsupported type (e.g. a list).</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        filter : Select columns by name, substring, or regex.</span>
+<span class="sd">        drop : Remove columns by label.</span>
+<span class="sd">        rename : Rename existing columns.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas ``assign``, each keyword argument can be a callable</span>
+<span class="sd">          **or** a static value (e.g. ``frame.assign(col=5)``). Here,</span>
+<span class="sd">          every value **must** be a callable that takes a row, even for</span>
+<span class="sd">          constants (e.g. ``frame.assign(col=lambda x: 5)``).</span>
+<span class="sd">        - Column values are accessed via typed accessor methods such as</span>
+<span class="sd">          ``x.get_integer(&quot;col&quot;)`` and ``x.get_string(&quot;col&quot;)``, or via</span>
+<span class="sd">          bracket notation ``x[&quot;col&quot;]``.</span>
+<span class="sd">        - Returning a non-scalar type (e.g. a list) from the callable</span>
+<span class="sd">          raises a ``RuntimeError``, unlike pandas which would broadcast</span>
+<span class="sd">          or create nested data.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Add a constant column</span>
+<span class="sd">            frame.assign(constant=lambda x: 100).head(3).to_pandas()</span>
+
+<span class="sd">            # Add a computed column derived from existing columns</span>
+<span class="sd">            frame.assign(</span>
+<span class="sd">                ship_upper=lambda x: x.get_string(&quot;Ship Name&quot;).upper()</span>
+<span class="sd">            ).head(3).to_pandas()</span>
+
+<span class="sd">            # Overwrite an existing column</span>
+<span class="sd">            frame.assign(</span>
+<span class="sd">                **{&quot;Ship Name&quot;: lambda x: x.get_string(&quot;Ship Name&quot;).upper()}</span>
+<span class="sd">            ).head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.filter">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.filter">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">items</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">like</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">regex</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Select columns by label, substring match, or regular expression.</span>
+
+<span class="sd">        This method selects **columns** from the TDS frame based on their</span>
+<span class="sd">        names. Exactly one of ``items``, ``like``, or ``regex`` must be</span>
+<span class="sd">        provided; they are mutually exclusive.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        items : list of str, optional</span>
+<span class="sd">            Exact column names to keep. All names must exist in the frame.</span>
+<span class="sd">        like : str, optional</span>
+<span class="sd">            Keep columns whose names contain this substring.</span>
+<span class="sd">        regex : str, optional</span>
+<span class="sd">            Keep columns whose names match this regular expression</span>
+<span class="sd">            (uses ``re.search``).</span>
+<span class="sd">        axis : {{1, &#39;columns&#39;}}, optional</span>
+<span class="sd">            The axis to filter on. Only column-axis filtering is supported.</span>
+<span class="sd">            Defaults to ``1`` (columns) when omitted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the selected columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If more than one of ``items``, ``like``, or ``regex`` is</span>
+<span class="sd">            provided, or if none of them is provided.</span>
+<span class="sd">            If ``items`` is a string instead of a list, or</span>
+<span class="sd">            if ``like`` / ``regex`` is not a string.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``axis`` is not ``1`` or ``&#39;columns&#39;``.</span>
+<span class="sd">            If any name in ``items`` does not exist in the frame.</span>
+<span class="sd">            If no columns match the ``like`` substring or ``regex`` pattern.</span>
+<span class="sd">            If the ``regex`` pattern is invalid.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        assign : Add or overwrite columns.</span>
+<span class="sd">        drop : Remove columns by label.</span>
+<span class="sd">        rename : Rename columns.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``filter`` supports both row-axis (``axis=0``) and</span>
+<span class="sd">          column-axis (``axis=1``) filtering. Here, **only column-axis</span>
+<span class="sd">          filtering is supported** (``axis=1`` or ``axis=&#39;columns&#39;``). Passing</span>
+<span class="sd">          ``axis=0`` or ``&#39;index&#39;`` raises ``ValueError``.</span>
+<span class="sd">        - In pandas, ``items`` silently ignores names that do not exist in</span>
+<span class="sd">          the frame. Here, **all names must exist**; unknown names raise a</span>
+<span class="sd">          ``ValueError`` listing the missing and available columns.</span>
+<span class="sd">        - In pandas, ``like`` and ``regex`` return an empty DataFrame when</span>
+<span class="sd">          no columns match. Here, they **raise** ``ValueError`` when no</span>
+<span class="sd">          columns match.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Select specific columns by name</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;, &quot;Ship Name&quot;]).head(3).to_pandas()</span>
+
+<span class="sd">            # Select columns whose names contain a substring</span>
+<span class="sd">            frame.filter(like=&quot;Ship&quot;).head(3).to_pandas()</span>
+
+<span class="sd">            # Select columns matching a regex pattern</span>
+<span class="sd">            frame.filter(regex=&quot;^Ship&quot;).head(3).to_pandas()</span>
+
+<span class="sd">            # Chain filters to progressively narrow columns</span>
+<span class="sd">            frame.filter(like=&quot;Ship&quot;).filter(regex=&quot;Name$&quot;).head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.sort_values">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.sort_values">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort_values</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">by</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">kind</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">na_position</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span>
+            <span class="n">ignore_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">AbstractTdsRow</span><span class="p">],</span> <span class="n">AbstractTdsRow</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sort the TDS frame by one or more columns.</span>
+
+<span class="sd">        Return a new TDS frame sorted by the values in the specified</span>
+<span class="sd">        column(s). Supports ascending and descending sort order per column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        by : str or list of str</span>
+<span class="sd">            Column name or list of column names to sort by. All names</span>
+<span class="sd">            must exist in the current frame.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Axis along which to sort. Only ``0`` / ``&#39;index&#39;`` (row-wise</span>
+<span class="sd">            sorting) is supported.</span>
+<span class="sd">        ascending : bool or list of bool, default True</span>
+<span class="sd">            Sort order. If a list, must have the same length as ``by``.</span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            Must be ``False``. In-place mutation is not supported.</span>
+<span class="sd">        kind : None</span>
+<span class="sd">            Not supported. Must be ``None``; passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        na_position : str, default &#39;last&#39;</span>
+<span class="sd">            Position of null values. Accepted but handled at the SQL</span>
+<span class="sd">            engine level.</span>
+<span class="sd">        ignore_index : bool, default True</span>
+<span class="sd">            Must be ``True``. Setting to ``False`` raises ``ValueError``.</span>
+<span class="sd">        key : None</span>
+<span class="sd">            Not supported. Must be ``None``; passing a callable raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame sorted by the specified columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If a column in ``by`` does not exist in the frame.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the length of ``ascending`` does not match ``by``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``axis`` is not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``inplace`` is ``True``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``ignore_index`` is ``False``.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``kind`` or ``key`` is provided.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        truncate : Select a range of rows by position.</span>
+<span class="sd">        filter : Select columns by name, substring, or regex.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - The ``kind`` parameter (sort algorithm) is **not supported**.</span>
+<span class="sd">          Sorting is delegated to the underlying Legend Engine.</span>
+<span class="sd">        - The ``key`` parameter (per-element transform before sorting)</span>
+<span class="sd">          is **not supported**.</span>
+<span class="sd">        - ``inplace=True`` is **not supported**; always returns a new frame.</span>
+<span class="sd">        - ``ignore_index`` must be ``True``; ``False`` is **not supported**</span>
+<span class="sd">          because TDS frames do not have an index.</span>
+<span class="sd">        - ``axis=1`` (sorting columns) is **not supported**; only row-wise</span>
+<span class="sd">          sorting via ``axis=0`` is available.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Sort by a single column (ascending by default)</span>
+<span class="sd">            frame.sort_values(&quot;Ship Name&quot;).head(5).to_pandas()</span>
+
+<span class="sd">            # Sort descending</span>
+<span class="sd">            frame.sort_values(&quot;Order Id&quot;, ascending=False).head(5).to_pandas()</span>
+
+<span class="sd">            # Sort by multiple columns with mixed directions</span>
+<span class="sd">            frame.sort_values(</span>
+<span class="sd">                by=[&quot;Ship Name&quot;, &quot;Order Id&quot;],</span>
+<span class="sd">                ascending=[True, False]</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.truncate">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.truncate">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">truncate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">before</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">after</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Select rows by positional index range.</span>
+
+<span class="sd">        Return a new TDS frame containing rows from position ``before``</span>
+<span class="sd">        (inclusive) to ``after`` (inclusive).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        before : int or None, default 0</span>
+<span class="sd">            Only ``int`` and ``None`` are supported.</span>
+<span class="sd">            First row index to include (0-based, inclusive). Negative</span>
+<span class="sd">            values are silently clamped to ``0``. ``None`` is treated</span>
+<span class="sd">            as ``0``.</span>
+<span class="sd">        after : int or None, default None</span>
+<span class="sd">            Only ``int`` and ``None`` are supported.</span>
+<span class="sd">            Last row index to include (0-based, inclusive). ``None``</span>
+<span class="sd">            means no upper bound (all remaining rows are returned).</span>
+<span class="sd">            Negative values result in an empty frame.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Axis to truncate along. Only ``0`` / ``&#39;index&#39;`` is</span>
+<span class="sd">            supported.</span>
+<span class="sd">        copy : bool, default True</span>
+<span class="sd">            Must be ``True``. Setting to ``False`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the rows in the specified</span>
+<span class="sd">            positional range.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">            If ``copy`` is ``False``.</span>
+<span class="sd">            If ``before`` or ``after`` is a non-integer type (e.g. a</span>
+<span class="sd">            string or date).</span>
+<span class="sd">            If ``before`` or ``after`` is a non-integer type (e.g. a</span>
+<span class="sd">            string or date).</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``before`` is greater than ``after`` (after clamping).</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        sort_values : Sort the frame before truncating.</span>
+<span class="sd">        filter : Select columns by name, substring, or regex.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``truncate`` selects rows by **label** (index value).</span>
+<span class="sd">          Here, it selects rows by **positional** (integer) index only</span>
+<span class="sd">          (its translated to LIMIT and OFFSET of the underlying SQL engine).</span>
+<span class="sd">          Passing ``date``, ``str``, or other label-based values for</span>
+<span class="sd">          ``before`` / ``after`` raises ``NotImplementedError``.</span>
+<span class="sd">        - ``copy=False`` is **not supported**; a new frame is always</span>
+<span class="sd">          returned.</span>
+<span class="sd">        - ``axis=1`` (truncating columns) is **not supported**.</span>
+<span class="sd">        - Negative ``before`` values are **silently clamped to 0** rather</span>
+<span class="sd">          than raising an error. Negative ``after`` values result in an</span>
+<span class="sd">          **empty frame** (zero rows).</span>
+<span class="sd">        - The ``after`` parameter is **inclusive** (row at position</span>
+<span class="sd">          ``after`` is included), matching pandas behaviour.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get rows at positions 0 through 4 (inclusive)</span>
+<span class="sd">            frame.truncate(before=0, after=4).to_pandas()</span>
+
+<span class="sd">            # Skip first 5 rows, keep the rest</span>
+<span class="sd">            frame.truncate(before=5).head(5).to_pandas()</span>
+
+<span class="sd">            # Get rows at positions 2 through 6 (inclusive)</span>
+<span class="sd">            frame.truncate(before=2, after=6).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.drop">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.drop">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">labels</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendSet</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">index</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendSet</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendSet</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">level</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">errors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;raise&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove columns from the TDS frame by label.</span>
+
+<span class="sd">        Return a new TDS frame with the specified columns removed. Columns</span>
+<span class="sd">        can be identified via ``labels`` (with ``axis=1``) or via the</span>
+<span class="sd">        ``columns`` parameter directly. Accepts a single column name, a</span>
+<span class="sd">        list, tuple, or set of names.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        labels : str, sequence of str, or set of str, optional</span>
+<span class="sd">            Column name(s) to drop. Mutually exclusive with ``columns``.</span>
+<span class="sd">        axis : {{1, &#39;columns&#39;}}, default 1</span>
+<span class="sd">            The axis to drop along. Only column-axis (``1`` / ``&#39;columns&#39;``)</span>
+<span class="sd">            is supported.</span>
+<span class="sd">        index : None</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        columns : str, sequence of str, or set of str, optional</span>
+<span class="sd">            Column name(s) to drop. Mutually exclusive with ``labels``.</span>
+<span class="sd">        level : None</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            Must be ``False``. In-place mutation is not supported.</span>
+<span class="sd">        errors : {{&#39;raise&#39;, &#39;ignore&#39;}}, default &#39;raise&#39;</span>
+<span class="sd">            If ``&#39;raise&#39;``, a ``KeyError`` is raised when any label is</span>
+<span class="sd">            not found. If ``&#39;ignore&#39;``, missing labels are silently</span>
+<span class="sd">            skipped.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame without the specified columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If both ``labels`` and ``columns`` are provided, or if</span>
+<span class="sd">            neither is provided.</span>
+<span class="sd">            If ``axis`` is an invalid value (not ``0``, ``1``,</span>
+<span class="sd">            ``&#39;index&#39;``, or ``&#39;columns&#39;``).</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis`` is ``0`` / ``&#39;index&#39;`` (row-level drop).</span>
+<span class="sd">            If ``index`` or ``level`` is provided.</span>
+<span class="sd">            If ``inplace`` is ``True``.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If any specified column does not exist in the frame and</span>
+<span class="sd">            ``errors=&#39;raise&#39;``.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``labels`` or ``columns`` is an unsupported type</span>
+<span class="sd">            (e.g. a callable).</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        filter : Select columns by name, substring, or regex.</span>
+<span class="sd">        assign : Add or overwrite columns.</span>
+<span class="sd">        rename : Rename existing columns.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``drop`` can remove **rows** (``axis=0``) or</span>
+<span class="sd">          **columns** (``axis=1``). Here, **only column-axis dropping</span>
+<span class="sd">          is supported** (``axis=1``). Passing ``axis=0`` raises</span>
+<span class="sd">          ``NotImplementedError``.</span>
+<span class="sd">        - The ``axis`` parameter defaults to ``1`` (columns), whereas in</span>
+<span class="sd">          pandas it defaults to ``0`` (rows). This means bare</span>
+<span class="sd">          ``frame.drop(&quot;col&quot;)`` drops a **column** here but would attempt</span>
+<span class="sd">          to drop a row label in pandas.</span>
+<span class="sd">        - The ``index`` and ``level`` parameters are **not supported**.</span>
+<span class="sd">        - ``inplace=True`` is **not supported**; always returns a new</span>
+<span class="sd">          frame.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Drop a single column</span>
+<span class="sd">            frame.drop(columns=&quot;Ship Name&quot;).head(3).to_pandas()</span>
+
+<span class="sd">            # Drop multiple columns</span>
+<span class="sd">            frame.drop(columns=[&quot;Ship Name&quot;, &quot;Order Date&quot;]).head(3).to_pandas()</span>
+
+<span class="sd">            # Using labels parameter</span>
+<span class="sd">            frame.drop(labels=[&quot;Ship Name&quot;], axis=1).head(3).to_pandas()</span>
+
+<span class="sd">            # Ignore missing columns instead of raising an error</span>
+<span class="sd">            frame.drop(columns=[&quot;Ship Name&quot;, &quot;NonExistent&quot;], errors=&quot;ignore&quot;).head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.aggregate">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.aggregate">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">func</span><span class="p">:</span> <span class="n">PyLegendAggInput</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Aggregate the TDS frame using one or more operations.</span>
+
+<span class="sd">        Apply one or more aggregation functions across all columns or</span>
+<span class="sd">        specific columns, collapsing the frame into a single-row</span>
+<span class="sd">        summary. Supported aggregation strings are ``&#39;sum&#39;``, ``&#39;mean&#39;``,</span>
+<span class="sd">        ``&#39;min&#39;``, ``&#39;max&#39;``, ``&#39;count&#39;``, ``&#39;std&#39;``, ``&#39;var&#39;``, as well</span>
+<span class="sd">        as aliases ``&#39;len&#39;``, ``&#39;size&#39;`` (both map to count), and</span>
+<span class="sd">        ``&#39;average&#39;`` / ``&#39;avg&#39;`` (map to mean). Along with these,</span>
+<span class="sd">        callables and numpy universal functions are supported.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        func : str, callable, np.ufunc, list, or dict</span>
+<span class="sd">            Aggregation specification. Accepted forms:</span>
+
+<span class="sd">            - ``str`` : A named aggregation (e.g. ``&#39;sum&#39;``) applied to</span>
+<span class="sd">              **every** column.</span>
+<span class="sd">            - ``callable`` : A function that receives a column&#39;s Series</span>
+<span class="sd">              proxy and returns an aggregated value</span>
+<span class="sd">              (e.g. ``lambda x: x.sum()``), applied to every column.</span>
+<span class="sd">            - ``np.ufunc`` : A NumPy universal function (e.g.</span>
+<span class="sd">              ``np.sum``), applied to every column.</span>
+<span class="sd">            - ``list`` : A list containing **one** of the above, applied</span>
+<span class="sd">              to every column. Output column names are prefixed with the</span>
+<span class="sd">              function name (e.g. ``&#39;sum(col)&#39;``).</span>
+<span class="sd">            - ``dict`` : A mapping of column name &#8594; aggregation (str,</span>
+<span class="sd">              callable, np.ufunc, or a list of these). Only the</span>
+<span class="sd">              specified columns appear in the result.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Axis along which to aggregate. Only ``0`` / ``&#39;index&#39;``</span>
+<span class="sd">            is supported.</span>
+<span class="sd">        *args</span>
+<span class="sd">            Not supported. Passing positional arguments raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported. Passing keyword arguments raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new single-row TDS frame with the aggregated values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis`` is not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">            If extra ``*args`` or ``**kwargs`` are passed.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``func`` is not a supported type (str, callable,</span>
+<span class="sd">            np.ufunc, list, or dict).</span>
+<span class="sd">            If dict keys are not strings, or dict/list values contain</span>
+<span class="sd">            unsupported types.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If a dict key refers to a column that does not exist in</span>
+<span class="sd">            the frame.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        agg : Alias for aggregate.</span>
+<span class="sd">        groupby : Group rows before aggregating.</span>
+<span class="sd">        sum : Convenience method for sum aggregation.</span>
+<span class="sd">        mean : Convenience method for mean aggregation.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``aggregate`` can return a multi-row result when</span>
+<span class="sd">          multiple functions are applied (one row per function). Here,</span>
+<span class="sd">          multiple functions per column produce **multiple columns**</span>
+<span class="sd">          in a single-row result (e.g. ``{&#39;col&#39;: [&#39;min&#39;, &#39;max&#39;]}``</span>
+<span class="sd">          yields columns ``&#39;min(col)&#39;`` and ``&#39;max(col)&#39;``).</span>
+<span class="sd">        - Extra ``*args`` and ``**kwargs`` are **not forwarded** to the</span>
+<span class="sd">          aggregation function; passing them raises</span>
+<span class="sd">          ``NotImplementedError``.</span>
+<span class="sd">        - ``axis=1`` (column-wise aggregation) is **not supported**.</span>
+<span class="sd">        - When ``func`` is a list, it must contain **exactly one**</span>
+<span class="sd">          element. Multi-element lists behave identically to a single-</span>
+<span class="sd">          element list mapping applied to every column.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Aggregate a single column with a string function</span>
+<span class="sd">            frame.aggregate({&quot;Order Id&quot;: &quot;count&quot;}).to_pandas()</span>
+
+<span class="sd">            # Aggregate multiple columns with different functions</span>
+<span class="sd">            frame.aggregate({&quot;Order Id&quot;: &quot;min&quot;, &quot;Ship Name&quot;: &quot;count&quot;}).to_pandas()</span>
+
+<span class="sd">            # Broadcast a single function to all columns</span>
+<span class="sd">            frame.aggregate(&quot;count&quot;).to_pandas()</span>
+
+<span class="sd">            # Use a lambda for custom aggregation</span>
+<span class="sd">            frame.aggregate({</span>
+<span class="sd">                &quot;Order Id&quot;: lambda x: x.max(),</span>
+<span class="sd">                &quot;Order Date&quot;: np.min,</span>
+<span class="sd">                &quot;Order Date&quot;: np.max,</span>
+<span class="sd">                &quot;Shipped Date&quot;: &quot;min&quot;</span>
+<span class="sd">            }).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.agg">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.agg">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">agg</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">func</span><span class="p">:</span> <span class="n">PyLegendAggInput</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alias for :meth:`aggregate`. See ``aggregate`` for full</span>
+<span class="sd">        documentation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.merge">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.merge">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">how</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+            <span class="n">on</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">left_on</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">right_on</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">left_index</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">right_index</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">sort</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">suffixes</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span>
+                <span class="n">PyLegendUnion</span><span class="p">[</span>
+                    <span class="n">PyLegendTuple</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]],</span>
+                    <span class="n">PyLegendList</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]],</span>
+                <span class="p">]</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_y&quot;</span><span class="p">),</span>
+            <span class="n">indicator</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">validate</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge this TDS frame with another using a database-style join.</span>
+
+<span class="sd">        Combine two frames column-wise based on common columns or</span>
+<span class="sd">        explicit key specifications. Supports inner, left, right,</span>
+<span class="sd">        outer (full), and cross joins.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : PandasApiTdsFrame</span>
+<span class="sd">            The right TDS frame to merge with. Must be a different</span>
+<span class="sd">            frame instance; merging a frame with itself raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        how : {{&#39;inner&#39;, &#39;left&#39;, &#39;right&#39;, &#39;outer&#39;, &#39;cross&#39;}}, default &#39;inner&#39;</span>
+<span class="sd">            Type of merge:</span>
+
+<span class="sd">            - ``&#39;inner&#39;`` : Only rows with matching keys in both frames.</span>
+<span class="sd">            - ``&#39;left&#39;`` : All rows from the left frame, NaN-filled for</span>
+<span class="sd">              non-matching right rows.</span>
+<span class="sd">            - ``&#39;right&#39;`` : All rows from the right frame, NaN-filled</span>
+<span class="sd">              for non-matching left rows.</span>
+<span class="sd">            - ``&#39;outer&#39;`` : All rows from both frames (``FULL OUTER</span>
+<span class="sd">              JOIN``).</span>
+<span class="sd">            - ``&#39;cross&#39;`` : Cartesian product of both frames. No join</span>
+<span class="sd">              keys may be specified.</span>
+<span class="sd">        on : str or list of str, optional</span>
+<span class="sd">            Column name(s) to join on. Must exist in **both** frames.</span>
+<span class="sd">            Mutually exclusive with ``left_on`` / ``right_on``.</span>
+<span class="sd">        left_on : str or list of str, optional</span>
+<span class="sd">            Column name(s) from the left frame to join on.</span>
+<span class="sd">        right_on : str or list of str, optional</span>
+<span class="sd">            Column name(s) from the right frame to join on. Must have</span>
+<span class="sd">            the same length as ``left_on``.</span>
+<span class="sd">        left_index : bool, default False</span>
+<span class="sd">            **Not supported.** Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        right_index : bool, default False</span>
+<span class="sd">            **Not supported.** Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        sort : bool, default False</span>
+<span class="sd">            If ``True``, sort the result by the join keys in ascending</span>
+<span class="sd">            order.</span>
+<span class="sd">        suffixes : tuple of (str, str), default (&#39;_x&#39;, &#39;_y&#39;)</span>
+<span class="sd">            Suffixes to apply to overlapping non-key column names from</span>
+<span class="sd">            the left and right frames respectively. Use ``None`` to</span>
+<span class="sd">            indicate that the column name from the respective frame</span>
+<span class="sd">            should be left as-is (will raise if this causes duplicates).</span>
+<span class="sd">        indicator : bool or str, default False</span>
+<span class="sd">            **Not supported.** Setting to a truthy value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        validate : str, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing the merged result.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``other`` is not a ``PandasApiTdsFrame``.</span>
+<span class="sd">            If ``how``, ``on``, ``left_on``, ``right_on``, ``suffixes``,</span>
+<span class="sd">            or ``sort`` have invalid types.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If both ``on`` and ``left_on``/``right_on`` are specified.</span>
+<span class="sd">            If ``left_on`` and ``right_on`` have different lengths.</span>
+<span class="sd">            If no merge keys can be resolved and ``how`` is not</span>
+<span class="sd">            ``&#39;cross&#39;``.</span>
+<span class="sd">            If ``how=&#39;cross&#39;`` is used with ``on``/``left_on``/</span>
+<span class="sd">            ``right_on``.</span>
+<span class="sd">            If ``how`` is not a recognised join method.</span>
+<span class="sd">            If the resulting columns contain duplicates after suffix</span>
+<span class="sd">            application.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If a key specified in ``on``, ``left_on``, or ``right_on``</span>
+<span class="sd">            does not exist in the corresponding frame.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``left_index=True``, ``right_index=True``,</span>
+<span class="sd">            ``indicator`` is truthy, ``validate`` is set, or the frame</span>
+<span class="sd">            is merged with itself.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : Convenience wrapper around merge with simpler syntax.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - **Self-merge is not supported.** Merging a frame with itself</span>
+<span class="sd">          raises ``NotImplementedError``.</span>
+<span class="sd">        - **Index-based merging is not supported.** ``left_index`` and</span>
+<span class="sd">          ``right_index`` must be ``False``.</span>
+<span class="sd">        - **``indicator``** and **``validate``** parameters are **not</span>
+<span class="sd">          supported**.</span>
+<span class="sd">        - When no join keys are provided (and ``how`` is not</span>
+<span class="sd">          ``&#39;cross&#39;``), the merge infers keys from the **intersection</span>
+<span class="sd">          of column names** between the two frames. If no common</span>
+<span class="sd">          columns exist, a ``ValueError`` is raised (unlike pandas,</span>
+<span class="sd">          which would raise a ``MergeError``).</span>
+<span class="sd">        - ``how=&#39;outer&#39;`` maps to a ``FULL OUTER JOIN`` at the SQL</span>
+<span class="sd">          level.</span>
+<span class="sd">        - ``how=&#39;cross&#39;`` is implemented as a ``CROSS JOIN`` in SQL,</span>
+<span class="sd">          but mapped to ``JoinKind.INNER`` with a ``1==1`` condition</span>
+<span class="sd">          in the PURE query representation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Create a second frame for joining</span>
+<span class="sd">            frame2 = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+<span class="sd">            frame2 = frame2.rename({&quot;Order Id&quot;: &quot;Right Order Id&quot;})</span>
+
+<span class="sd">            # Inner merge on a common column</span>
+<span class="sd">            frame.head(5).merge(</span>
+<span class="sd">                frame2.head(5),</span>
+<span class="sd">                how=&quot;inner&quot;,</span>
+<span class="sd">                left_on=&quot;Order Id&quot;,</span>
+<span class="sd">                right_on=&quot;Right Order Id&quot;</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.join">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.join">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">on</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">how</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+            <span class="n">lsuffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">rsuffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">sort</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">validate</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Join this TDS frame with another on shared column(s).</span>
+
+<span class="sd">        Convenience method that delegates to :meth:`merge`. The</span>
+<span class="sd">        ``lsuffix`` and ``rsuffix`` parameters are mapped to the</span>
+<span class="sd">        ``suffixes`` parameter of ``merge``, and ``on`` is passed</span>
+<span class="sd">        directly.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : PandasApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        on : str or list of str, optional</span>
+<span class="sd">            Column name(s) to join on. Must exist in **both** frames.</span>
+<span class="sd">            Unlike pandas ``join``, this parameter specifies **column</span>
+<span class="sd">            names**, not index labels.</span>
+<span class="sd">        how : {{&#39;left&#39;, &#39;inner&#39;, &#39;right&#39;, &#39;outer&#39;, &#39;cross&#39;}}, default &#39;left&#39;</span>
+<span class="sd">            Type of join. See :meth:`merge` for details.</span>
+<span class="sd">        lsuffix : str, default &#39;&#39;</span>
+<span class="sd">            Suffix to apply to overlapping column names from the left</span>
+<span class="sd">            frame.</span>
+<span class="sd">        rsuffix : str, default &#39;&#39;</span>
+<span class="sd">            Suffix to apply to overlapping column names from the right</span>
+<span class="sd">            frame.</span>
+<span class="sd">        sort : bool, default False</span>
+<span class="sd">            If ``True``, sort the result by the join keys.</span>
+<span class="sd">        validate : str, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing the joined result.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If overlapping column names exist and ``lsuffix`` /</span>
+<span class="sd">            ``rsuffix`` do not resolve the conflict.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``validate`` is set.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        merge : The underlying merge method with full parameter control.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``DataFrame.join`` joins on the **index** by</span>
+<span class="sd">          default, optionally using ``on`` to specify a column in the</span>
+<span class="sd">          *left* frame to match against the *right* frame&#39;s index.</span>
+<span class="sd">          Here, ``join`` is purely **column-on-column** and delegates</span>
+<span class="sd">          directly to ``merge(on=on)``. There is **no index-based</span>
+<span class="sd">          joining**.</span>
+<span class="sd">        - The ``lsuffix`` and ``rsuffix`` parameters correspond to</span>
+<span class="sd">          ``suffixes=(lsuffix, rsuffix)`` in ``merge``. In pandas,</span>
+<span class="sd">          default suffixes are empty strings (raising on conflict);</span>
+<span class="sd">          here they also default to empty strings.</span>
+<span class="sd">        - Because this delegates to ``merge``, all limitations of</span>
+<span class="sd">          ``merge`` apply: no self-join, no ``left_index`` /</span>
+<span class="sd">          ``right_index``, no ``indicator``, and no ``validate``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Create a second frame with renamed columns</span>
+<span class="sd">            frame2 = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+<span class="sd">            frame2 = frame2.rename({&quot;Order Id&quot;: &quot;Right Order Id&quot;})</span>
+
+<span class="sd">            # Left join on a common key</span>
+<span class="sd">            frame.head(5).join(</span>
+<span class="sd">                frame2.head(5),</span>
+<span class="sd">                on=&quot;Ship Name&quot;,</span>
+<span class="sd">                how=&quot;left&quot;,</span>
+<span class="sd">                lsuffix=&quot;_left&quot;,</span>
+<span class="sd">                rsuffix=&quot;_right&quot;</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.rename">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.rename">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rename</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">mapper</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">index</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">copy</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">level</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">errors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rename columns of the TDS frame.</span>
+
+<span class="sd">        Alter column labels using a mapping (dict) or a callable</span>
+<span class="sd">        function applied to each column name.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mapper : dict or callable, optional</span>
+<span class="sd">            Mapping of old column names to new column names, or a</span>
+<span class="sd">            callable that transforms each column name (e.g.</span>
+<span class="sd">            ``str.upper``). Used when ``axis=1`` (columns). Cannot be</span>
+<span class="sd">            specified together with ``columns``.</span>
+<span class="sd">        index : dict or callable, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        columns : dict or callable, optional</span>
+<span class="sd">            Alternative to ``mapper`` for renaming columns. Mutually</span>
+<span class="sd">            exclusive with ``mapper`` when both are provided alongside</span>
+<span class="sd">            ``axis``.</span>
+<span class="sd">        axis : {{1, &#39;columns&#39;}}, default 1</span>
+<span class="sd">            Axis to target. Only ``1`` / ``&#39;columns&#39;`` is supported.</span>
+<span class="sd">            ``0`` / ``&#39;index&#39;`` raises ``NotImplementedError``.</span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` raises ``NotImplementedError``.</span>
+<span class="sd">        copy : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` raises ``NotImplementedError``.</span>
+<span class="sd">        level : int or str, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        errors : {{&#39;ignore&#39;, &#39;raise&#39;}}, default &#39;ignore&#39;</span>
+<span class="sd">            If ``&#39;raise&#39;``, raise a ``KeyError`` when a key in the</span>
+<span class="sd">            mapping does not exist as a column name. If ``&#39;ignore&#39;``,</span>
+<span class="sd">            silently skip non-existent keys.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with renamed columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``mapper`` or ``columns`` is not a dict or callable.</span>
+<span class="sd">            If ``copy`` or ``inplace`` is not a bool.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If both ``mapper`` (with ``axis``) and ``columns``/</span>
+<span class="sd">            ``index`` are specified simultaneously.</span>
+<span class="sd">            If ``axis`` is not a supported value.</span>
+<span class="sd">            If ``errors`` is not ``&#39;ignore&#39;`` or ``&#39;raise&#39;``.</span>
+<span class="sd">            If the rename produces duplicate column names.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If ``errors=&#39;raise&#39;`` and a key in the mapping does not</span>
+<span class="sd">            exist in the frame&#39;s columns.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis=0``/``&#39;index&#39;``, ``index`` is set, ``level`` is</span>
+<span class="sd">            set, ``copy=False``, or ``inplace=True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        filter : Select columns by name.</span>
+<span class="sd">        drop : Remove columns.</span>
+<span class="sd">        assign : Add or overwrite columns.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only **column renaming** is supported (``axis=1``). Index</span>
+<span class="sd">          renaming (``axis=0``) raises ``NotImplementedError``.</span>
+<span class="sd">        - ``inplace=True`` is **not supported**; a new frame is always</span>
+<span class="sd">          returned.</span>
+<span class="sd">        - ``copy=False`` is **not supported**.</span>
+<span class="sd">        - ``level`` (multi-level index) is **not supported**.</span>
+<span class="sd">        - The ``index`` parameter is **not supported**.</span>
+<span class="sd">        - When using a callable, it is applied to **every** column name</span>
+<span class="sd">          (e.g. ``str.upper`` will uppercase all column names).</span>
+<span class="sd">        - If ``errors=&#39;ignore&#39;`` (the default), keys in the mapping</span>
+<span class="sd">          that do not match any column are silently ignored, matching</span>
+<span class="sd">          pandas behaviour.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rename with a dict</span>
+<span class="sd">            frame.rename({&quot;Order Id&quot;: &quot;OrderId&quot;, &quot;Ship Name&quot;: &quot;ShipName&quot;}).head(3).to_pandas()</span>
+
+<span class="sd">            # Rename with a callable</span>
+<span class="sd">            frame.rename(str.upper).head(3).to_pandas()</span>
+
+<span class="sd">            # Rename via the columns parameter</span>
+<span class="sd">            frame.rename(columns={&quot;Order Id&quot;: &quot;order_id&quot;}).head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.groupby">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.groupby">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">groupby</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">by</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+            <span class="n">level</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendList</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">as_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">group_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">observed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">dropna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiGroupbyTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Group the TDS frame by one or more columns.</span>
+
+<span class="sd">        Return a :class:`~pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame`</span>
+<span class="sd">        object that can be used to apply aggregation functions</span>
+<span class="sd">        (``sum``, ``mean``, ``min``, ``max``, ``std``, ``var``,</span>
+<span class="sd">        ``count``, or the general ``aggregate``/``agg``) and OLAP</span>
+<span class="sd">        window functions (``rank``) to each group. Column selection</span>
+<span class="sd">        after grouping is supported via bracket notation</span>
+<span class="sd">        (e.g. ``frame.groupby(&quot;A&quot;)[&quot;B&quot;].sum()``).</span>
+
+<span class="sd">        The groupby columns act as the ``PARTITION BY`` clause in the</span>
+<span class="sd">        underlying SQL when window functions such as ``rank`` are used.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        by : str or list of str</span>
+<span class="sd">            Column name or list of column names to group by. All names</span>
+<span class="sd">            must exist in the current frame.</span>
+<span class="sd">        level : None</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``. Use ``by`` instead.</span>
+<span class="sd">        as_index : bool, default False</span>
+<span class="sd">            Must be ``False``. Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        sort : bool, default True</span>
+<span class="sd">            Whether to sort the result by the grouping columns after</span>
+<span class="sd">            aggregation.</span>
+<span class="sd">        group_keys : bool, default False</span>
+<span class="sd">            Must be ``False``. Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        observed : bool, default False</span>
+<span class="sd">            Must be ``False``. Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        dropna : bool, default False</span>
+<span class="sd">            Must be ``False``. Setting to ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiGroupbyTdsFrame</span>
+<span class="sd">            A groupby object on which aggregation and window methods</span>
+<span class="sd">            can be called. See :class:`PandasApiGroupbyTdsFrame</span>
+<span class="sd">            &lt;pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame&gt;`</span>
+<span class="sd">            for the full list of available methods.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``level``, ``as_index=True``, ``group_keys=True``,</span>
+<span class="sd">            ``observed=True``, or ``dropna=True`` is provided.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``by`` is not a string or list of strings.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``by`` is an empty list.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If any column in ``by`` does not exist in the frame.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : Aggregate without grouping.</span>
+<span class="sd">        sum : Convenience shorthand for sum aggregation.</span>
+<span class="sd">        count : Convenience shorthand for count aggregation.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``as_index`` defaults to ``False`` and **must** be ``False``.</span>
+<span class="sd">          In pandas it defaults to ``True``. This means the grouping</span>
+<span class="sd">          columns always appear as regular columns in the result, never</span>
+<span class="sd">          as the index.</span>
+<span class="sd">        - ``group_keys``, ``observed``, and ``dropna`` must all be</span>
+<span class="sd">          ``False``; their ``True`` variants are **not supported**.</span>
+<span class="sd">        - ``level`` (grouping by index level) is **not supported**.</span>
+<span class="sd">        - The groupby object supports column selection via</span>
+<span class="sd">          ``[col]`` (returns a ``GroupbySeries``) or ``[[col1, col2]]``</span>
+<span class="sd">          (returns a narrowed ``PandasApiGroupbyTdsFrame``), matching</span>
+<span class="sd">          the pandas pattern ``frame.groupby(...)[&quot;col&quot;].sum()``.</span>
+<span class="sd">        - When ``sort=True`` (default), the result is sorted by the</span>
+<span class="sd">          grouping columns in ascending order after aggregation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Group by a single column and count</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].count().head(5).to_pandas()</span>
+
+<span class="sd">            # Group by a column and sum a numeric column</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].sum().head(5).to_pandas()</span>
+
+<span class="sd">            # Group by a column with dict-based aggregation</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;).agg({&quot;Order Id&quot;: &quot;count&quot;}).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.sum">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.sum">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">min_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the sum of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;sum&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the sum of every column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        min_count : int, default 0</span>
+<span class="sd">            Must be ``0``. Non-zero values are not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported. Passing any keyword arguments raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column sums.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis``, ``skipna``, ``numeric_only``, ``min_count``,</span>
+<span class="sd">            or ``**kwargs`` are set to unsupported values.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        mean : Compute column means.</span>
+<span class="sd">        count : Count non-null values per column.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``skipna=False``, ``numeric_only=True``, and non-zero</span>
+<span class="sd">          ``min_count`` are **not supported**.</span>
+<span class="sd">        - ``axis=1`` is **not supported**.</span>
+<span class="sd">        - Internally delegates to ``aggregate(&#39;sum&#39;)``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Sum of all columns</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).sum().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.mean">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.mean">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the mean of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;mean&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the arithmetic mean of every column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column means.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        sum : Compute column sums.</span>
+<span class="sd">        std : Compute column standard deviations.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Internally delegates to ``aggregate(&#39;mean&#39;)``. The same pandas</span>
+<span class="sd">        deviations as :meth:`sum` apply (``skipna=False``,</span>
+<span class="sd">        ``numeric_only=True``, ``axis=1`` are not supported).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Mean of numeric columns</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).mean().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.min">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.min">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the minimum value of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;min&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the minimum value of every column.</span>
+<span class="sd">        For string columns, returns the lexicographically smallest value.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column minimums.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        max : Compute column maximums.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Internally delegates to ``aggregate(&#39;min&#39;)``. The same pandas</span>
+<span class="sd">        deviations as :meth:`sum` apply.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Minimum of each column</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).min().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.max">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.max">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the maximum value of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;max&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the maximum value of every column.</span>
+<span class="sd">        For string columns, returns the lexicographically largest value.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column maximums.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        min : Compute column minimums.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Internally delegates to ``aggregate(&#39;max&#39;)``. The same pandas</span>
+<span class="sd">        deviations as :meth:`sum` apply.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Maximum of each column</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).max().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.std">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.std">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">std</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">ddof</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the sample standard deviation of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;std&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the sample standard deviation</span>
+<span class="sd">        (``ddof=1``) of every column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        ddof : int, default 1</span>
+<span class="sd">            Degrees of freedom. Must be ``1`` (sample standard</span>
+<span class="sd">            deviation). Population standard deviation (``ddof=0``)</span>
+<span class="sd">            is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column standard deviations.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value,</span>
+<span class="sd">            including ``ddof != 1``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        var : Compute column variances.</span>
+<span class="sd">        mean : Compute column means.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=1`` (sample standard deviation) is supported.</span>
+<span class="sd">          ``ddof=0`` (population standard deviation) raises</span>
+<span class="sd">          ``NotImplementedError``.</span>
+<span class="sd">        - Internally delegates to ``aggregate(&#39;std&#39;)``, which maps to</span>
+<span class="sd">          ``STDDEV_SAMP`` at the SQL level.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Standard deviation of numeric columns</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).std().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.var">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.var">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">skipna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">ddof</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the sample variance of each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;var&#39;)``. Returns a</span>
+<span class="sd">        single-row TDS frame with the sample variance (``ddof=1``) of</span>
+<span class="sd">        every column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        skipna : bool, default True</span>
+<span class="sd">            Must be ``True``. ``False`` is not supported.</span>
+<span class="sd">        ddof : int, default 1</span>
+<span class="sd">            Degrees of freedom. Must be ``1`` (sample variance).</span>
+<span class="sd">            Population variance (``ddof=0``) is not supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with column variances.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value,</span>
+<span class="sd">            including ``ddof != 1``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        std : Compute column standard deviations.</span>
+<span class="sd">        mean : Compute column means.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=1`` (sample variance) is supported. ``ddof=0``</span>
+<span class="sd">          (population variance) raises ``NotImplementedError``.</span>
+<span class="sd">        - Internally delegates to ``aggregate(&#39;var&#39;)``, which maps to</span>
+<span class="sd">          ``VAR_SAMP`` at the SQL level.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Variance of numeric columns</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).var().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.count">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.count">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Count non-null values in each column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;count&#39;)``. Returns</span>
+<span class="sd">        a single-row TDS frame with the count of non-null values for</span>
+<span class="sd">        every column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A single-row TDS frame with non-null counts per column.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General aggregation method.</span>
+<span class="sd">        sum : Compute column sums.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Internally delegates to ``aggregate(&#39;count&#39;)``. The same pandas</span>
+<span class="sd">        deviations as :meth:`sum` apply (``axis=1``,</span>
+<span class="sd">        ``numeric_only=True`` not supported). Unlike ``sum``, ``count``</span>
+<span class="sd">        does not have a ``skipna`` parameter since counting is always</span>
+<span class="sd">        of non-null values.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Count non-null values in each column</span>
+<span class="sd">            frame.count().to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.apply">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.apply">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">func</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendCallable</span><span class="p">[</span><span class="n">Concatenate</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                <span class="nb">str</span>
+            <span class="p">],</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">raw</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">result_type</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">args</span><span class="p">:</span> <span class="n">PyLegendTuple</span><span class="p">[</span><span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+            <span class="n">by_row</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;compat&quot;</span><span class="p">,</span>
+            <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+            <span class="n">engine_kwargs</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a function to each column of the TDS frame.</span>
+
+<span class="sd">        The callable receives a ``Series`` proxy for each column and</span>
+<span class="sd">        must return a transformed value. The function is applied</span>
+<span class="sd">        independently to **every** column, producing a new frame with</span>
+<span class="sd">        the same column names but transformed values. Additional</span>
+<span class="sd">        positional and keyword arguments can be forwarded to the</span>
+<span class="sd">        callable via ``args`` and ``**kwargs``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        func : callable</span>
+<span class="sd">            A function that takes a ``Series`` (column proxy) as its</span>
+<span class="sd">            first argument and returns a primitive value or expression.</span>
+<span class="sd">            String-based function names (e.g. ``&#39;sum&#39;``) are **not</span>
+<span class="sd">            supported**; use :meth:`aggregate` for named aggregations.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only column-wise application is supported (``axis=0`` or</span>
+<span class="sd">            ``&#39;index&#39;``). Row-wise application (``axis=1``) raises</span>
+<span class="sd">            ``ValueError``.</span>
+<span class="sd">        raw : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        result_type : None</span>
+<span class="sd">            Must be ``None``. Any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        args : tuple, default ()</span>
+<span class="sd">            Positional arguments to pass to ``func`` after the</span>
+<span class="sd">            ``Series`` argument.</span>
+<span class="sd">        by_row : {{False, &#39;compat&#39;}}, default &#39;compat&#39;</span>
+<span class="sd">            Must be ``False`` or ``&#39;compat&#39;``. ``True`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        engine : str, default &#39;python&#39;</span>
+<span class="sd">            Must be ``&#39;python&#39;``. ``&#39;numba&#39;`` is not supported.</span>
+<span class="sd">        engine_kwargs : None</span>
+<span class="sd">            Must be ``None``. Not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments forwarded to ``func``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the function applied to every column.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``axis`` is not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``raw=True``, ``result_type`` is set, ``by_row=True``,</span>
+<span class="sd">            ``engine=&#39;numba&#39;``, ``engine_kwargs`` is set, or ``func``</span>
+<span class="sd">            is a string.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``func`` is not callable.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        assign : Add or overwrite specific columns with callables.</span>
+<span class="sd">        aggregate : Aggregate (reduce) columns to a single row.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``apply`` with ``axis=0`` passes each column as</span>
+<span class="sd">          a ``pandas.Series`` to the function, which can return a</span>
+<span class="sd">          scalar (reducing the frame) or a Series (transforming it).</span>
+<span class="sd">          Here, ``func`` receives a **column Series proxy** and must</span>
+<span class="sd">          return a **scalar expression** that defines a row-level</span>
+<span class="sd">          transformation. This means ``apply`` always produces a frame</span>
+<span class="sd">          with the **same number of rows** &#8212; it cannot reduce the</span>
+<span class="sd">          frame the way pandas ``apply`` can.</span>
+<span class="sd">        - Row-wise application (``axis=1``) is **not supported**.</span>
+<span class="sd">        - String function names (e.g. ``&#39;sum&#39;``) are **not supported**.</span>
+<span class="sd">          Use :meth:`aggregate` instead.</span>
+<span class="sd">        - ``raw=True``, ``result_type``, ``engine=&#39;numba&#39;``, and</span>
+<span class="sd">          ``engine_kwargs`` are **not supported**.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Apply a lambda to every column</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).apply(</span>
+<span class="sd">                lambda x: x * 2</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">            # Apply a function with extra arguments</span>
+<span class="sd">            def add_offset(series, offset, *, scale=1):</span>
+<span class="sd">                return series * scale + offset</span>
+
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).apply(</span>
+<span class="sd">                add_offset, args=(100,), scale=2</span>
+<span class="sd">            ).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iloc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiIlocIndexer&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Purely integer-location based indexing for selection by position.</span>
+
+<span class="sd">        Access rows and columns by integer position (0-based). Returns</span>
+<span class="sd">        a ``PandasApiIlocIndexer`` that supports ``[]`` notation.</span>
+
+<span class="sd">        Allowed inputs:</span>
+
+<span class="sd">        - **An integer** &#8212; selects a single row (e.g. ``frame.iloc[5]``).</span>
+<span class="sd">        - **A slice with ints** &#8212; selects a range of rows</span>
+<span class="sd">          (e.g. ``frame.iloc[1:7]``). Only step=1 (or ``None``) is</span>
+<span class="sd">          supported.</span>
+<span class="sd">        - **A tuple of (rows, cols)** &#8212; selects rows and columns</span>
+<span class="sd">          simultaneously (e.g. ``frame.iloc[1:5, 0:2]``). Each</span>
+<span class="sd">          element can be an int or a slice.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiIlocIndexer</span>
+<span class="sd">            An indexer object supporting ``[]`` notation that returns</span>
+<span class="sd">            a new ``PandasApiTdsFrame``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        IndexError</span>
+<span class="sd">            If more than two indexers are provided.</span>
+<span class="sd">            If a column integer index is out of bounds.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If a slice step other than 1 is used for rows or columns.</span>
+<span class="sd">            If a list, boolean array, or callable is used as an</span>
+<span class="sd">            indexer.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        loc : Label-based indexing (row filtering + column selection).</span>
+<span class="sd">        head : Return the first n rows.</span>
+<span class="sd">        truncate : Select rows by index range.</span>
+<span class="sd">        filter : Select columns by name.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only **int** and **slice** indexers are supported. Lists of</span>
+<span class="sd">          integers, boolean arrays, and callable indexers raise</span>
+<span class="sd">          ``NotImplementedError``.</span>
+<span class="sd">        - Slice steps other than 1 are **not supported**.</span>
+<span class="sd">        - Negative integer indexing for rows is handled via</span>
+<span class="sd">          ``truncate``, so it follows truncate&#39;s limitations.</span>
+<span class="sd">        - When a single integer row index exceeds the number of rows,</span>
+<span class="sd">          an **empty frame** is returned (no ``IndexError`` is raised,</span>
+<span class="sd">          unlike pandas).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Select a single row</span>
+<span class="sd">            frame.iloc[0].to_pandas()</span>
+
+<span class="sd">            # Select a range of rows and columns</span>
+<span class="sd">            frame.iloc[1:4, 0:2].to_pandas()</span>
+
+<span class="sd">            # Select a single row, all columns</span>
+<span class="sd">            frame.iloc[2, :].to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">loc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiLocIndexer&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Access rows and columns by label-based indexing or boolean conditions.</span>
+
+<span class="sd">        Returns a ``PandasApiLocIndexer`` that supports ``[]``</span>
+<span class="sd">        notation for combined row filtering and column selection.</span>
+
+<span class="sd">        **Row selection** (first indexer):</span>
+
+<span class="sd">        - **Complete slice** ``:``: Select all rows.</span>
+<span class="sd">        - **Boolean expression**: A ``PyLegendBoolean`` expression</span>
+<span class="sd">          built from column comparisons</span>
+<span class="sd">          (e.g. ``frame[&#39;col&#39;] &gt; 5``), used as a WHERE filter.</span>
+<span class="sd">        - **Callable**: A function that receives the frame and returns</span>
+<span class="sd">          a ``PyLegendBoolean`` expression</span>
+<span class="sd">          (e.g. ``lambda x: x[&#39;col&#39;] &gt; 5``).</span>
+
+<span class="sd">        **Column selection** (second indexer):</span>
+
+<span class="sd">        - **``str``**: A single column name (e.g. ``&#39;col1&#39;``).</span>
+<span class="sd">        - **``list of str``**: Multiple column names.</span>
+<span class="sd">        - **``list of bool``**: Boolean mask over columns (must match</span>
+<span class="sd">          the number of columns exactly).</span>
+<span class="sd">        - **``slice of str``**: Label-based column slice</span>
+<span class="sd">          (e.g. ``&#39;col1&#39;:&#39;col3&#39;``), inclusive on both ends.</span>
+<span class="sd">        - **Complete slice** ``:``: Select all columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiLocIndexer</span>
+<span class="sd">            An indexer object supporting ``[]`` notation that returns</span>
+<span class="sd">            a new ``PandasApiTdsFrame``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        IndexError</span>
+<span class="sd">            If more than two indexers are provided.</span>
+<span class="sd">            If a boolean column mask has the wrong length.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If a label-based slice is used for rows (only ``:`` is</span>
+<span class="sd">            allowed).</span>
+<span class="sd">            If a list of integers, a set, or another unsupported type</span>
+<span class="sd">            is used for row or column selection.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If a column name in a list does not exist in the frame.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        iloc : Integer-position based indexing.</span>
+<span class="sd">        filter : Select columns by name.</span>
+<span class="sd">        head : Return the first n rows.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - For **row selection**, only ``:``, boolean expressions, and</span>
+<span class="sd">          callables are supported. Integer label selection, integer</span>
+<span class="sd">          slicing, and list-of-integer selection are **not supported**.</span>
+<span class="sd">        - Label-based **row slicing** (e.g. ``frame.loc[2:5]``) is</span>
+<span class="sd">          **not supported** &#8212; only the complete slice ``:`` is</span>
+<span class="sd">          allowed.</span>
+<span class="sd">        - For **column selection**, string labels, lists of strings,</span>
+<span class="sd">          boolean masks, and label-based slices are supported. Label</span>
+<span class="sd">          slices use ``pandas.Index.slice_indexer`` internally, so</span>
+<span class="sd">          slice semantics are **inclusive on both ends** (matching</span>
+<span class="sd">          pandas ``loc`` behaviour).</span>
+<span class="sd">        - If a label-based column slice resolves to an empty selection,</span>
+<span class="sd">          an empty frame (zero rows) is returned via ``head(0)``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Select specific columns</span>
+<span class="sd">            frame.loc[:, &quot;Ship Name&quot;].head(3).to_pandas()</span>
+
+<span class="sd">            # Filter rows with a boolean condition and select columns</span>
+<span class="sd">            frame.loc[frame[&quot;Order Id&quot;] &gt; 10300, [&quot;Order Id&quot;, &quot;Ship Name&quot;]].head(5).to_pandas()</span>
+
+<span class="sd">            # Filter rows with a callable</span>
+<span class="sd">            frame.loc[</span>
+<span class="sd">                lambda x: x[&quot;Ship Name&quot;].startswith(&quot;A&quot;),</span>
+<span class="sd">                [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            ].head(5).to_pandas()</span>
+
+<span class="sd">            # Boolean column mask</span>
+<span class="sd">            frame.loc[:, [True, False]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+<div class="viewcode-block" id="PandasApiTdsFrame.head">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.head">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first n rows of the TDS frame.</span>
+
+<span class="sd">        This function returns the first ``n`` rows from the frame.</span>
+<span class="sd">        It is useful for quickly inspecting the data without loading the entire dataset.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n : int, default 5</span>
+<span class="sd">            Number of rows to return. Must be a non-negative integer.</span>
+<span class="sd">            Passing a negative value raises ``NotImplementedError``.</span>
+<span class="sd">            Passing a non-int type raises ``TypeError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame containing only the first n rows.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``n`` is not an int.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``n`` is negative.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        drop : Remove rows or columns by label.</span>
+<span class="sd">        truncate : Truncate rows before and/or after some index value.</span>
+<span class="sd">        iloc : Select rows by integer-location based indexing.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - **Negative values for ``n`` are not supported.** In pandas,</span>
+<span class="sd">          ``head(-n)`` returns all rows except the last ``n``. Here,</span>
+<span class="sd">          passing a negative value raises ``NotImplementedError``.</span>
+<span class="sd">        - The operation is **lazy** &#8212; it builds a query</span>
+<span class="sd">          rather than materialising rows in memory. Call</span>
+<span class="sd">          ``to_pandas()`` or ``execute_frame_to_string()`` to</span>
+<span class="sd">          materialise the result.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get first 5 rows (default)</span>
+<span class="sd">            frame.head().to_pandas()</span>
+
+<span class="sd">            # Get first 3 rows</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendTuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the dimensionality of the TDS frame as ``(rows, columns)``.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Unlike ``pandas.DataFrame.shape``, this property **executes</span>
+<span class="sd">            the frame** against the server to determine the row count.</span>
+<span class="sd">            It issues a ``COUNT`` aggregation query, so every access</span>
+<span class="sd">            incurs a round-trip to the database.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple of (int, int)</span>
+<span class="sd">            A tuple ``(number_of_rows, number_of_columns)``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        head : Return the first n rows (lazy, no execution).</span>
+<span class="sd">        count : Count non-null values per column (returns a frame).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``DataFrame.shape`` is an **O(1) metadata lookup**</span>
+<span class="sd">          that never triggers computation. Here, ``shape`` **executes</span>
+<span class="sd">          the current frame** to obtain the row count via a ``COUNT``</span>
+<span class="sd">          aggregation query. This means it requires a live connection</span>
+<span class="sd">          to the database. This will fail on non-executable frames.</span>
+<span class="sd">        - The result type is always ``(int, int)``; there is no lazy</span>
+<span class="sd">          evaluation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Get the shape (triggers server execution)</span>
+<span class="sd">            frame.head(5).shape</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+<div class="viewcode-block" id="PandasApiTdsFrame.dropna">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.dropna">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dropna</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">how</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span>
+            <span class="n">thresh</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">subset</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">ignore_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove rows with missing values.</span>
+
+<span class="sd">        Return a new TDS frame with rows containing NA / null values</span>
+<span class="sd">        removed. The check can be scoped to specific columns via</span>
+<span class="sd">        ``subset`` and controlled via ``how``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` (drop rows) is supported.</span>
+<span class="sd">            ``1`` / ``&#39;columns&#39;`` (drop columns) raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        how : {{&#39;any&#39;, &#39;all&#39;}}, default &#39;any&#39;</span>
+<span class="sd">            - ``&#39;any&#39;`` : Drop the row if **any** of the considered</span>
+<span class="sd">              columns contain a null value.</span>
+<span class="sd">            - ``&#39;all&#39;`` : Drop the row only if **all** of the</span>
+<span class="sd">              considered columns are null.</span>
+<span class="sd">        thresh : int, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        subset : list-like of str, optional</span>
+<span class="sd">            Column names to consider when checking for nulls. If</span>
+<span class="sd">            ``None`` (default), all columns are considered. An empty</span>
+<span class="sd">            list with ``how=&#39;any&#39;`` keeps all rows; an empty list with</span>
+<span class="sd">            ``how=&#39;all&#39;`` drops all rows.</span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` raises ``NotImplementedError``.</span>
+<span class="sd">        ignore_index : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` raises ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with rows containing nulls removed.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis=1``, ``thresh`` is set, ``inplace=True``, or</span>
+<span class="sd">            ``ignore_index=True``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``axis`` is not a recognised value or ``how`` is not</span>
+<span class="sd">            ``&#39;any&#39;`` or ``&#39;all&#39;``.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``subset`` is not a list, tuple, or set.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If any column in ``subset`` does not exist in the frame.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        fillna : Fill missing values instead of dropping rows.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``axis=1`` (dropping columns with nulls) is **not supported**.</span>
+<span class="sd">        - ``thresh`` (minimum number of non-null values to keep a row)</span>
+<span class="sd">          is **not supported**.</span>
+<span class="sd">        - ``inplace=True`` is **not supported**; a new frame is always</span>
+<span class="sd">          returned.</span>
+<span class="sd">        - ``ignore_index=True`` is **not supported**.</span>
+<span class="sd">        - Passing an empty ``subset=[]`` with ``how=&#39;any&#39;`` is a</span>
+<span class="sd">          no-op (all rows are kept). With ``how=&#39;all&#39;``, an empty</span>
+<span class="sd">          ``subset=[]`` drops **all rows** (the filter becomes</span>
+<span class="sd">          ``false``).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Drop rows where any column is null</span>
+<span class="sd">            frame.dropna().head(5).to_pandas()</span>
+
+<span class="sd">            # Drop rows where all columns are null</span>
+<span class="sd">            frame.dropna(how=&quot;all&quot;).head(5).to_pandas()</span>
+
+<span class="sd">            # Only consider specific columns</span>
+<span class="sd">            frame.dropna(subset=[&quot;Ship Name&quot;]).head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.fillna">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.fillna">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fillna</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span>
+                <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">]]</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">limit</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fill missing values with a specified value.</span>
+
+<span class="sd">        Replace NA / null entries in the TDS frame. A scalar ``value``</span>
+<span class="sd">        is applied to every column; a dict maps specific columns to</span>
+<span class="sd">        their fill values (columns not present in the dict are left</span>
+<span class="sd">        unchanged). Implemented via ``COALESCE`` at the SQL level.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        value : scalar or dict</span>
+<span class="sd">            Value(s) to replace nulls with. Accepted scalar types are</span>
+<span class="sd">            ``int``, ``float``, ``str``, ``bool``, ``date``, and</span>
+<span class="sd">            ``datetime``. When a dict is provided, keys must be column</span>
+<span class="sd">            name strings and values must be scalars of the above types.</span>
+<span class="sd">            Columns in the dict that do not exist in the frame are</span>
+<span class="sd">            silently ignored. Omitting ``value`` entirely raises</span>
+<span class="sd">            ``ValueError``.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported. ``1`` /</span>
+<span class="sd">            ``&#39;columns&#39;`` raises ``NotImplementedError``.</span>
+<span class="sd">        inplace : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` raises ``NotImplementedError``.</span>
+<span class="sd">        limit : int, optional</span>
+<span class="sd">            **Not supported.** Passing any value raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with null values replaced.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If ``value`` is not provided.</span>
+<span class="sd">            If ``axis`` is not a recognised value.</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``value`` is not a scalar or dict.</span>
+<span class="sd">            If dict keys are not strings or dict values are not</span>
+<span class="sd">            scalars.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis=1``, ``inplace=True``, or ``limit`` is set.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        dropna : Remove rows with missing values.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - The ``method`` parameter (``&#39;ffill&#39;``, ``&#39;bfill&#39;``) available</span>
+<span class="sd">          in older pandas versions is **not present**.</span>
+<span class="sd">        - ``inplace=True`` is **not supported**; a new frame is always</span>
+<span class="sd">          returned.</span>
+<span class="sd">        - ``limit`` (maximum number of consecutive nulls to fill) is</span>
+<span class="sd">          **not supported**.</span>
+<span class="sd">        - ``axis=1`` (fill along columns) is **not supported**.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import datetime</span>
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+<span class="sd">            frame = frame.sort_values(&quot;Shipped Date&quot;)</span>
+<span class="sd">            frame = frame.head()</span>
+
+<span class="sd">            # check initial count of all the non-null values</span>
+<span class="sd">            frame.to_pandas()</span>
+
+<span class="sd">            # Fill all null values of the &quot;Shipped Date&quot; column with a fixed date</span>
+<span class="sd">            frame = frame.fillna({</span>
+<span class="sd">                &quot;Shipped Date&quot;: datetime.date(1, 1, 1)</span>
+<span class="sd">            })</span>
+<span class="sd">            frame.to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.rank">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.rank">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rank</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">na_option</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">pct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the rank of values in each column.</span>
+
+<span class="sd">        Replace every column&#39;s values with their rank within that</span>
+<span class="sd">        column. Each column is ranked independently using an SQL</span>
+<span class="sd">        window function (``RANK``, ``DENSE_RANK``, ``ROW_NUMBER``, or</span>
+<span class="sd">        ``PERCENT_RANK``).</span>
+
+<span class="sd">        The result is a new frame with the **same column names** but</span>
+<span class="sd">        all values replaced by their integer (or float when</span>
+<span class="sd">        ``pct=True``) rank.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported. ``1`` raises</span>
+<span class="sd">            ``NotImplementedError``.</span>
+<span class="sd">        method : {{&#39;min&#39;, &#39;first&#39;, &#39;dense&#39;}}, default &#39;min&#39;</span>
+<span class="sd">            How to rank equal values:</span>
+
+<span class="sd">            - ``&#39;min&#39;`` : Lowest rank in the group of ties (SQL</span>
+<span class="sd">              ``RANK()``).</span>
+<span class="sd">            - ``&#39;first&#39;`` : Ranks assigned in order of appearance</span>
+<span class="sd">              (SQL ``ROW_NUMBER()``).</span>
+<span class="sd">            - ``&#39;dense&#39;`` : Like ``&#39;min&#39;`` but ranks always increase</span>
+<span class="sd">              by 1, no gaps (SQL ``DENSE_RANK()``).</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            If ``True``, only rank columns of numeric type (Integer,</span>
+<span class="sd">            Float, Number). Non-numeric columns are excluded from the</span>
+<span class="sd">            result.</span>
+<span class="sd">        na_option : {{&#39;bottom&#39;}}, default &#39;bottom&#39;</span>
+<span class="sd">            How to rank null values. Only ``&#39;bottom&#39;`` is supported.</span>
+<span class="sd">            ``&#39;keep&#39;`` and ``&#39;top&#39;`` raise ``NotImplementedError``.</span>
+<span class="sd">        ascending : bool, default True</span>
+<span class="sd">            Whether to rank in ascending order. ``False`` ranks in</span>
+<span class="sd">            descending order.</span>
+<span class="sd">        pct : bool, default False</span>
+<span class="sd">            If ``True``, compute percentage ranks (SQL</span>
+<span class="sd">            ``PERCENT_RANK()``). Result columns are of float type.</span>
+<span class="sd">            Can only be used with ``method=&#39;min&#39;``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame where every column contains integer ranks</span>
+<span class="sd">            (or float when ``pct=True``).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis`` is not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">            If ``method`` is not one of ``&#39;min&#39;``, ``&#39;first&#39;``,</span>
+<span class="sd">            ``&#39;dense&#39;`` (e.g. ``&#39;average&#39;`` and ``&#39;max&#39;`` are not</span>
+<span class="sd">            supported).</span>
+<span class="sd">            If ``na_option`` is not ``&#39;bottom&#39;``.</span>
+<span class="sd">            If ``pct=True`` with a method other than ``&#39;min&#39;``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        PandasApiGroupbyTdsFrame.rank : Rank within groups.</span>
+<span class="sd">        sort_values : Sort the frame by column values.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - The ``&#39;average&#39;`` and ``&#39;max&#39;`` ranking methods are **not</span>
+<span class="sd">          supported**. Only ``&#39;min&#39;``, ``&#39;first&#39;``, and ``&#39;dense&#39;``</span>
+<span class="sd">          are available.</span>
+<span class="sd">        - ``na_option`` only supports ``&#39;bottom&#39;``. ``&#39;keep&#39;`` and</span>
+<span class="sd">          ``&#39;top&#39;`` raise ``NotImplementedError``.</span>
+<span class="sd">        - ``pct=True`` is only supported with ``method=&#39;min&#39;``</span>
+<span class="sd">          (maps to ``PERCENT_RANK()``). Combining ``pct=True`` with</span>
+<span class="sd">          other methods raises ``NotImplementedError``.</span>
+<span class="sd">        - When applied to the full frame (not via a Series), **all</span>
+<span class="sd">          columns** are replaced by their ranks. To append a rank</span>
+<span class="sd">          column instead, use bracket assignment on a single-column</span>
+<span class="sd">          Series: ``frame[&quot;rank_col&quot;] = frame[&quot;col&quot;].rank()``.</span>
+<span class="sd">        - Combining multiple rank calls in a single expression is</span>
+<span class="sd">          **not supported**</span>
+<span class="sd">          (e.g. ``frame[&quot;col1&quot;].rank() + frame[&quot;col2&quot;].rank()``).</span>
+<span class="sd">          Compute them in separate assignment steps instead.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rank all columns (replaces values with ranks)</span>
+<span class="sd">            frame.filter(items=[&quot;Order Id&quot;]).rank().head(5).to_pandas()</span>
+
+<span class="sd">            # Append a percentage rank column via Series assignment</span>
+<span class="sd">            frame[&quot;Order Rank&quot;] = frame[&quot;Order Id&quot;].rank(pct=True)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PandasApiTdsFrame.shift">
+<a class="viewcode-back" href="../../../../../../api/pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.shift">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shift</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+            <span class="n">periods</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">freq</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">fill_value</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendHashable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">suffix</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shift values by desired number of periods.</span>
+
+<span class="sd">        Replace every column&#39;s values with their shifted values. Because</span>
+<span class="sd">        underlying TDS is inherently unordered, this requires</span>
+<span class="sd">        an explicit ``order_by`` parameter to define the ordering for the</span>
+<span class="sd">        window function (``LAG`` or ``LEAD``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        order_by : str or sequence of str</span>
+<span class="sd">            Column name(s) to order the frame by before applying the shift.</span>
+<span class="sd">            Unlike pandas, this is required to ensure deterministic output.</span>
+<span class="sd">            All specified columns must be present in the base frame.</span>
+<span class="sd">        periods : int or sequence of int, default 1</span>
+<span class="sd">            Number of periods to shift. Currently, only ``1`` (shift down,</span>
+<span class="sd">            equivalent to SQL ``LAG``) and ``-1`` (shift up, equivalent to SQL ``LEAD``) are supported.</span>
+<span class="sd">            If a sequence is provided, it cannot contain duplicate values.</span>
+<span class="sd">        freq : None</span>
+<span class="sd">            Not supported. Must be ``None``.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Axis to shift along. Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        fill_value : None</span>
+<span class="sd">            Not supported. Must be ``None``. Missing values introduced by</span>
+<span class="sd">            the shift will always be null.</span>
+<span class="sd">        suffix : str, default None</span>
+<span class="sd">            If provided, renames the resulting shifted columns by appending</span>
+<span class="sd">            this string to the original column names. This argument can</span>
+<span class="sd">            only be used if ``periods`` is a sequence (not a single integer).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with the shifted columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``periods`` contains any values other than ``1`` or ``-1``.</span>
+<span class="sd">            If ``freq`` is not ``None``.</span>
+<span class="sd">            If ``axis`` is not ``0`` or ``&#39;index&#39;``.</span>
+<span class="sd">            If ``fill_value`` is not ``None``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If any column specified in ``order_by`` is not present in the frame.</span>
+<span class="sd">            If ``periods`` contains duplicate values.</span>
+<span class="sd">            If ``suffix`` is specified but ``periods`` is a single integer.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rank : Rank as ascending or descending.</span>
+<span class="sd">        PandasApiGroupbyTdsFrame.shift : Shift values within groups.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - The ``order_by`` parameter is **mandatory**. In pandas, ``shift``</span>
+<span class="sd">          relies on the implicit order of the dataframe&#39;s index. Here,</span>
+<span class="sd">          an explicit order must be provided.</span>
+<span class="sd">        - ``periods`` is strictly limited to ``1`` or ``-1``. Arbitrary</span>
+<span class="sd">          integer shifts are **not supported**.</span>
+<span class="sd">        - ``fill_value`` is **not supported** and must be ``None``.</span>
+<span class="sd">        - The ``freq`` parameter is **not supported** and must be ``None``.</span>
+<span class="sd">        - ``axis=1`` (shifting horizontally across columns) is **not</span>
+<span class="sd">          supported**.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Shift the entire frame down</span>
+<span class="sd">            frame.head(5).shift(</span>
+<span class="sd">                order_by=&quot;Order Date&quot;,</span>
+<span class="sd">                periods=1</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diff</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+            <span class="n">periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pct_change</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+            <span class="n">periods</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">freq</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>
