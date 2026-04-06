@@ -109,16 +109,16 @@
 <li class="toctree-l3"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas Groupby Series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries"><code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#agg">agg</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mean">mean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#min">min</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
 </ul>
 </li>
 </ul>
@@ -464,6 +464,21 @@ such as <code class="docutils literal notranslate"><span class="pre">sum()</span
 </div></section>
 </dd></dl>
 
+<section id="agg">
+<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.agg">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.agg" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a>.</p>
+<p>See <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a> for full documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="aggregate">
 <h2>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
@@ -666,55 +681,33 @@ GroupbySeries&#8217; column name.</p></li>
 </div></dd></dl>
 
 </section>
-<section id="agg">
-<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
+<section id="count">
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.agg">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.agg" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Alias for <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a>.</p>
-<p>See <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a> for full documentation.</p>
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.count">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.count" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the count of non-null values within each group.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A frame with grouping columns and the count per group.</p>
 </dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="sum">
-<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.sum">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.sum" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Compute the sum of values within each group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code>. Non-zero values are not supported.</p></li>
-<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A frame with grouping columns and the summed values.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;sum&quot;)</span></code>.</p>
-<p><strong>Differences from pandas:</strong> <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>, <code class="docutils literal notranslate"><span class="pre">engine</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code> are <strong>not supported</strong>. <code class="docutils literal notranslate"><span class="pre">min_count</span></code>
-must be <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;count&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">COUNT(column)</span></code>.</p>
+<p><strong>Differences from pandas:</strong> the signature takes no
+parameters (the pandas version accepts <code class="docutils literal notranslate"><span class="pre">normalize</span></code> and
+other keyword arguments which are not supported here).</p>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/26b230b3abb0d14ca6b5155995448a5e/GroupbySeries.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/1e44d2135379a36e156319d2334e127f/GroupbySeries.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </pre></div>
 </div>
 <div>
@@ -743,7 +736,97 @@ must be <code class="docutils literal notranslate"><span class="pre">0</span></c
     <tr>
       <th>0</th>
       <td>Alfred's Futterkiste</td>
-      <td>54192</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Antonio Moreno Taquer&#237;a</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Around the Horn</td>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="max">
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.max">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.max" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the maximum of values within each group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">-1</span></code>. Other values are not supported.</p></li>
+<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A frame with grouping columns and the maximum values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;max&quot;)</span></code>. Works on string
+columns as well (lexicographic maximum).</p>
+<p><strong>Differences from pandas:</strong> <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>, <code class="docutils literal notranslate"><span class="pre">engine</span></code>,
+<code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and non-default <code class="docutils literal notranslate"><span class="pre">min_count</span></code> are <strong>not
+supported</strong>.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/38a0e635ccdf7a8687e6501209d09ee7/GroupbySeries.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>11011</td>
     </tr>
     <tr>
       <th>1</th>
@@ -753,17 +836,17 @@ must be <code class="docutils literal notranslate"><span class="pre">0</span></c
     <tr>
       <th>2</th>
       <td>Ana Trujillo Emparedados y helados</td>
-      <td>42618</td>
+      <td>10926</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Antonio Moreno Taquer&#237;a</td>
-      <td>74195</td>
+      <td>10856</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Around the Horn</td>
-      <td>139254</td>
+      <td>11016</td>
     </tr>
   </tbody>
 </table>
@@ -942,360 +1025,6 @@ supported</strong>.</p>
       <th>4</th>
       <td>Around the Horn</td>
       <td>10355</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="max">
-<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.max">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.max" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Compute the maximum of values within each group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">-1</span></code>. Other values are not supported.</p></li>
-<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A frame with grouping columns and the maximum values.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;max&quot;)</span></code>. Works on string
-columns as well (lexicographic maximum).</p>
-<p><strong>Differences from pandas:</strong> <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>, <code class="docutils literal notranslate"><span class="pre">engine</span></code>,
-<code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and non-default <code class="docutils literal notranslate"><span class="pre">min_count</span></code> are <strong>not
-supported</strong>.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/38a0e635ccdf7a8687e6501209d09ee7/GroupbySeries.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Ship Name</th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alfred's Futterkiste</td>
-      <td>11011</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Alfreds Futterkiste</td>
-      <td>10643</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Ana Trujillo Emparedados y helados</td>
-      <td>10926</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Antonio Moreno Taquer&#237;a</td>
-      <td>10856</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Around the Horn</td>
-      <td>11016</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="std">
-<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.std">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.std" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Compute the sample standard deviation within each group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample standard deviation). Other values
-are not supported.</p></li>
-<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A frame with grouping columns and the standard deviation.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;std&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">STDDEV_SAMP()</span></code>.</p>
-<p><strong>Differences from pandas:</strong> only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> is supported.
-<code class="docutils literal notranslate"><span class="pre">engine</span></code>, <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> are <strong>not
-supported</strong>.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/83eed72c626d3bab642f1c2de73cd2e8/GroupbySeries.std.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Ship Name</th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alfred's Futterkiste</td>
-      <td>143.827327</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Alfreds Futterkiste</td>
-      <td>&lt;NA&gt;</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Ana Trujillo Emparedados y helados</td>
-      <td>261.766435</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Antonio Moreno Taquer&#237;a</td>
-      <td>156.531908</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Around the Horn</td>
-      <td>215.034046</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="var">
-<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.var">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.var" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Compute the sample variance within each group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample variance). Other values are not
-supported.</p></li>
-<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A frame with grouping columns and the variance.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;var&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">VAR_SAMP()</span></code>.</p>
-<p><strong>Differences from pandas:</strong> only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> is supported.
-<code class="docutils literal notranslate"><span class="pre">engine</span></code>, <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> are <strong>not
-supported</strong>.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/407c611a552053e888f40ec264e7b14a/GroupbySeries.var.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Ship Name</th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alfred's Futterkiste</td>
-      <td>20686.3</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Alfreds Futterkiste</td>
-      <td>&lt;NA&gt;</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Ana Trujillo Emparedados y helados</td>
-      <td>68521.666667</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Antonio Moreno Taquer&#237;a</td>
-      <td>24502.238095</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Around the Horn</td>
-      <td>46239.641026</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="count">
-<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.count">
-<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.count" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Compute the count of non-null values within each group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A frame with grouping columns and the count per group.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;count&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">COUNT(column)</span></code>.</p>
-<p><strong>Differences from pandas:</strong> the signature takes no
-parameters (the pandas version accepts <code class="docutils literal notranslate"><span class="pre">normalize</span></code> and
-other keyword arguments which are not supported here).</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/1e44d2135379a36e156319d2334e127f/GroupbySeries.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Ship Name</th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alfred's Futterkiste</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Alfreds Futterkiste</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Ana Trujillo Emparedados y helados</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Antonio Moreno Taquer&#237;a</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Around the Horn</td>
-      <td>13</td>
     </tr>
   </tbody>
 </table>
@@ -1592,6 +1321,277 @@ expression. To combine multiple, use separate assignments.</p></li>
       <td>1996-07-11</td>
       <td>Supr&#234;mes d&#233;lices</td>
       <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="std">
+<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.std">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.std" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the sample standard deviation within each group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample standard deviation). Other values
+are not supported.</p></li>
+<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A frame with grouping columns and the standard deviation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;std&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">STDDEV_SAMP()</span></code>.</p>
+<p><strong>Differences from pandas:</strong> only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> is supported.
+<code class="docutils literal notranslate"><span class="pre">engine</span></code>, <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> are <strong>not
+supported</strong>.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/83eed72c626d3bab642f1c2de73cd2e8/GroupbySeries.std.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>143.827327</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>261.766435</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Antonio Moreno Taquer&#237;a</td>
+      <td>156.531908</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Around the Horn</td>
+      <td>215.034046</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="sum">
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.sum">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.sum" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the sum of values within each group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code>. Non-zero values are not supported.</p></li>
+<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A frame with grouping columns and the summed values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;sum&quot;)</span></code>.</p>
+<p><strong>Differences from pandas:</strong> <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>, <code class="docutils literal notranslate"><span class="pre">engine</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code> are <strong>not supported</strong>. <code class="docutils literal notranslate"><span class="pre">min_count</span></code>
+must be <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/26b230b3abb0d14ca6b5155995448a5e/GroupbySeries.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>54192</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>42618</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Antonio Moreno Taquer&#237;a</td>
+      <td>74195</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Around the Horn</td>
+      <td>139254</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="var">
+<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.var">
+<span class="sig-prename descclassname"><span class="pre">GroupbySeries.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_groupby_series.html#GroupbySeries.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries.var" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the sample variance within each group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample variance). Other values are not
+supported.</p></li>
+<li><p><strong>engine</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>engine_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) &#8211; Not supported. Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A frame with grouping columns and the variance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">gseries.aggregate(&quot;var&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">VAR_SAMP()</span></code>.</p>
+<p><strong>Differences from pandas:</strong> only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> is supported.
+<code class="docutils literal notranslate"><span class="pre">engine</span></code>, <code class="docutils literal notranslate"><span class="pre">engine_kwargs</span></code>, and <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> are <strong>not
+supported</strong>.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/407c611a552053e888f40ec264e7b14a/GroupbySeries.var.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>20686.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>68521.666667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Antonio Moreno Taquer&#237;a</td>
+      <td>24502.238095</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Around the Horn</td>
+      <td>46239.641026</td>
     </tr>
   </tbody>
 </table>

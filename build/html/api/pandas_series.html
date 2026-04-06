@@ -108,16 +108,16 @@
 <li class="toctree-l3"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas Series</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#agg">agg</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mean">mean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#min">min</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
@@ -494,6 +494,21 @@ Instead, do <code class="docutils literal notranslate"><span class="pre">frame['
 </div></section>
 </dd></dl>
 
+<section id="agg">
+<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.agg">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.agg" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate" title="pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a>.</p>
+<p>See <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate" title="pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a> for full documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="aggregate">
 <h2>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
@@ -669,57 +684,38 @@ Series&#8217; column name &#8212; no other column names are valid.</p></li>
 </div></dd></dl>
 
 </section>
-<section id="agg">
-<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
+<section id="count">
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.agg">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.agg" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Alias for <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate" title="pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a>.</p>
-<p>See <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate" title="pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a> for full documentation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="sum">
-<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.sum">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.sum" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Return the sum of the Series values.</p>
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.count">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.count" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the count of non-null values in the Series.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
-<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported (SQL
-aggregation ignores nulls by default).</p></li>
 <li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code>. Non-zero values are not supported.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A single-row frame with the sum.</p>
+<dd class="field-even"><p>A single-row frame with the count.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;sum&quot;)</span></code>.</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;count&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">COUNT(column)</span></code>.</p>
 <p><strong>Differences from pandas:</strong> returns a single-row
-<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. <code class="docutils literal notranslate"><span class="pre">skipna=False</span></code>,
-<code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code>, and <code class="docutils literal notranslate"><span class="pre">min_count</span> <span class="pre">!=</span> <span class="pre">0</span></code> are <strong>not
-supported</strong>.</p>
+<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar integer.</p>
 <p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/ce217765fcba13747fc21d9ec2a0dbe3/Series.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/cb96b98316b7dfe979c48c9760c1ef4e/Series.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
 <span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </pre></div>
 </div>
 <div>
@@ -746,7 +742,73 @@ supported</strong>.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>8849875</td>
+      <td>830</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="max">
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.max">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.max" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the maximum of the Series values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
+<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-row frame with the maximum value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;max&quot;)</span></code>. Works on string
+columns as well (lexicographic maximum).</p>
+<p><strong>Differences from pandas:</strong> returns a single-row
+<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a4f0224d7de5eef89eb71220f7840fb3/Series.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11077</td>
     </tr>
   </tbody>
 </table>
@@ -879,275 +941,6 @@ columns as well (lexicographic minimum).</p>
     <tr>
       <th>0</th>
       <td>10248</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="max">
-<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.max">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.max" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Return the maximum of the Series values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
-<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A single-row frame with the maximum value.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;max&quot;)</span></code>. Works on string
-columns as well (lexicographic maximum).</p>
-<p><strong>Differences from pandas:</strong> returns a single-row
-<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/a4f0224d7de5eef89eb71220f7840fb3/Series.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>11077</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="std">
-<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.std">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.std" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Return the sample standard deviation of the Series values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
-<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
-<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample standard deviation). Other values
-are not supported.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A single-row frame with the standard deviation.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;std&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">STDDEV_SAMP()</span></code>.</p>
-<p><strong>Differences from pandas:</strong> returns a single-row
-<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. Only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>
-is supported.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/fb95798924f6bc75fa55d928badc0725/Series.std.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>239.744656</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="var">
-<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.var">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.var" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Return the sample variance of the Series values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
-<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
-<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample variance). Other values are not
-supported.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A single-row frame with the variance.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;var&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">VAR_SAMP()</span></code>.</p>
-<p><strong>Differences from pandas:</strong> returns a single-row
-<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. Only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>
-is supported.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/d691b7bbd9e98ac779e5684d397bbde2/Series.var.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>57477.5</td>
-    </tr>
-  </tbody>
-</table>
-</div></dd></dl>
-
-</section>
-<section id="count">
-<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.count">
-<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.count" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Return the count of non-null values in the Series.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
-<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A single-row frame with the count.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;count&quot;)</span></code>. Maps to SQL
-<code class="docutils literal notranslate"><span class="pre">COUNT(column)</span></code>.</p>
-<p><strong>Differences from pandas:</strong> returns a single-row
-<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar integer.</p>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/cb96b98316b7dfe979c48c9760c1ef4e/Series.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>830</td>
     </tr>
   </tbody>
 </table>
@@ -1357,6 +1150,213 @@ expression. To combine multiple, use separate assignments.</p></li>
       <td>1996-07-11</td>
       <td>Supr&#234;mes d&#233;lices</td>
       <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="std">
+<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.std">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.std" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the sample standard deviation of the Series values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
+<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample standard deviation). Other values
+are not supported.</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-row frame with the standard deviation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;std&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">STDDEV_SAMP()</span></code>.</p>
+<p><strong>Differences from pandas:</strong> returns a single-row
+<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. Only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>
+is supported.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/fb95798924f6bc75fa55d928badc0725/Series.std.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>239.744656</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="sum">
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.sum">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.sum" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the sum of the Series values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
+<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported (SQL
+aggregation ignores nulls by default).</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code>. Non-zero values are not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-row frame with the sum.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;sum&quot;)</span></code>.</p>
+<p><strong>Differences from pandas:</strong> returns a single-row
+<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. <code class="docutils literal notranslate"><span class="pre">skipna=False</span></code>,
+<code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code>, and <code class="docutils literal notranslate"><span class="pre">min_count</span> <span class="pre">!=</span> <span class="pre">0</span></code> are <strong>not
+supported</strong>.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/ce217765fcba13747fc21d9ec2a0dbe3/Series.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8849875</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="var">
+<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.var">
+<span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.var" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the sample variance of the Series values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</p></li>
+<li><p><strong>skipna</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">True</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> is not supported.</p></li>
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">1</span></code> (sample variance). Other values are not
+supported.</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-row frame with the variance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent to <code class="docutils literal notranslate"><span class="pre">series.aggregate(&quot;var&quot;)</span></code>. Maps to SQL
+<code class="docutils literal notranslate"><span class="pre">VAR_SAMP()</span></code>.</p>
+<p><strong>Differences from pandas:</strong> returns a single-row
+<code class="docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code> instead of a scalar. Only <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>
+is supported.</p>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/d691b7bbd9e98ac779e5684d397bbde2/Series.var.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>57477.5</td>
     </tr>
   </tbody>
 </table>
