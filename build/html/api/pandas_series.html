@@ -103,11 +103,11 @@
 <h3>Table of Contents</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html">LegendQL TDS Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pandas Series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aggregation-methods">Aggregation Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#pandas-api">Pandas API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas Series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_series.Series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#agg">agg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
@@ -117,16 +117,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#window-functions">Window Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rank">rank</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
 </ul>
 </li>
 </ul>
@@ -497,27 +494,8 @@ Instead, do <code class="docutils literal notranslate"><span class="pre">frame['
 </div></section>
 </dd></dl>
 
-<section id="aggregation-methods">
-<h2>Aggregation Methods<a class="headerlink" href="#aggregation-methods" title="Link to this heading">&#61633;</a></h2>
-<p>All Series aggregation methods return a <strong>single-row</strong>
-<code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code>
-(not a scalar, unlike pandas). Use <code class="docutils literal notranslate"><span class="pre">.to_pandas()</span></code> on the result to
-obtain a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the aggregated value.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Aggregation on a <strong>computed</strong> Series expression is not supported.
-Assign the expression to the frame first, then aggregate:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOT supported</span>
-<span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-<span class="c1"># Supported</span>
-<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;new_col&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span>
-<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;new_col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <section id="aggregate">
-<h3>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h3>
+<h2>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.aggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.aggregate" title="Link to this definition">&#61633;</a></dt>
@@ -692,7 +670,7 @@ Series&#8217; column name &#8212; no other column names are valid.</p></li>
 
 </section>
 <section id="agg">
-<h3>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h3>
+<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.agg">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.agg" title="Link to this definition">&#61633;</a></dt>
@@ -707,7 +685,7 @@ Series&#8217; column name &#8212; no other column names are valid.</p></li>
 
 </section>
 <section id="sum">
-<h3>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h3>
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.sum">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.sum" title="Link to this definition">&#61633;</a></dt>
@@ -776,7 +754,7 @@ supported</strong>.</p>
 
 </section>
 <section id="mean">
-<h3>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h3>
+<h2>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.mean">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.mean" title="Link to this definition">&#61633;</a></dt>
@@ -842,7 +820,7 @@ supported</strong>.</p>
 
 </section>
 <section id="min">
-<h3>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h3>
+<h2>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.min">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.min" title="Link to this definition">&#61633;</a></dt>
@@ -908,7 +886,7 @@ columns as well (lexicographic minimum).</p>
 
 </section>
 <section id="max">
-<h3>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h3>
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.max">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.max" title="Link to this definition">&#61633;</a></dt>
@@ -974,7 +952,7 @@ columns as well (lexicographic maximum).</p>
 
 </section>
 <section id="std">
-<h3>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h3>
+<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.std">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.std" title="Link to this definition">&#61633;</a></dt>
@@ -1043,7 +1021,7 @@ is supported.</p>
 
 </section>
 <section id="var">
-<h3>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h3>
+<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.var">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.var" title="Link to this definition">&#61633;</a></dt>
@@ -1112,7 +1090,7 @@ is supported.</p>
 
 </section>
 <section id="count">
-<h3>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h3>
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.count">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.count" title="Link to this definition">&#61633;</a></dt>
@@ -1176,11 +1154,8 @@ is supported.</p>
 </div></dd></dl>
 
 </section>
-</section>
-<section id="window-functions">
-<h2>Window Functions<a class="headerlink" href="#window-functions" title="Link to this heading">&#61633;</a></h2>
 <section id="rank">
-<h3>rank<a class="headerlink" href="#rank" title="Link to this heading">&#61633;</a></h3>
+<h2>rank<a class="headerlink" href="#rank" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_series.Series.rank">
 <span class="sig-prename descclassname"><span class="pre">Series.</span></span><span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">na_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bottom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_series.html#Series.rank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_series.Series.rank" title="Link to this definition">&#61633;</a></dt>
@@ -1387,7 +1362,6 @@ expression. To combine multiple, use separate assignments.</p></li>
 </table>
 </div></dd></dl>
 
-</section>
 </section>
 </section>
 

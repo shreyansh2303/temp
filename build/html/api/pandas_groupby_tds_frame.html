@@ -103,11 +103,11 @@
 <h3>Table of Contents</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="legendql_tds_frame.html">LegendQL TDS Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_series.html">Pandas Series</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pandas Groupby TDS Frame</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#aggregation-methods">Aggregation Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#pandas-api">Pandas API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_series.html">Pandas Series</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas Groupby TDS Frame</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#agg">agg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
@@ -117,16 +117,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#window-functions">Window Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rank">rank</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#shift">shift</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
 </ul>
 </li>
 </ul>
@@ -156,10 +153,8 @@
 <a class="reference internal" href="pandas_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.groupby" title="pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.groupby"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PandasApiTdsFrame.groupby</span></code></a>
 and provides methods for applying aggregation and window operations within each group.
 The groupby columns also serve as the <code class="docutils literal notranslate"><span class="pre">PARTITION</span> <span class="pre">BY</span></code> clause for OLAP window functions such as <code class="docutils literal notranslate"><span class="pre">rank</span></code>.</p>
-<section id="aggregation-methods">
-<h2>Aggregation Methods<a class="headerlink" href="#aggregation-methods" title="Link to this heading">&#61633;</a></h2>
 <section id="aggregate">
-<h3>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h3>
+<h2>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.aggregate">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.aggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.aggregate" title="Link to this definition">&#61633;</a></dt>
@@ -419,7 +414,7 @@ aggregation function.</p></li>
 
 </section>
 <section id="agg">
-<h3>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h3>
+<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.agg">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.agg" title="Link to this definition">&#61633;</a></dt>
@@ -442,7 +437,7 @@ documentation.</p>
 
 </section>
 <section id="sum">
-<h3>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h3>
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.sum">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.sum" title="Link to this definition">&#61633;</a></dt>
@@ -547,7 +542,7 @@ groupby convenience methods follow the pandas
 
 </section>
 <section id="mean">
-<h3>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h3>
+<h2>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.mean">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.mean" title="Link to this definition">&#61633;</a></dt>
@@ -644,7 +639,7 @@ groupby object.</p>
 
 </section>
 <section id="min">
-<h3>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h3>
+<h2>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.min">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.min" title="Link to this definition">&#61633;</a></dt>
@@ -752,7 +747,7 @@ being absent.</p></li>
 
 </section>
 <section id="max">
-<h3>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h3>
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.max">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.max" title="Link to this definition">&#61633;</a></dt>
@@ -853,7 +848,7 @@ lexicographically largest value per group.</p>
 
 </section>
 <section id="std">
-<h3>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h3>
+<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.std">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.std" title="Link to this definition">&#61633;</a></dt>
@@ -956,7 +951,7 @@ deviation (<code class="docutils literal notranslate"><span class="pre">ddof=0</
 
 </section>
 <section id="var">
-<h3>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h3>
+<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.var">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.var" title="Link to this definition">&#61633;</a></dt>
@@ -1059,7 +1054,7 @@ to <code class="docutils literal notranslate"><span class="pre">VAR_SAMP</span><
 
 </section>
 <section id="count">
-<h3>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h3>
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.count">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.count" title="Link to this definition">&#61633;</a></dt>
@@ -1155,11 +1150,8 @@ for each group.</p>
 </div></dd></dl>
 
 </section>
-</section>
-<section id="window-functions">
-<h2>Window Functions<a class="headerlink" href="#window-functions" title="Link to this heading">&#61633;</a></h2>
 <section id="rank">
-<h3>rank<a class="headerlink" href="#rank" title="Link to this heading">&#61633;</a></h3>
+<h2>rank<a class="headerlink" href="#rank" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.rank">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">na_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bottom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.rank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.rank" title="Link to this definition">&#61633;</a></dt>
@@ -1425,7 +1417,7 @@ signature (it is always <code class="docutils literal notranslate"><span class="
 
 </section>
 <section id="shift">
-<h3>shift<a class="headerlink" href="#shift" title="Link to this heading">&#61633;</a></h3>
+<h2>shift<a class="headerlink" href="#shift" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.shift">
 <span class="sig-prename descclassname"><span class="pre">PandasApiGroupbyTdsFrame.</span></span><span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_by</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_groupby_tds_frame.html#PandasApiGroupbyTdsFrame.shift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.shift" title="Link to this definition">&#61633;</a></dt>
@@ -1547,7 +1539,6 @@ supported</strong>.</p></li>
 </table>
 </div></dd></dl>
 
-</section>
 </section>
 </section>
 

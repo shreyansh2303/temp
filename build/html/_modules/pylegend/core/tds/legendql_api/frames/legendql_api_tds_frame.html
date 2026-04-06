@@ -801,6 +801,7 @@
 <span class="sd">            - ``&#39;INNER&#39;`` : Only matching rows from both frames.</span>
 <span class="sd">            - ``&#39;LEFT_OUTER&#39;`` : All rows from left, matching from right.</span>
 <span class="sd">            - ``&#39;RIGHT_OUTER&#39;`` : All rows from right, matching from left.</span>
+<span class="sd">            - ``&#39;FULL&#39;`` : All rows from both frames.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -812,6 +813,7 @@
 <span class="sd">        inner_join : Convenience method for inner join.</span>
 <span class="sd">        left_join : Convenience method for left outer join.</span>
 <span class="sd">        right_join : Convenience method for right outer join.</span>
+<span class="sd">        full_join : Convenience method for full outer join.</span>
 <span class="sd">        as_of_join : Join based on temporal proximity.</span>
 <span class="sd">        concatenate : Combine frames vertically.</span>
 
@@ -1013,6 +1015,63 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
 
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">full_join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">,</span>
+            <span class="n">join_condition</span><span class="p">:</span> <span class="n">PyLegendCallable</span><span class="p">[</span>
+                <span class="p">[</span><span class="n">LegendQLApiTdsRow</span><span class="p">,</span> <span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform a full outer join with another TDS frame.</span>
+
+<span class="sd">        Return all rows from both frames, with matching rows joined together.</span>
+<span class="sd">        Non-matching rows will have null values for the columns from the</span>
+<span class="sd">        other frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : LegendQLApiTdsFrame</span>
+<span class="sd">            The right TDS frame to join with.</span>
+<span class="sd">        join_condition : callable</span>
+<span class="sd">            A function that takes two TDS rows (left, right) and returns</span>
+<span class="sd">            a boolean indicating whether the rows should be joined.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new TDS frame with all rows from both frames.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join : General join method with configurable join type.</span>
+<span class="sd">        inner_join : Inner join.</span>
+<span class="sd">        left_join : Left outer join.</span>
+<span class="sd">        right_join : Right outer join.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            orders = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Full join example</span>
+<span class="sd">            # Rename duplicate columns to avoid conflicts</span>
+<span class="sd">            cols = [&quot;Order Id&quot;, &quot;Ship Name&quot;]</span>
+<span class="sd">            renames = [(&quot;Order Id&quot;, &quot;Right Order Id&quot;), (&quot;Ship Name&quot;, &quot;Filtered Ship Name&quot;)]</span>
+<span class="sd">            filtered_info = orders.filter(</span>
+<span class="sd">                lambda r: r[&quot;Order Id&quot;] &gt; 10300</span>
+<span class="sd">            ).select(cols).rename(renames).head(10)</span>
+<span class="sd">            orders.head(5).full_join(</span>
+<span class="sd">                filtered_info,</span>
+<span class="sd">                lambda l, r: l[&quot;Order Id&quot;] == r[&quot;Right Order Id&quot;]</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">as_of_join</span><span class="p">(</span>
@@ -1558,6 +1617,86 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
 
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">aggregate_specifications</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+                <span class="n">PyLegendTuple</span><span class="p">[</span>
+                    <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                    <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                <span class="p">],</span>
+                <span class="n">PyLegendList</span><span class="p">[</span>
+                    <span class="n">PyLegendTuple</span><span class="p">[</span>
+                        <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">LegendQLApiTdsRow</span><span class="p">],</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">],</span>
+                        <span class="n">PyLegendCallable</span><span class="p">[[</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">],</span> <span class="n">PyLegendPrimitive</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LegendQLApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Aggregate the entire TDS frame without grouping.</span>
+
+<span class="sd">        Apply aggregate functions across all rows of the frame, producing</span>
+<span class="sd">        a single-row result. Unlike :meth:`group_by`, this does not partition</span>
+<span class="sd">        the data into groups.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        aggregate_specifications : tuple or list of tuples</span>
+<span class="sd">            Aggregation specification as tuple(s) of:</span>
+<span class="sd">            ``(result_column_name, column_selector, aggregate_function)``</span>
+
+<span class="sd">            - ``result_column_name`` : Name of the output column.</span>
+<span class="sd">            - ``column_selector`` : A lambda that takes a TDS row and returns</span>
+<span class="sd">              the column (or expression) to aggregate.</span>
+<span class="sd">            - ``aggregate_function`` : A lambda that takes a collection and</span>
+<span class="sd">              returns an aggregate result (e.g., ``lambda c: c.count()``).</span>
+
+<span class="sd">            Common aggregate functions:</span>
+
+<span class="sd">            - ``count()`` : Count of values.</span>
+<span class="sd">            - ``sum()`` : Sum of values.</span>
+<span class="sd">            - ``average()`` : Average of values.</span>
+<span class="sd">            - ``min()`` : Minimum value.</span>
+<span class="sd">            - ``max()`` : Maximum value.</span>
+<span class="sd">            - ``distinct_count()`` : Count of distinct values.</span>
+<span class="sd">            - ``std_dev_sample()`` : Sample standard deviation.</span>
+<span class="sd">            - ``variance_sample()`` : Sample variance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LegendQLApiTdsFrame</span>
+<span class="sd">            A new single-row TDS frame with the aggregated values.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        group_by : Group rows and aggregate per group.</span>
+<span class="sd">        extend : Add computed columns.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.legendql_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Single aggregation</span>
+<span class="sd">            frame.aggregate(</span>
+<span class="sd">                (&quot;Total Orders&quot;, lambda r: r[&quot;Order Id&quot;], lambda c: c.count())</span>
+<span class="sd">            ).to_pandas()</span>
+
+<span class="sd">            # Multiple aggregations</span>
+<span class="sd">            frame.aggregate([</span>
+<span class="sd">                (&quot;Total Orders&quot;, lambda r: r[&quot;Order Id&quot;], lambda c: c.count()),</span>
+<span class="sd">                (&quot;Min Order Id&quot;, lambda r: r[&quot;Order Id&quot;], lambda c: c.min()),</span>
+<span class="sd">                (&quot;Max Order Id&quot;, lambda r: r[&quot;Order Id&quot;], lambda c: c.max())</span>
+<span class="sd">            ]).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span>
 </pre></div>
 
       </div>
