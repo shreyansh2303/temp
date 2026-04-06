@@ -113,8 +113,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#drop">drop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dropna">dropna</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filter">filter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#fillna">fillna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">filter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#groupby">groupby</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#head">head</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#iloc">iloc</a></li>
@@ -1531,6 +1531,159 @@ no-op (all rows are kept). With <code class="docutils literal notranslate"><span
 </div></dd></dl>
 
 </section>
+<section id="fillna">
+<h2>fillna<a class="headerlink" href="#fillna" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.fillna">
+<span class="sig-prename descclassname"><span class="pre">PandasApiTdsFrame.</span></span><span class="sig-name descname"><span class="pre">fillna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_tds_frame.html#PandasApiTdsFrame.fillna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.fillna" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Fill missing values with a specified value.</p>
+<p>Replace NA / null entries in the TDS frame. A scalar <code class="docutils literal notranslate"><span class="pre">value</span></code>
+is applied to every column; a dict maps specific columns to
+their fill values (columns not present in the dict are left
+unchanged). Implemented via <code class="docutils literal notranslate"><span class="pre">COALESCE</span></code> at the SQL level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>]]]</span>) &#8211; Value(s) to replace nulls with. Accepted scalar types are
+<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">datetime</span></code>. When a dict is provided, keys must be column
+name strings and values must be scalars of the above types.
+Columns in the dict that do not exist in the frame are
+silently ignored. Omitting <code class="docutils literal notranslate"><span class="pre">value</span></code> entirely raises
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span>) &#8211; Only <code class="docutils literal notranslate"><span class="pre">0</span></code> / <code class="docutils literal notranslate"><span class="pre">'index'</span></code> is supported. <code class="docutils literal notranslate"><span class="pre">1</span></code> /
+<code class="docutils literal notranslate"><span class="pre">'columns'</span></code> raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>inplace</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) &#8211; <strong>Not supported.</strong> Passing any value raises
+<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new TDS frame with null values replaced.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not provided.
+    If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is not a recognised value.</p></li>
+<li><p><strong>TypeError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not a scalar or dict.
+    If dict keys are not strings or dict values are not
+    scalars.</p></li>
+<li><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>, <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>, or <code class="docutils literal notranslate"><span class="pre">limit</span></code> is set.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.dropna" title="pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.dropna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dropna</span></code></a></dt><dd><p>Remove rows with missing values.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter (<code class="docutils literal notranslate"><span class="pre">'ffill'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bfill'</span></code>) available
+in older pandas versions is <strong>not present</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> is <strong>not supported</strong>; a new frame is always
+returned.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code> (maximum number of consecutive nulls to fill) is
+<strong>not supported</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code> (fill along columns) is <strong>not supported</strong>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/3228bd0debcb88552c9633aed51ca3a8/PandasApiTdsFrame.fillna.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># check initial count of all the non-null values</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11045</td>
+      <td>1998-04-23</td>
+      <td>1998-05-21</td>
+      <td>NaT</td>
+      <td>Bottom-Dollar Markets</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11051</td>
+      <td>1998-04-27</td>
+      <td>1998-05-25</td>
+      <td>NaT</td>
+      <td>La maison d'Asie</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11054</td>
+      <td>1998-04-28</td>
+      <td>1998-05-26</td>
+      <td>NaT</td>
+      <td>Cactus Comidas para llevar</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11058</td>
+      <td>1998-04-29</td>
+      <td>1998-05-27</td>
+      <td>NaT</td>
+      <td>Blauer See Delikatessen</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11040</td>
+      <td>1998-04-22</td>
+      <td>1998-05-20</td>
+      <td>NaT</td>
+      <td>Great Lakes Food Market</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill all null values of the &quot;Shipped Date&quot; column with a fixed date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span>
+    <span class="s2">&quot;Shipped Date&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
 <section id="filter">
 <h2>filter<a class="headerlink" href="#filter" title="Link to this heading">&#61633;</a></h2>
 <dl class="py method">
@@ -1774,159 +1927,6 @@ columns match.</p></li>
   </tbody>
 </table>
 </div></dd></dl>
-
-</section>
-<section id="fillna">
-<h2>fillna<a class="headerlink" href="#fillna" title="Link to this heading">&#61633;</a></h2>
-<dl class="py method">
-<dt class="sig sig-object py" id="pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.fillna">
-<span class="sig-prename descclassname"><span class="pre">PandasApiTdsFrame.</span></span><span class="sig-name descname"><span class="pre">fillna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/tds/pandas_api/frames/pandas_api_tds_frame.html#PandasApiTdsFrame.fillna"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.fillna" title="Link to this definition">&#61633;</a></dt>
-<dd><p>Fill missing values with a specified value.</p>
-<p>Replace NA / null entries in the TDS frame. A scalar <code class="docutils literal notranslate"><span class="pre">value</span></code>
-is applied to every column; a dict maps specific columns to
-their fill values (columns not present in the dict are left
-unchanged). Implemented via <code class="docutils literal notranslate"><span class="pre">COALESCE</span></code> at the SQL level.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>]]]</span>) &#8211; Value(s) to replace nulls with. Accepted scalar types are
-<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">datetime</span></code>. When a dict is provided, keys must be column
-name strings and values must be scalars of the above types.
-Columns in the dict that do not exist in the frame are
-silently ignored. Omitting <code class="docutils literal notranslate"><span class="pre">value</span></code> entirely raises
-<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
-<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span>) &#8211; Only <code class="docutils literal notranslate"><span class="pre">0</span></code> / <code class="docutils literal notranslate"><span class="pre">'index'</span></code> is supported. <code class="docutils literal notranslate"><span class="pre">1</span></code> /
-<code class="docutils literal notranslate"><span class="pre">'columns'</span></code> raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
-<li><p><strong>inplace</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
-<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) &#8211; <strong>Not supported.</strong> Passing any value raises
-<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A new TDS frame with null values replaced.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsFrame</span></code></span></p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not provided.
-    If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is not a recognised value.</p></li>
-<li><p><strong>TypeError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not a scalar or dict.
-    If dict keys are not strings or dict values are not
-    scalars.</p></li>
-<li><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>, <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>, or <code class="docutils literal notranslate"><span class="pre">limit</span></code> is set.</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="#pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.dropna" title="pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame.PandasApiTdsFrame.dropna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dropna</span></code></a></dt><dd><p>Remove rows with missing values.</p>
-</dd>
-</dl>
-</div>
-<p class="rubric">Notes</p>
-<p><strong>Differences from pandas:</strong></p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter (<code class="docutils literal notranslate"><span class="pre">'ffill'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bfill'</span></code>) available
-in older pandas versions is <strong>not present</strong>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> is <strong>not supported</strong>; a new frame is always
-returned.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code> (maximum number of consecutive nulls to fill) is
-<strong>not supported</strong>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code> (fill along columns) is <strong>not supported</strong>.</p></li>
-</ul>
-<p class="rubric">Examples</p>
-<p><a class="reference download internal" download="" href="../_downloads/3228bd0debcb88552c9633aed51ca3a8/PandasApiTdsFrame.fillna.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">)</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># check initial count of all the non-null values</span>
-<span class="n">frame</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Order Id</th>
-      <th>Order Date</th>
-      <th>Required Date</th>
-      <th>Shipped Date</th>
-      <th>Ship Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>11045</td>
-      <td>1998-04-23</td>
-      <td>1998-05-21</td>
-      <td>NaT</td>
-      <td>Bottom-Dollar Markets</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>11051</td>
-      <td>1998-04-27</td>
-      <td>1998-05-25</td>
-      <td>NaT</td>
-      <td>La maison d'Asie</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>11054</td>
-      <td>1998-04-28</td>
-      <td>1998-05-26</td>
-      <td>NaT</td>
-      <td>Cactus Comidas para llevar</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>11058</td>
-      <td>1998-04-29</td>
-      <td>1998-05-27</td>
-      <td>NaT</td>
-      <td>Blauer See Delikatessen</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>11040</td>
-      <td>1998-04-22</td>
-      <td>1998-05-20</td>
-      <td>NaT</td>
-      <td>Great Lakes Food Market</td>
-    </tr>
-  </tbody>
-</table>
-</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill all null values of the &quot;Shipped Date&quot; column with a fixed date</span>
-<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span>
-    <span class="s2">&quot;Shipped Date&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">})</span>
-<span class="n">frame</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
 
 </section>
 <section id="groupby">
