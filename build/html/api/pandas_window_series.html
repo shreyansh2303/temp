@@ -1,0 +1,1920 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pandas Window Series &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Pandas Window TDS Frame" href="pandas_window_tds_frame.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueapi/pandas_window_series.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#core-language">Core Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#pandas-api">Pandas API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pandas_tds_frame.html">Pandas TDS Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_series.html">Pandas Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_groupby_series.html">Pandas Groupby Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas_window_tds_frame.html">Pandas Window TDS Frame</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pandas Window Series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agg">agg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first">first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#last">last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shift">shift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std">std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-extend-legend-ext">window_extend_legend_ext</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="module-pylegend.core.language.pandas_api.pandas_api_window_series">
+<span id="pandas-window-series"></span><h1>Pandas Window Series<a class="headerlink" href="#module-pylegend.core.language.pandas_api.pandas_api_window_series" title="Link to this heading">&#61633;</a></h1>
+<p>A single-column proxy on a window frame.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">WindowSeries</span></code> is obtained by bracket-indexing a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame</span></code>
+with a column name.  It can also be obtained by calling
+<code class="docutils literal notranslate"><span class="pre">expanding()</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling()</span></code>, or <code class="docutils literal notranslate"><span class="pre">window_frame_legend_ext()</span></code>
+directly on a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>
+or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>.</p>
+<p>Calling an aggregation method (<code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, etc.) on a
+<code class="docutils literal notranslate"><span class="pre">WindowSeries</span></code> returns a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>
+(or a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>
+when the underlying window was created from a groupby).  Positional
+window functions (<code class="docutils literal notranslate"><span class="pre">first()</span></code>, <code class="docutils literal notranslate"><span class="pre">last()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift()</span></code>) and the
+general-purpose <code class="docutils literal notranslate"><span class="pre">window_extend_legend_ext()</span></code> are also available.
+The result can then be assigned back to the parent frame.</p>
+<p><strong>Obtaining a WindowSeries</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Via bracket notation on a window frame</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">)[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span>
+
+<span class="c1"># Via Series shortcut</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">)</span>
+
+<span class="c1"># Grouped variant (returns GroupbySeries after aggregation)</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;grp&quot;</span><span class="p">)[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;val&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Result type preservation</strong></p>
+<p>The type of the returned <code class="docutils literal notranslate"><span class="pre">Series</span></code> (or <code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code>) matches
+the column type.  For example, an integer column produces an
+<code class="docutils literal notranslate"><span class="pre">IntegerSeries</span></code> after <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>, while <code class="docutils literal notranslate"><span class="pre">count()</span></code> always
+returns an <code class="docutils literal notranslate"><span class="pre">IntegerSeries</span></code> regardless of the source column type.</p>
+<p><strong>Composing with arithmetic</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Series</span></code> returned by a <code class="docutils literal notranslate"><span class="pre">WindowSeries</span></code> aggregation supports
+arithmetic, so expressions like the following work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;shifted&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="mi">100</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ratio&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Multiple window assignments can be applied sequentially to the
+same frame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;cumsum&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;roll_mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;col2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;col2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame</span></code></dt><dd><p>The window frame that produces this.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series</span></code></dt><dd><p>Non-grouped single-column proxy.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">GroupbySeries</span></code></dt><dd><p>Grouped single-column proxy.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.expanding</span></code></dt><dd><p>Create an expanding window on a frame.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.rolling</span></code></dt><dd><p>Create a rolling window on a frame.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">WindowSeries</span></code> is <strong>not</strong> a data container.  It is an
+expression builder that lazily constructs the SQL / Pure query.
+No data is materialised until the result is executed.</p></li>
+<li><p>In pandas, <code class="docutils literal notranslate"><span class="pre">Expanding['col']</span></code> and <code class="docutils literal notranslate"><span class="pre">Rolling['col']</span></code> have
+built-in convenience methods that return a <code class="docutils literal notranslate"><span class="pre">Series</span></code>.  Here,
+the same convenience methods are available (<code class="docutils literal notranslate"><span class="pre">sum()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">count()</span></code>, <code class="docutils literal notranslate"><span class="pre">std()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">var()</span></code>), plus positional window methods (<code class="docutils literal notranslate"><span class="pre">first()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">last()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift()</span></code>), and a general <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code> /
+<code class="docutils literal notranslate"><span class="pre">agg()</span></code> method.  <code class="docutils literal notranslate"><span class="pre">window_extend_legend_ext()</span></code> is available
+for fully custom window expressions.</p></li>
+<li><p>Extra <code class="docutils literal notranslate"><span class="pre">*args</span></code> / <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> on <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code> are <strong>not
+supported</strong>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> parameter on convenience methods is <strong>not
+supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></p>
+<section id="agg">
+<h2>agg<a class="headerlink" href="#agg" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.agg">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">agg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.agg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.agg" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Apply a window aggregate to this single column.</p>
+<p>Alias for <a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregate()</span></code></a>.  See <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> for full
+documentation.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>Equivalent method (canonical name).</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="aggregate">
+<h2>aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.aggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Apply a window aggregate to this single column.</p>
+<p>Compute the window aggregate specified by <code class="docutils literal notranslate"><span class="pre">func</span></code> over the
+window defined on this <code class="docutils literal notranslate"><span class="pre">WindowSeries</span></code>.  The result is a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>
+(or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>
+when the underlying window was created from a groupby) that
+can be assigned back to a frame column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Hashable</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ufunc</span></code>]]]]]</span>) &#8211; <p>Aggregation specification:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> &#8212; a named aggregation (<code class="docutils literal notranslate"><span class="pre">'sum'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'min'</span></code>, <code class="docutils literal notranslate"><span class="pre">'max'</span></code>, <code class="docutils literal notranslate"><span class="pre">'count'</span></code>, <code class="docutils literal notranslate"><span class="pre">'std'</span></code>, <code class="docutils literal notranslate"><span class="pre">'var'</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callable</span></code> &#8212; a function receiving a column proxy and
+returning an aggregated value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> &#8212; a list of the above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> &#8212; <code class="docutils literal notranslate"><span class="pre">{column_name:</span> <span class="pre">agg_spec}</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; Only <code class="docutils literal notranslate"><span class="pre">0</span></code> / <code class="docutils literal notranslate"><span class="pre">'index'</span></code> is supported.</p></li>
+<li><p><strong>*args</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; Not supported.</p></li>
+<li><p><strong>**kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; Not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed aggregate
+values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.agg" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.agg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">agg</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">aggregate</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a></dt><dd><p>Windowed sum convenience method.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a></dt><dd><p>Windowed mean convenience method.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame.aggregate</span></code></dt><dd><p>Window aggregate on all columns.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>In pandas, <code class="docutils literal notranslate"><span class="pre">Expanding['col'].aggregate()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Rolling['col'].aggregate()</span></code> accept <code class="docutils literal notranslate"><span class="pre">*args</span></code> and
+<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> forwarded to the aggregation function.  Here,
+extra positional and keyword arguments are <strong>not supported</strong>.</p></li>
+<li><p>The result is always a single-column proxy (<code class="docutils literal notranslate"><span class="pre">Series</span></code> or
+<code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code>), never a DataFrame.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/d8b7109be2e655ac4b92a156ca15301e/WindowSeries.aggregate.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expanding sum on a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Expanding Sum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Expanding Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>20497</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>30747</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>40998</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>51250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="count">
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.count">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.count" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed count of non-null values for this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('count')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A single-column proxy containing the windowed count values.
+The return type is always <code class="docutils literal notranslate"><span class="pre">IntegerSeries</span></code> (or its
+<code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code> equivalent), regardless of the source
+column&#8217;s type.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a></dt><dd><p>Windowed sum.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.count</span></code></dt><dd><p>Frame-level count (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>The signature takes no parameters.  The pandas
+<code class="docutils literal notranslate"><span class="pre">Expanding.count()</span></code> / <code class="docutils literal notranslate"><span class="pre">Rolling.count()</span></code> accept
+<code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> which is not supported here.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/e6dde53f9cbcb47a0850804fa12dd133/WindowSeries.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expanding count on a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Expanding Count&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="first">
+<h2>first<a class="headerlink" href="#first" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.first"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the first value in the window for this column.</p>
+<p>Generates <code class="docutils literal notranslate"><span class="pre">first_value(col)</span> <span class="pre">OVER</span> <span class="pre">(...)</span></code> in SQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A single-column proxy containing the first value within
+the window for every row.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last</span></code></a></dt><dd><p>Last value in the window.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame.first</span></code></dt><dd><p>All-column version.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code></a></dt><dd><p>Lag/lead by N rows.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">first()</span></code> is a <strong>pylegend extension</strong>.  There is no
+<code class="docutils literal notranslate"><span class="pre">Expanding['col'].first()</span></code> or <code class="docutils literal notranslate"><span class="pre">Rolling['col'].first()</span></code>
+in pandas.</p></li>
+<li><p>Internally delegates to <code class="docutils literal notranslate"><span class="pre">window_extend_legend_ext</span></code> with
+<code class="docutils literal notranslate"><span class="pre">value_func</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.first(w,</span> <span class="pre">r)[&quot;col&quot;]</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/ebc47f85edaa4405d1822465784663b3/WindowSeries.first.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;First Order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">window_frame_legend_ext</span><span class="p">(</span>
+    <span class="n">frame_spec</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">rows_between</span><span class="p">(),</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span><span class="p">,</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>First Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10248</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="last">
+<h2>last<a class="headerlink" href="#last" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.last"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the last value in the window for this column.</p>
+<p>Generates <code class="docutils literal notranslate"><span class="pre">last_value(col)</span> <span class="pre">OVER</span> <span class="pre">(...)</span></code> in SQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A single-column proxy containing the last value within
+the window for every row.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first</span></code></a></dt><dd><p>First value in the window.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame.last</span></code></dt><dd><p>All-column version.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code></a></dt><dd><p>Lag/lead by N rows.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">last()</span></code> is a <strong>pylegend extension</strong>.  There is no
+<code class="docutils literal notranslate"><span class="pre">Expanding['col'].last()</span></code> or <code class="docutils literal notranslate"><span class="pre">Rolling['col'].last()</span></code>
+in pandas.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/42407b5f1c4496c4bfb4082a40ff56a0/WindowSeries.last.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Last Order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">window_frame_legend_ext</span><span class="p">(</span>
+    <span class="n">frame_spec</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">rows_between</span><span class="p">(),</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span><span class="p">,</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Last Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>11077</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>11077</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>11077</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>11077</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>11077</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="max">
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.max">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.max" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed maximum of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('max')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed maximum
+values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.min" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a></dt><dd><p>Windowed minimum.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.max</span></code></dt><dd><p>Frame-level max (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <strong>not supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/032e69edf953a0a8815037e13db25d83/WindowSeries.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expanding max on a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Expanding Max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Expanding Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10251</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10252</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="mean">
+<h2>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed mean of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('mean')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed mean values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a></dt><dd><p>Windowed sum.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.mean</span></code></dt><dd><p>Frame-level mean (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <strong>not supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/bf3b47bfa3c34a8fd55958a9e76018cc/WindowSeries.mean.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rolling mean with a window of 3</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Rolling Mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Rolling Mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10248.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10249.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10250.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10251.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="min">
+<h2>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.min">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.min" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed minimum of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('min')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed minimum
+values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.max" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a></dt><dd><p>Windowed maximum.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.min</span></code></dt><dd><p>Frame-level min (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <strong>not supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/cf719c3a52f842abcde0dd4ae9fee98a/WindowSeries.min.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expanding min on a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Expanding Min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Expanding Min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10248</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="shift">
+<h2>shift<a class="headerlink" href="#shift" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">periods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.shift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Shift (lag or lead) this column by N rows within the window.</p>
+<p>Generates <code class="docutils literal notranslate"><span class="pre">lag(col,</span> <span class="pre">N)</span></code> for positive <code class="docutils literal notranslate"><span class="pre">periods</span></code> and
+<code class="docutils literal notranslate"><span class="pre">lead(col,</span> <span class="pre">N)</span></code> for non-positive <code class="docutils literal notranslate"><span class="pre">periods</span></code> in SQL.</p>
+<p>Because lag/lead SQL functions do not accept a frame clause,
+<code class="docutils literal notranslate"><span class="pre">shift()</span></code> automatically strips the <code class="docutils literal notranslate"><span class="pre">frame_spec</span></code> when it is
+the default <code class="docutils literal notranslate"><span class="pre">RowsBetween(None,</span> <span class="pre">None)</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If a
+non-default frame spec (e.g. <code class="docutils literal notranslate"><span class="pre">rows_between(-2,</span> <span class="pre">2)</span></code>) is set,
+a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>periods</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; <p>Number of rows to shift.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">=</span> <span class="pre">1</span></code> - <code class="docutils literal notranslate"><span class="pre">lag</span></code> (look backward).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">=</span> <span class="pre">-1</span></code> - <code class="docutils literal notranslate"><span class="pre">lead</span></code> (look forward), with
+offset <code class="docutils literal notranslate"><span class="pre">abs(periods)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">=</span> <span class="pre">0</span></code> &#8594; <code class="docutils literal notranslate"><span class="pre">lead(col,</span> <span class="pre">0)</span></code> (current row).</p></li>
+</ul>
+</p></li>
+<li><p><strong>freq</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; <strong>Not supported.</strong>  Raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>axis</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Only <code class="docutils literal notranslate"><span class="pre">0</span></code> / <code class="docutils literal notranslate"><span class="pre">'index'</span></code> is supported.</p></li>
+<li><p><strong>fill_value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>]</span>) &#8211; <strong>Not supported.</strong>  Raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>suffix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) &#8211; <strong>Not supported.</strong>  Raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the shifted values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">freq</span></code>, <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>, <code class="docutils literal notranslate"><span class="pre">suffix</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+    <code class="docutils literal notranslate"><span class="pre">axis</span></code> is not <code class="docutils literal notranslate"><span class="pre">0</span></code>, or <code class="docutils literal notranslate"><span class="pre">periods</span></code> is not an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><strong>ValueError</strong> &#8211; If the window has a non-default <code class="docutils literal notranslate"><span class="pre">frame_spec</span></code> (only
+    <code class="docutils literal notranslate"><span class="pre">RowsBetween(None,</span> <span class="pre">None)</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> are permitted).</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first</span></code></a></dt><dd><p>First value in the window.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last</span></code></a></dt><dd><p>Last value in the window.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>In pandas, <code class="docutils literal notranslate"><span class="pre">Series.shift()</span></code> accepts <code class="docutils literal notranslate"><span class="pre">freq</span></code>,
+<code class="docutils literal notranslate"><span class="pre">fill_value</span></code>, and <code class="docutils literal notranslate"><span class="pre">suffix</span></code>, none of which are supported
+here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shift()</span></code> does <strong>not</strong> mutate the original window frame.
+Internally it creates a shallow copy with
+<code class="docutils literal notranslate"><span class="pre">frame_spec=None</span></code> so that the generated SQL omits the
+<code class="docutils literal notranslate"><span class="pre">ROWS</span> <span class="pre">BETWEEN</span></code> / <code class="docutils literal notranslate"><span class="pre">RANGE</span> <span class="pre">BETWEEN</span></code> clause.</p></li>
+</ul>
+<p><strong>Edge cases:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shift(periods=0)</span></code> generates <code class="docutils literal notranslate"><span class="pre">lead(col,</span> <span class="pre">0)</span></code>, which
+returns the current row&#8217;s value (identity operation).</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/9ce4791f126bfba064b5ea45531bd276/WindowSeries.shift.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Previous row&#39;s Order Id (lag by 1)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Prev Order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">window_frame_legend_ext</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span><span class="p">,</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Prev Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10251</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next row&#39;s Order Id (lead by 1)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Next Order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">window_frame_legend_ext</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span><span class="p">,</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">periods</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Next Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10251</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10252</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10253</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="std">
+<h2>std<a class="headerlink" href="#std" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.std">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.std" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed standard deviation of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('std')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Degrees of freedom.  <code class="docutils literal notranslate"><span class="pre">1</span></code> for sample standard deviation
+(<code class="docutils literal notranslate"><span class="pre">STDDEV_SAMP</span></code>), <code class="docutils literal notranslate"><span class="pre">0</span></code> for population standard deviation
+(<code class="docutils literal notranslate"><span class="pre">STDDEV_POP</span></code>).</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed standard
+deviation values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">ddof</span></code> is not <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>, or if <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>
+    is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.var" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a></dt><dd><p>Windowed variance.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.std</span></code></dt><dd><p>Frame-level std (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>Only <code class="docutils literal notranslate"><span class="pre">ddof=0</span></code> (population) and <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> (sample) are
+supported.  Other values raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <strong>not supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/b2eda94154e3b9b775546bfc4f0529fa/WindowSeries.std.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rolling standard deviation with a window of 3</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Rolling Std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Rolling Std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>0.707107</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="sum">
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed sum of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('sum')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+<li><p><strong>min_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">0</span></code>. Non-zero values are not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed sum values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If any parameter is set to an unsupported value.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a></dt><dd><p>Windowed mean.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.sum</span></code></dt><dd><p>Frame-level sum (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> and <code class="docutils literal notranslate"><span class="pre">min_count</span></code> are <strong>not supported</strong>
+and must remain at their default values.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/829e602d6a32504c71f6e8d44958af8f/WindowSeries.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expanding sum on a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Expanding Sum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Expanding Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>20497</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>30747</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>40998</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>51250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="var">
+<h2>var<a class="headerlink" href="#var" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.var">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.var" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the windowed variance of this column.</p>
+<p>Convenience method equivalent to <code class="docutils literal notranslate"><span class="pre">aggregate('var')</span></code> on this
+window series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ddof</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) &#8211; Degrees of freedom.  <code class="docutils literal notranslate"><span class="pre">1</span></code> for sample variance
+(<code class="docutils literal notranslate"><span class="pre">VAR_SAMP</span></code>), <code class="docutils literal notranslate"><span class="pre">0</span></code> for population variance
+(<code class="docutils literal notranslate"><span class="pre">VAR_POP</span></code>).</p></li>
+<li><p><strong>numeric_only</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; Must be <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">True</span></code> is not supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the windowed variance
+values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> &#8211; If <code class="docutils literal notranslate"><span class="pre">ddof</span></code> is not <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>, or if <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code>
+    is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code></a></dt><dd><p>General windowed aggregation.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.std" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a></dt><dd><p>Windowed standard deviation.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiTdsFrame.var</span></code></dt><dd><p>Frame-level var (no window).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><strong>Differences from pandas:</strong></p>
+<ul class="simple">
+<li><p>Only <code class="docutils literal notranslate"><span class="pre">ddof=0</span></code> (population) and <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> (sample) are
+supported.  Other values raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> is <strong>not supported</strong> and must be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/238d22fd9c5802836b4a9e982428c9f5/WindowSeries.var.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rolling variance with a window of 3</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Rolling Var&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Rolling Var</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="window-extend-legend-ext">
+<h2>window_extend_legend_ext<a class="headerlink" href="#window-extend-legend-ext" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.window_extend_legend_ext">
+<span class="sig-prename descclassname"><span class="pre">WindowSeries.</span></span><span class="sig-name descname"><span class="pre">window_extend_legend_ext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html#WindowSeries.window_extend_legend_ext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.window_extend_legend_ext" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Apply a custom window function to this single column.</p>
+<p><strong>PyLegend extension</strong> &#8212; not present in pandas.</p>
+<p>Compute a user-defined window expression for the selected column.
+The <code class="docutils literal notranslate"><span class="pre">value_func</span></code> receives three arguments &#8212;
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiPartialFrame</span></code> (<code class="docutils literal notranslate"><span class="pre">p</span></code>), a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiWindowReference</span></code> (<code class="docutils literal notranslate"><span class="pre">w</span></code>), and a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsRow</span></code> (<code class="docutils literal notranslate"><span class="pre">r</span></code>) &#8212; and must return a single
+primitive.  The result is a <code class="docutils literal notranslate"><span class="pre">Series</span></code> (or <code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code>)
+that can be assigned back to the parent frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value_func</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PandasApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]</span>) &#8211; <p><code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">w,</span> <span class="pre">r)</span> <span class="pre">-&gt;</span> <span class="pre">primitive</span></code>.</p>
+<p>Common patterns:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.first(w,</span> <span class="pre">r)[&quot;col&quot;]</span></code>  &#8212; first value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.last(w,</span> <span class="pre">r)[&quot;col&quot;]</span></code>   &#8212; last value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.nth(w,</span> <span class="pre">r,</span> <span class="pre">3)[&quot;col&quot;]</span></code> &#8212; nth value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.lag(r,</span> <span class="pre">1)[&quot;col&quot;]</span></code>    &#8212; lag.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">p.lead(r,</span> <span class="pre">2)[&quot;col&quot;]</span></code>   &#8212; lead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">p,</span> <span class="pre">w,</span> <span class="pre">r:</span> <span class="pre">r[&quot;col&quot;]</span></code>               &#8212; raw column
+ref (combined with <code class="docutils literal notranslate"><span class="pre">agg_func</span></code>).</p></li>
+</ul>
+</p></li>
+<li><p><strong>agg_func</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitiveCollection</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]</span>) &#8211; <code class="docutils literal notranslate"><span class="pre">(collection)</span> <span class="pre">-&gt;</span> <span class="pre">primitive</span></code>.  If provided, an additional
+aggregation step (e.g. <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">c:</span> <span class="pre">c.sum()</span></code>) is applied
+on top of the <code class="docutils literal notranslate"><span class="pre">value_func</span></code> result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A single-column proxy containing the window function result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GroupbySeries</span></code>]</span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">PandasApiWindowTdsFrame.window_extend_legend_ext</span></code></dt><dd><p>Same operation applied to all columns.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first</span></code></a></dt><dd><p>Convenience wrapper using <code class="docutils literal notranslate"><span class="pre">p.first(w,</span> <span class="pre">r)[&quot;col&quot;]</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last</span></code></a></dt><dd><p>Convenience wrapper using <code class="docutils literal notranslate"><span class="pre">p.last(w,</span> <span class="pre">r)[&quot;col&quot;]</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift" title="pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code></a></dt><dd><p>Convenience wrapper for lag/lead.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/b9ad8fd98fa4d707ead11f4443384f2c/WindowSeries.window_extend_legend_ext.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># nth-value of a single column</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Nth Order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">window_frame_legend_ext</span><span class="p">(</span>
+    <span class="n">frame_spec</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">rows_between</span><span class="p">(),</span>
+    <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Order Id&quot;</span><span class="p">,</span>
+<span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">window_extend_legend_ext</span><span class="p">(</span>
+    <span class="n">value_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="mi">3</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>Nth Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>10250</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>10250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/api/pandas_window_series.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

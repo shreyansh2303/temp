@@ -1,0 +1,1754 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.shared.primitives.string &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/shared/primitives/string.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.shared.primitives.string</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">String expression type in the PyLegend expression language.</span>
+
+<span class="sd">``PyLegendString`` represents a string-valued column or computed</span>
+<span class="sd">expression within a PyLegend query. It provides a rich set of string</span>
+<span class="sd">operations: case conversion, trimming, searching, slicing, padding,</span>
+<span class="sd">concatenation (``+``), lexicographic comparisons (``&lt;``, ``&lt;=``, ``&gt;``,</span>
+<span class="sd">``&gt;=``), regex matching, parsing to other types, and more.</span>
+
+<span class="sd">Instances are never constructed directly. They are produced by accessing</span>
+<span class="sd">a string column on a TDS frame &#8212; for example,</span>
+<span class="sd">``frame[&quot;Ship Name&quot;]`` &#8212; or by calling ``to_string()`` on another</span>
+<span class="sd">expression.</span>
+
+<span class="sd">``PyLegendString`` also inherits general-purpose methods from</span>
+<span class="sd">``PyLegendPrimitive``, including equality / inequality tests, null checks,</span>
+<span class="sd">and ``in_list``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+    <span class="n">PyLegendOptional</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">,</span>
+    <span class="n">convert_literal_to_literal_expression</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.float</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendFloat</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDecimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.boolean</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendBoolean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDateTime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.expression</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendExpressionStringReturn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendStringLiteralExpression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.sql.metamodel</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">QuerySpecification</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">grammar_method</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToSqlConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToPureConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.string_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendStringLengthExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringStartsWithExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringEndsWithExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringContainsExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringUpperExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLowerExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLTrimExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringRTrimExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringBTrimExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringPosExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringParseIntExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringParseFloatExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringParseDecimalExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringConcatExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLessThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLessThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringGreaterThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringGreaterThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringParseBooleanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringParseDateTimeExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringAsciiExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringDecodeBase64Expression</span><span class="p">,</span>
+    <span class="n">PyLegendStringEncodeBase64Expression</span><span class="p">,</span>
+    <span class="n">PyLegendStringReverseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringToLowerFirstCharacterExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringToUpperFirstCharacterExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLeftExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringRightExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringSubStringExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringReplaceExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLpadExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringRpadExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringSplitPartExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringFullMatchExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringRepeatStringExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringMatchExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringCoalesceExpression</span>
+<span class="p">)</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PyLegendString&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendString</span><span class="p">(</span><span class="n">PyLegendPrimitive</span><span class="p">):</span>
+    <span class="n">__value</span><span class="p">:</span> <span class="n">PyLegendExpressionStringReturn</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendExpressionStringReturn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="PyLegendString.len">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.len">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendInteger</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Length of the string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The number of characters.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        length : Alias for ``len``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_len&quot;] = frame[&quot;Ship Name&quot;].len()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendStringLengthExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.length">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.length">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendInteger</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Length of the string.</span>
+
+<span class="sd">        Alias for :meth:`len`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The number of characters.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        len : Canonical length method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">len</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.startswith">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.startswith">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">startswith</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether the string starts with *prefix*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        prefix : str</span>
+<span class="sd">            The prefix to check.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the string starts with *prefix*.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *prefix* is not a ``str``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;].startswith(&quot;Around&quot;)].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;startswith prefix parameter&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span>
+            <span class="n">PyLegendStringStartsWithExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">prefix</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.endswith">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.endswith">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">endswith</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether the string ends with *suffix*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            The suffix to check.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the string ends with *suffix*.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *suffix* is not a ``str``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;].endswith(&quot;Horn&quot;)].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="s2">&quot;endswith suffix parameter&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span>
+            <span class="n">PyLegendStringEndsWithExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">suffix</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.contains">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.contains">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether the string contains *other*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str</span>
+<span class="sd">            The substring to search for.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the string contains *other*.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;].contains(&quot;the&quot;)].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;contains/in other parameter&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span>
+            <span class="n">PyLegendStringContainsExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.string_contains">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.string_contains">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">string_contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether the string contains *other*.</span>
+
+<span class="sd">        Alias for :meth:`contains`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str</span>
+<span class="sd">            The substring to search for.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the string contains *other*.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        contains : Canonical contains method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.equals">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.equals">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test string equality.</span>
+
+<span class="sd">        Alias for ``==``. Equivalent to :meth:`__eq__`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The value to compare against.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the strings are equal.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        __eq__ : Operator form (``==``).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.upper">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.upper">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">upper</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to upper case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The upper-cased expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_upper&quot;] = frame[&quot;Ship Name&quot;].upper()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringUpperExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.lower">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.lower">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">lower</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to lower case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The lower-cased expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_lower&quot;] = frame[&quot;Ship Name&quot;].lower()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringLowerExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.lstrip">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.lstrip">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">lstrip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Strip leading whitespace.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The left-trimmed expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rstrip : Strip trailing whitespace.</span>
+<span class="sd">        strip : Strip both sides.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_ltrim&quot;] = frame[&quot;Ship Name&quot;].lstrip()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringLTrimExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.rstrip">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.rstrip">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rstrip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Strip trailing whitespace.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The right-trimmed expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        lstrip : Strip leading whitespace.</span>
+<span class="sd">        strip : Strip both sides.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_rtrim&quot;] = frame[&quot;Ship Name&quot;].rstrip()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringRTrimExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.strip">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.strip">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">strip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Strip leading and trailing whitespace.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The trimmed expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        lstrip : Strip leading whitespace only.</span>
+<span class="sd">        rstrip : Strip trailing whitespace only.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_trim&quot;] = frame[&quot;Ship Name&quot;].strip()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringBTrimExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.index_of">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.index_of">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">index_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the position of a substring.</span>
+
+<span class="sd">        Returns the zero-based index of the first occurrence of</span>
+<span class="sd">        *other*, or ``-1`` if not found.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The substring to locate.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The position expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        index : Alias for ``index_of``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;pos&quot;] = frame[&quot;Ship Name&quot;].index_of(&quot;the&quot;)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Index_of parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendStringPosExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.index">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.index">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the position of a substring.</span>
+
+<span class="sd">        Alias for :meth:`index_of`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The substring to locate.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The position expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        index_of : Canonical method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_of</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_int">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_int">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as an integer.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The parsed integer expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        parse_integer : Alias for ``parse_int``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_parsed&quot;] = frame[&quot;Order Id&quot;].to_string().parse_int()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendStringParseIntExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_integer">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_integer">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_integer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as an integer.</span>
+
+<span class="sd">        Alias for :meth:`parse_int`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The parsed integer expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        parse_int : Canonical method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_int</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_float">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_float">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_float</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as a float.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+<span class="sd">            The parsed float expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;].to_string().parse_float()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendStringParseFloatExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_decimal">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_decimal">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_decimal</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">precision</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">scale</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as a decimal.</span>
+
+<span class="sd">        Optionally specify *precision* and *scale* for a</span>
+<span class="sd">        ``PyLegendNumeric`` result; both must be provided together or</span>
+<span class="sd">        neither.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        precision : int, optional</span>
+<span class="sd">            Total number of digits.</span>
+<span class="sd">        scale : int, optional</span>
+<span class="sd">            Number of digits after the decimal point.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+<span class="sd">            The parsed decimal expression (or ``PyLegendNumeric``</span>
+<span class="sd">            when *precision* and *scale* are given).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If only one of *precision* / *scale* is provided.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_dec&quot;] = frame[&quot;Order Id&quot;].to_string().parse_decimal()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.precise_primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendNumeric</span>
+        <span class="k">if</span> <span class="n">precision</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendNumeric</span><span class="p">(</span>
+                <span class="n">PyLegendStringParseDecimalExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">scale</span><span class="p">),</span>
+                <span class="n">precision</span><span class="p">,</span>
+                <span class="n">scale</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">precision</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;parse_decimal requires both precision and scale, or neither. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Got precision=</span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="s2">, scale=</span><span class="si">{</span><span class="n">scale</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendStringParseDecimalExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_boolean">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_boolean">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_boolean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as a boolean.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            The parsed boolean expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;is_long&quot;] = (frame[&quot;Ship Name&quot;].len() &gt; 20).to_string()</span>
+<span class="sd">            frame[&quot;parsed&quot;] = frame[&quot;is_long&quot;].parse_boolean()</span>
+<span class="sd">            frame[[&quot;Ship Name&quot;, &quot;is_long&quot;, &quot;parsed&quot;]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringParseBooleanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.parse_datetime">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.parse_datetime">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDateTime&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the string as a datetime.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDateTime</span>
+<span class="sd">            The parsed datetime expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;date_str&quot;] = frame[&quot;Shipped Date&quot;].to_string() + &quot; 00:00:00&quot;</span>
+<span class="sd">            frame[&quot;parsed_dt&quot;] = frame[&quot;date_str&quot;].parse_datetime()</span>
+<span class="sd">            frame[[&quot;date_str&quot;, &quot;parsed_dt&quot;]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendDateTime</span><span class="p">(</span><span class="n">PyLegendStringParseDateTimeExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.ascii">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.ascii">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ascii</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ASCII code of the first character.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The ASCII code expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;first_ascii&quot;] = frame[&quot;Ship Name&quot;].ascii()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendStringAsciiExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">b64decode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode a Base64-encoded string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The decoded expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        b64encode : The inverse operation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;encoded&quot;] = frame[&quot;Ship Name&quot;].b64encode()</span>
+<span class="sd">            frame[&quot;decoded&quot;] = frame[&quot;encoded&quot;].b64decode()</span>
+<span class="sd">            frame[[&quot;Ship Name&quot;, &quot;encoded&quot;, &quot;decoded&quot;]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringDecodeBase64Expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span>
+
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">b64encode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Encode the string to Base64.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The Base64-encoded expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        b64decode : The inverse operation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;encoded&quot;] = frame[&quot;Ship Name&quot;].b64encode()</span>
+<span class="sd">            frame[[&quot;Ship Name&quot;, &quot;encoded&quot;]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringEncodeBase64Expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span>
+
+<div class="viewcode-block" id="PyLegendString.reverse">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.reverse">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reverse the string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The reversed expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_rev&quot;] = frame[&quot;Ship Name&quot;].reverse()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringReverseExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.to_lower_first_character">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.to_lower_first_character">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_lower_first_character</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert only the first character to lower case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The expression with its first character lowered.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        to_upper_first_character : The inverse operation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_lf&quot;] = frame[&quot;Ship Name&quot;].to_lower_first_character()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringToLowerFirstCharacterExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.to_upper_first_character">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.to_upper_first_character">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_upper_first_character</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert only the first character to upper case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The expression with its first character uppercased.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        to_lower_first_character : The inverse operation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_uf&quot;] = frame[&quot;Ship Name&quot;].lower().to_upper_first_character()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringToUpperFirstCharacterExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.left">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.left">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the leftmost *count* characters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        count : int or PyLegendInteger</span>
+<span class="sd">            Number of characters to take from the left.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The left-substring expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *count* is not an ``int`` or ``PyLegendInteger``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;first_5&quot;] = frame[&quot;Ship Name&quot;].left(5)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s2">&quot;left parameter&quot;</span><span class="p">)</span>
+        <span class="n">count_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">count</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringLeftExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">count_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.right">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.right">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the rightmost *count* characters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        count : int or PyLegendInteger</span>
+<span class="sd">            Number of characters to take from the right.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The right-substring expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *count* is not an ``int`` or ``PyLegendInteger``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;last_5&quot;] = frame[&quot;Ship Name&quot;].right(5)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s2">&quot;right parameter&quot;</span><span class="p">)</span>
+        <span class="n">count_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">count</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringRightExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">count_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.substring">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.substring">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">substring</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">start</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">],</span>
+            <span class="n">end</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract a substring.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start : int or PyLegendInteger</span>
+<span class="sd">            The starting position (zero-based).</span>
+<span class="sd">        end : int or PyLegendInteger, optional</span>
+<span class="sd">            The ending position (exclusive). If omitted, takes</span>
+<span class="sd">            everything from *start* to the end.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The substring expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *start* or *end* is not an ``int`` or</span>
+<span class="sd">            ``PyLegendInteger``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;sub&quot;] = frame[&quot;Ship Name&quot;].substring(0, 5)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;substring start parameter&quot;</span><span class="p">)</span>
+        <span class="n">start_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">start</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringSubStringExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">start_op</span><span class="p">]))</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="s2">&quot;substring end parameter&quot;</span><span class="p">)</span>
+        <span class="n">end_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">end</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringSubStringExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">start_op</span><span class="p">,</span> <span class="n">end_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.replace">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.replace">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replace</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">to_replace</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">],</span>
+            <span class="n">replacement</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace occurrences of a substring.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        to_replace : str or PyLegendString</span>
+<span class="sd">            The substring to find.</span>
+<span class="sd">        replacement : str or PyLegendString</span>
+<span class="sd">            The replacement string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The expression with replacements applied.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *to_replace* or *replacement* is not a ``str`` or</span>
+<span class="sd">            ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_replaced&quot;] = frame[&quot;Ship Name&quot;].replace(&quot;the&quot;, &quot;THE&quot;)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">to_replace</span><span class="p">,</span> <span class="s2">&quot;replace to_replace parameter&quot;</span><span class="p">)</span>
+        <span class="n">to_replace_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">to_replace</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">to_replace</span><span class="p">,</span>
+                                                                                  <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">to_replace</span><span class="o">.</span><span class="n">__value</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">replacement</span><span class="p">,</span> <span class="s2">&quot;replace replacement parameter&quot;</span><span class="p">)</span>
+        <span class="n">replacement_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">replacement</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">replacement</span><span class="p">,</span>
+                                                                                    <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">replacement</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringReplaceExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">to_replace_op</span><span class="p">,</span> <span class="n">replacement_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.rjust">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.rjust">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rjust</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">length</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">],</span>
+            <span class="n">fill_char</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Right-justify (left-pad) the string to *length*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        length : int or PyLegendInteger</span>
+<span class="sd">            The target total length.</span>
+<span class="sd">        fill_char : str or PyLegendString, default ``&#39; &#39;``</span>
+<span class="sd">            The padding character.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The padded expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *length* is not an ``int`` or ``PyLegendInteger``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ljust : Left-justify (right-pad).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_rj&quot;] = frame[&quot;Ship Name&quot;].rjust(30, &quot;*&quot;)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="s2">&quot;rjust length parameter&quot;</span><span class="p">)</span>
+        <span class="n">length_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">length</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="n">fill_char_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">fill_char</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fill_char</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">fill_char</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringLpadExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">length_op</span><span class="p">,</span> <span class="n">fill_char_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.ljust">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.ljust">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ljust</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">length</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">],</span>
+            <span class="n">fill_char</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Left-justify (right-pad) the string to *length*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        length : int or PyLegendInteger</span>
+<span class="sd">            The target total length.</span>
+<span class="sd">        fill_char : str or PyLegendString, default ``&#39; &#39;``</span>
+<span class="sd">            The padding character.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The padded expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *length* is not an ``int`` or ``PyLegendInteger``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rjust : Right-justify (left-pad).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_lj&quot;] = frame[&quot;Ship Name&quot;].ljust(30, &quot;*&quot;)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="s2">&quot;ljust length parameter&quot;</span><span class="p">)</span>
+        <span class="n">length_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">length</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="n">fill_char_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">fill_char</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fill_char</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">fill_char</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringRpadExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">length_op</span><span class="p">,</span> <span class="n">fill_char_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.split_part">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.split_part">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_part</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">sep</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">],</span>
+            <span class="n">part</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString | None&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split the string by *sep* and return the *part*-th element.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sep : str or PyLegendString</span>
+<span class="sd">            The delimiter.</span>
+<span class="sd">        part : int or PyLegendInteger</span>
+<span class="sd">            The one-based index of the part to return.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The extracted part.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *sep* or *part* is not a supported type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;first_word&quot;] = frame[&quot;Ship Name&quot;].split_part(&quot; &quot;, 1)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="s2">&quot;split_part sep parameter&quot;</span><span class="p">)</span>
+        <span class="n">sep_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">sep</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="s2">&quot;split_part part parameter&quot;</span><span class="p">)</span>
+        <span class="n">part_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">part</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringSplitPartExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">sep_op</span><span class="p">,</span> <span class="n">part_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.full_match">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.full_match">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">full_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether the entire string matches a regex *pattern*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pattern : str or PyLegendString</span>
+<span class="sd">            The regular expression pattern.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the full string matches.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *pattern* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        match : Partial (substring) match.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;].full_match(&quot;Around%&quot;)].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;full_match parameter&quot;</span><span class="p">)</span>
+        <span class="n">pattern_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">pattern</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringFullMatchExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">pattern_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.match">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.match">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PyLegendBoolean</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether any part of the string matches a regex *pattern*.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pattern : str or PyLegendString</span>
+<span class="sd">            The regular expression pattern.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where a substring matches.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *pattern* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        full_match : Full-string match.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;match parameter&quot;</span><span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">pattern_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">pattern</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">pattern</span><span class="o">.</span><span class="n">__value</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringMatchExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">pattern_op</span><span class="p">))</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.repeat_string">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.repeat_string">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">repeat_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Repeat the string *times* times.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        times : int or PyLegendInteger</span>
+<span class="sd">            The number of repetitions.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The repeated expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *times* is not an ``int`` or ``PyLegendInteger``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;repeated&quot;] = frame[&quot;Ship Name&quot;].left(3).repeat_string(2)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="s2">&quot;repeatString parameter&quot;</span><span class="p">)</span>
+        <span class="n">times_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">times</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringRepeatStringExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">times_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.coalesce">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.coalesce">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">coalesce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first non-null value among ``self`` and *other*.</span>
+
+<span class="sd">        Translates to SQL ``COALESCE(self, ...)``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *other : str, PyLegendString, or None</span>
+<span class="sd">            Fallback values, checked in order.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The first non-null expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;name_or_default&quot;] = frame[&quot;Ship Name&quot;].coalesce(&quot;N/A&quot;)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">other</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">op</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="s2">&quot;coalesce parameter&quot;</span><span class="p">)</span>
+            <span class="n">other_op</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="n">op</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">PyLegendString</span><span class="p">)</span> <span class="k">else</span> <span class="n">op</span><span class="o">.</span><span class="n">__value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringCoalesceExpression</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="o">*</span><span class="n">other_op</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__add__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__add__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String concatenation (``+``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The string to append.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The concatenated expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;greeting&quot;] = frame[&quot;Ship Name&quot;] + &quot; - OK&quot;</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String plus (+) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringConcatExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__radd__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__radd__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected string concatenation (``str + expr``).</span>
+
+<span class="sd">        Called when a Python ``str`` is on the left side of ``+``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The string to prepend.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+<span class="sd">            The concatenated expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String plus (+) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringConcatExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__lt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__lt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic less than (``&lt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt; other`` lexicographically.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;] &lt; &quot;C&quot;].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String less than (&lt;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringLessThanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__le__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__le__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic less than or equal (``&lt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt;= other`` lexicographically.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;] &lt;= &quot;C&quot;].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String less than equal (&lt;=) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringLessThanEqualExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__gt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__gt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic greater than (``&gt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt; other`` lexicographically.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;] &gt; &quot;V&quot;].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String greater than (&gt;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringGreaterThanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendString.__ge__">
+<a class="viewcode-back" href="../../../../../../api/core_language_string.html#pylegend.core.language.shared.primitives.string.PyLegendString.__ge__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic greater than or equal (``&gt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : str or PyLegendString</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt;= other`` lexicographically.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``str`` or ``PyLegendString``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Ship Name&quot;] &gt;= &quot;V&quot;].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendString</span><span class="o">.</span><span class="n">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;String greater than equal (&gt;=) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendStringGreaterThanEqualExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_sql_expression</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">frame_name_to_base_query_map</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuerySpecification</span><span class="p">],</span>
+            <span class="n">config</span><span class="p">:</span> <span class="n">FrameToSqlConfig</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_sql_expression</span><span class="p">(</span><span class="n">frame_name_to_base_query_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_pure_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">FrameToPureConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_pure_expression</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionStringReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__validate_param_to_be_str_or_str_expr</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">],</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendString</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a str or a string expression (PyLegendString).&quot;</span>
+                                   <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__validate_param_to_be_str</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a str.&quot;</span>
+                                   <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">],</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a int or a int expression (PyLegendInteger).&quot;</span>
+                                   <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

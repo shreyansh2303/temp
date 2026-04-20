@@ -1,0 +1,1288 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.pandas_api.pandas_api_window_series &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/pandas_api/pandas_api_window_series.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../index.html">
+    <img class="logo" src="../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.pandas_api.pandas_api_window_series</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2026 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A single-column proxy on a window frame.</span>
+
+<span class="sd">A ``WindowSeries`` is obtained by bracket-indexing a</span>
+<span class="sd">:class:`~pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame.PandasApiWindowTdsFrame`</span>
+<span class="sd">with a column name.  It can also be obtained by calling</span>
+<span class="sd">``expanding()``, ``rolling()``, or ``window_frame_legend_ext()``</span>
+<span class="sd">directly on a</span>
+<span class="sd">:class:`~pylegend.core.language.pandas_api.pandas_api_series.Series`</span>
+<span class="sd">or</span>
+<span class="sd">:class:`~pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries`.</span>
+
+<span class="sd">Calling an aggregation method (``sum()``, ``mean()``, etc.) on a</span>
+<span class="sd">``WindowSeries`` returns a</span>
+<span class="sd">:class:`~pylegend.core.language.pandas_api.pandas_api_series.Series`</span>
+<span class="sd">(or a</span>
+<span class="sd">:class:`~pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries`</span>
+<span class="sd">when the underlying window was created from a groupby).  Positional</span>
+<span class="sd">window functions (``first()``, ``last()``, ``shift()``) and the</span>
+<span class="sd">general-purpose ``window_extend_legend_ext()`` are also available.</span>
+<span class="sd">The result can then be assigned back to the parent frame.</span>
+
+<span class="sd">**Obtaining a WindowSeries**</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    # Via bracket notation on a window frame</span>
+<span class="sd">    ws = frame.expanding(order_by=&quot;col&quot;)[&quot;col&quot;]</span>
+
+<span class="sd">    # Via Series shortcut</span>
+<span class="sd">    ws = frame[&quot;col&quot;].expanding(order_by=&quot;col&quot;)</span>
+
+<span class="sd">    # Grouped variant (returns GroupbySeries after aggregation)</span>
+<span class="sd">    ws = frame.groupby(&quot;grp&quot;)[&quot;val&quot;].expanding(order_by=&quot;val&quot;)</span>
+
+<span class="sd">**Result type preservation**</span>
+
+<span class="sd">The type of the returned ``Series`` (or ``GroupbySeries``) matches</span>
+<span class="sd">the column type.  For example, an integer column produces an</span>
+<span class="sd">``IntegerSeries`` after ``.sum()``, while ``count()`` always</span>
+<span class="sd">returns an ``IntegerSeries`` regardless of the source column type.</span>
+
+<span class="sd">**Composing with arithmetic**</span>
+
+<span class="sd">The ``Series`` returned by a ``WindowSeries`` aggregation supports</span>
+<span class="sd">arithmetic, so expressions like the following work:</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    frame[&quot;shifted&quot;] = frame[&quot;col&quot;].expanding().sum() - 100</span>
+<span class="sd">    frame[&quot;ratio&quot;]   = frame[&quot;a&quot;].expanding().sum() / frame[&quot;b&quot;]</span>
+<span class="sd">Multiple window assignments can be applied sequentially to the</span>
+<span class="sd">same frame:</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    frame[&quot;cumsum&quot;]    = frame[&quot;col&quot;].expanding().sum()</span>
+<span class="sd">    frame[&quot;roll_mean&quot;] = frame[&quot;col2&quot;].rolling(5, order_by=&quot;col2&quot;).mean()</span>
+
+<span class="sd">See Also</span>
+<span class="sd">--------</span>
+<span class="sd">PandasApiWindowTdsFrame : The window frame that produces this.</span>
+<span class="sd">Series : Non-grouped single-column proxy.</span>
+<span class="sd">GroupbySeries : Grouped single-column proxy.</span>
+<span class="sd">PandasApiTdsFrame.expanding : Create an expanding window on a frame.</span>
+<span class="sd">PandasApiTdsFrame.rolling : Create a rolling window on a frame.</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">**Differences from pandas:**</span>
+
+<span class="sd">- A ``WindowSeries`` is **not** a data container.  It is an</span>
+<span class="sd">  expression builder that lazily constructs the SQL / Pure query.</span>
+<span class="sd">  No data is materialised until the result is executed.</span>
+<span class="sd">- In pandas, ``Expanding[&#39;col&#39;]`` and ``Rolling[&#39;col&#39;]`` have</span>
+<span class="sd">  built-in convenience methods that return a ``Series``.  Here,</span>
+<span class="sd">  the same convenience methods are available (``sum()``,</span>
+<span class="sd">  ``mean()``, ``min()``, ``max()``, ``count()``, ``std()``,</span>
+<span class="sd">  ``var()``), plus positional window methods (``first()``,</span>
+<span class="sd">  ``last()``, ``shift()``), and a general ``aggregate()`` /</span>
+<span class="sd">  ``agg()`` method.  ``window_extend_legend_ext()`` is available</span>
+<span class="sd">  for fully custom window expressions.</span>
+<span class="sd">- Extra ``*args`` / ``**kwargs`` on ``aggregate()`` are **not</span>
+<span class="sd">  supported**.</span>
+<span class="sd">- The ``numeric_only`` parameter on convenience methods is **not</span>
+<span class="sd">  supported** and must be ``False``.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">.. ipython:: python</span>
+
+<span class="sd">    import pylegend</span>
+<span class="sd">    frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">    # Assign an expanding sum via WindowSeries</span>
+<span class="sd">    frame[&quot;Cumulative Sum&quot;] = frame.expanding(</span>
+<span class="sd">        order_by=&quot;Order Id&quot;</span>
+<span class="sd">    )[&quot;Order Id&quot;].sum()</span>
+<span class="sd">    frame.head(5).to_pandas()</span>
+
+<span class="sd">    frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">    # Grouped expanding sum assigned back</span>
+<span class="sd">    frame[&quot;Group Cumsum&quot;] = frame.groupby(</span>
+<span class="sd">        &quot;Ship Name&quot;</span>
+<span class="sd">    )[&quot;Order Id&quot;].expanding(order_by=&quot;Order Id&quot;).sum()</span>
+<span class="sd">    frame.head(5).to_pandas()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendOptional</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_aggregate_specification</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendAggInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.single_column_window_function</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValueFunc</span><span class="p">,</span> <span class="n">AggFunc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_series_from_col_type</span><span class="p">,</span> \
+    <span class="n">get_groupby_series_from_col_type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiWindowTdsFrame</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">Series</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupbySeries</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">WindowSeries</span><span class="p">:</span>
+
+    <span class="n">_window_frame</span><span class="p">:</span> <span class="n">PandasApiWindowTdsFrame</span>
+    <span class="n">_column_name</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">window_frame</span><span class="p">:</span> <span class="n">PandasApiWindowTdsFrame</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span> <span class="o">=</span> <span class="n">window_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span> <span class="o">=</span> <span class="n">column_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PandasApiWindowTdsFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">column_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+
+<div class="viewcode-block" id="WindowSeries.aggregate">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.aggregate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">func</span><span class="p">:</span> <span class="n">PyLegendAggInput</span><span class="p">,</span>
+        <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a window aggregate to this single column.</span>
+
+<span class="sd">        Compute the window aggregate specified by ``func`` over the</span>
+<span class="sd">        window defined on this ``WindowSeries``.  The result is a</span>
+<span class="sd">        :class:`~pylegend.core.language.pandas_api.pandas_api_series.Series`</span>
+<span class="sd">        (or</span>
+<span class="sd">        :class:`~pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries`</span>
+<span class="sd">        when the underlying window was created from a groupby) that</span>
+<span class="sd">        can be assigned back to a frame column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        func : str, callable, list, or dict</span>
+<span class="sd">            Aggregation specification:</span>
+
+<span class="sd">            - ``str`` &#8212; a named aggregation (``&#39;sum&#39;``, ``&#39;mean&#39;``,</span>
+<span class="sd">              ``&#39;min&#39;``, ``&#39;max&#39;``, ``&#39;count&#39;``, ``&#39;std&#39;``, ``&#39;var&#39;``).</span>
+<span class="sd">            - ``callable`` &#8212; a function receiving a column proxy and</span>
+<span class="sd">              returning an aggregated value.</span>
+<span class="sd">            - ``list`` &#8212; a list of the above.</span>
+<span class="sd">            - ``dict`` &#8212; ``{column_name: agg_spec}``.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        *args</span>
+<span class="sd">            Not supported.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed aggregate</span>
+<span class="sd">            values.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        agg : Alias for ``aggregate``.</span>
+<span class="sd">        sum : Windowed sum convenience method.</span>
+<span class="sd">        mean : Windowed mean convenience method.</span>
+<span class="sd">        PandasApiWindowTdsFrame.aggregate : Window aggregate on</span>
+<span class="sd">            all columns.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``Expanding[&#39;col&#39;].aggregate()`` and</span>
+<span class="sd">          ``Rolling[&#39;col&#39;].aggregate()`` accept ``*args`` and</span>
+<span class="sd">          ``**kwargs`` forwarded to the aggregation function.  Here,</span>
+<span class="sd">          extra positional and keyword arguments are **not supported**.</span>
+<span class="sd">        - The result is always a single-column proxy (``Series`` or</span>
+<span class="sd">          ``GroupbySeries``), never a DataFrame.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Expanding sum on a single column</span>
+<span class="sd">            frame[&quot;Expanding Sum&quot;] = frame.expanding(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].aggregate(&quot;sum&quot;)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_applied_function_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiGroupbyTdsFrame</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.window_aggregate_function</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">WindowAggregateFunction</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="o">.</span><span class="n">_base_frame</span>
+        <span class="n">base_frame_unwrapped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="o">.</span><span class="n">base_frame</span><span class="p">()</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+
+        <span class="c1"># Wrap scalar func to target only the selected column</span>
+        <span class="n">single_col_func</span><span class="p">:</span> <span class="n">PyLegendAggInput</span> <span class="o">=</span> <span class="p">{</span><span class="n">column</span><span class="p">:</span> <span class="n">func</span><span class="p">}</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="k">else</span> <span class="n">func</span>
+
+        <span class="n">applied_function_frame</span> <span class="o">=</span> <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">(</span>
+            <span class="n">WindowAggregateFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="p">,</span> <span class="n">single_col_func</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">result_columns</span> <span class="o">=</span> <span class="n">applied_function_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">result_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;WindowSeries.aggregate() should produce exactly one result column&quot;</span>
+        <span class="p">)</span>
+        <span class="n">col_type</span> <span class="o">=</span> <span class="n">result_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">PandasApiGroupbyTdsFrame</span><span class="p">):</span>
+            <span class="n">gb_series_cls</span> <span class="o">=</span> <span class="n">get_groupby_series_from_col_type</span><span class="p">(</span><span class="n">col_type</span><span class="p">)</span>
+            <span class="c1"># Use __getitem__ to get a groupby frame with the column selected</span>
+            <span class="n">new_gb_frame_or_series</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_gb_frame_or_series</span><span class="p">,</span> <span class="n">PandasApiGroupbyTdsFrame</span><span class="p">):</span>
+                <span class="n">new_gb_frame</span> <span class="o">=</span> <span class="n">new_gb_frame_or_series</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># __getitem__ with a string returns a GroupbySeries; extract its frame</span>
+                <span class="n">new_gb_frame</span> <span class="o">=</span> <span class="n">new_gb_frame_or_series</span><span class="o">.</span><span class="n">_base_groupby_frame</span>
+            <span class="k">return</span> <span class="n">gb_series_cls</span><span class="p">(</span><span class="n">new_gb_frame</span><span class="p">,</span> <span class="n">applied_function_frame</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">series_cls</span> <span class="o">=</span> <span class="n">get_series_from_col_type</span><span class="p">(</span><span class="n">col_type</span><span class="p">)</span>
+            <span class="n">new_series</span> <span class="o">=</span> <span class="n">series_cls</span><span class="p">(</span><span class="n">base_frame_unwrapped</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+            <span class="n">new_series</span><span class="o">.</span><span class="n">_filtered_frame</span> <span class="o">=</span> <span class="n">applied_function_frame</span>
+            <span class="k">return</span> <span class="n">new_series</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.agg">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.agg">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">agg</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">func</span><span class="p">:</span> <span class="n">PyLegendAggInput</span><span class="p">,</span>
+        <span class="n">axis</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a window aggregate to this single column.</span>
+
+<span class="sd">        Alias for :meth:`aggregate`.  See ``aggregate`` for full</span>
+<span class="sd">        documentation.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : Equivalent method (canonical name).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.sum">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.sum">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">min_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed sum of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;sum&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+<span class="sd">        min_count : int, default 0</span>
+<span class="sd">            Must be ``0``. Non-zero values are not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed sum values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If any parameter is set to an unsupported value.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        mean : Windowed mean.</span>
+<span class="sd">        PandasApiTdsFrame.sum : Frame-level sum (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``numeric_only`` and ``min_count`` are **not supported**</span>
+<span class="sd">          and must remain at their default values.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Expanding sum on a single column</span>
+<span class="sd">            frame[&quot;Expanding Sum&quot;] = frame.expanding(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].sum()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in sum function.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">min_count</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;min_count must be 0 in sum function, but got: </span><span class="si">{</span><span class="n">min_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.mean">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.mean">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed mean of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;mean&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed mean values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``numeric_only`` is ``True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        sum : Windowed sum.</span>
+<span class="sd">        PandasApiTdsFrame.mean : Frame-level mean (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``numeric_only`` is **not supported** and must be ``False``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rolling mean with a window of 3</span>
+<span class="sd">            frame[&quot;Rolling Mean&quot;] = frame.rolling(</span>
+<span class="sd">                3, order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].mean()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in mean function.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.min">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed minimum of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;min&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed minimum</span>
+<span class="sd">            values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``numeric_only`` is ``True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        max : Windowed maximum.</span>
+<span class="sd">        PandasApiTdsFrame.min : Frame-level min (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``numeric_only`` is **not supported** and must be ``False``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Expanding min on a single column</span>
+<span class="sd">            frame[&quot;Expanding Min&quot;] = frame.expanding(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].min()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in min function.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.max">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed maximum of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;max&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed maximum</span>
+<span class="sd">            values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``numeric_only`` is ``True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        min : Windowed minimum.</span>
+<span class="sd">        PandasApiTdsFrame.max : Frame-level max (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``numeric_only`` is **not supported** and must be ``False``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Expanding max on a single column</span>
+<span class="sd">            frame[&quot;Expanding Max&quot;] = frame.expanding(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].max()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in max function.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.count">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.count">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed count of non-null values for this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;count&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed count values.</span>
+<span class="sd">            The return type is always ``IntegerSeries`` (or its</span>
+<span class="sd">            ``GroupbySeries`` equivalent), regardless of the source</span>
+<span class="sd">            column&#39;s type.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        sum : Windowed sum.</span>
+<span class="sd">        PandasApiTdsFrame.count : Frame-level count (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - The signature takes no parameters.  The pandas</span>
+<span class="sd">          ``Expanding.count()`` / ``Rolling.count()`` accept</span>
+<span class="sd">          ``numeric_only`` which is not supported here.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Expanding count on a single column</span>
+<span class="sd">            frame[&quot;Expanding Count&quot;] = frame.expanding(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].count()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.std">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.std">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">std</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ddof</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed standard deviation of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;std&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ddof : int, default 1</span>
+<span class="sd">            Degrees of freedom.  ``1`` for sample standard deviation</span>
+<span class="sd">            (``STDDEV_SAMP``), ``0`` for population standard deviation</span>
+<span class="sd">            (``STDDEV_POP``).</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed standard</span>
+<span class="sd">            deviation values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``ddof`` is not ``0`` or ``1``, or if ``numeric_only``</span>
+<span class="sd">            is ``True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        var : Windowed variance.</span>
+<span class="sd">        PandasApiTdsFrame.std : Frame-level std (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=0`` (population) and ``ddof=1`` (sample) are</span>
+<span class="sd">          supported.  Other values raise ``NotImplementedError``.</span>
+<span class="sd">        - ``numeric_only`` is **not supported** and must be ``False``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rolling standard deviation with a window of 3</span>
+<span class="sd">            frame[&quot;Rolling Std&quot;] = frame.rolling(</span>
+<span class="sd">                3, order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].std()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in std function.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;std_dev_sample&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;std_dev_population&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only ddof=0 (Population) and ddof=1 (Sample) are supported in std function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.var">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.var">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ddof</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the windowed variance of this column.</span>
+
+<span class="sd">        Convenience method equivalent to ``aggregate(&#39;var&#39;)`` on this</span>
+<span class="sd">        window series.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ddof : int, default 1</span>
+<span class="sd">            Degrees of freedom.  ``1`` for sample variance</span>
+<span class="sd">            (``VAR_SAMP``), ``0`` for population variance</span>
+<span class="sd">            (``VAR_POP``).</span>
+<span class="sd">        numeric_only : bool, default False</span>
+<span class="sd">            Must be ``False``. ``True`` is not supported.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the windowed variance</span>
+<span class="sd">            values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``ddof`` is not ``0`` or ``1``, or if ``numeric_only``</span>
+<span class="sd">            is ``True``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        aggregate : General windowed aggregation.</span>
+<span class="sd">        std : Windowed standard deviation.</span>
+<span class="sd">        PandasApiTdsFrame.var : Frame-level var (no window).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=0`` (population) and ``ddof=1`` (sample) are</span>
+<span class="sd">          supported.  Other values raise ``NotImplementedError``.</span>
+<span class="sd">        - ``numeric_only`` is **not supported** and must be ``False``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Rolling variance with a window of 3</span>
+<span class="sd">            frame[&quot;Rolling Var&quot;] = frame.rolling(</span>
+<span class="sd">                3, order_by=&quot;Order Id&quot;</span>
+<span class="sd">            )[&quot;Order Id&quot;].var()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in var function.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;variance_sample&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;variance_population&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only ddof=0 (Population) and ddof=1 (Sample) are supported in var function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.window_extend_legend_ext">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.window_extend_legend_ext">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window_extend_legend_ext</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value_func</span><span class="p">:</span> <span class="s2">&quot;ValueFunc&quot;</span><span class="p">,</span>
+            <span class="n">agg_func</span><span class="p">:</span> <span class="s2">&quot;PyLegendOptional[AggFunc]&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a custom window function to this single column.</span>
+
+<span class="sd">        **PyLegend extension** &#8212; not present in pandas.</span>
+
+<span class="sd">        Compute a user-defined window expression for the selected column.</span>
+<span class="sd">        The ``value_func`` receives three arguments &#8212;</span>
+<span class="sd">        a :class:`PandasApiPartialFrame` (``p``), a</span>
+<span class="sd">        :class:`PandasApiWindowReference` (``w``), and a</span>
+<span class="sd">        :class:`PandasApiTdsRow` (``r``) &#8212; and must return a single</span>
+<span class="sd">        primitive.  The result is a ``Series`` (or ``GroupbySeries``)</span>
+<span class="sd">        that can be assigned back to the parent frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        value_func : callable</span>
+<span class="sd">            ``(p, w, r) -&gt; primitive``.</span>
+
+<span class="sd">            Common patterns:</span>
+
+<span class="sd">            - ``lambda p, w, r: p.first(w, r)[&quot;col&quot;]``  &#8212; first value.</span>
+<span class="sd">            - ``lambda p, w, r: p.last(w, r)[&quot;col&quot;]``   &#8212; last value.</span>
+<span class="sd">            - ``lambda p, w, r: p.nth(w, r, 3)[&quot;col&quot;]`` &#8212; nth value.</span>
+<span class="sd">            - ``lambda p, w, r: p.lag(r, 1)[&quot;col&quot;]``    &#8212; lag.</span>
+<span class="sd">            - ``lambda p, w, r: p.lead(r, 2)[&quot;col&quot;]``   &#8212; lead.</span>
+<span class="sd">            - ``lambda p, w, r: r[&quot;col&quot;]``               &#8212; raw column</span>
+<span class="sd">              ref (combined with ``agg_func``).</span>
+<span class="sd">        agg_func : callable or None, default None</span>
+<span class="sd">            ``(collection) -&gt; primitive``.  If provided, an additional</span>
+<span class="sd">            aggregation step (e.g. ``lambda c: c.sum()``) is applied</span>
+<span class="sd">            on top of the ``value_func`` result.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the window function result.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        PandasApiWindowTdsFrame.window_extend_legend_ext :</span>
+<span class="sd">            Same operation applied to all columns.</span>
+<span class="sd">        first : Convenience wrapper using ``p.first(w, r)[&quot;col&quot;]``.</span>
+<span class="sd">        last : Convenience wrapper using ``p.last(w, r)[&quot;col&quot;]``.</span>
+<span class="sd">        shift : Convenience wrapper for lag/lead.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # nth-value of a single column</span>
+<span class="sd">            frame[&quot;Nth Order&quot;] = frame.window_frame_legend_ext(</span>
+<span class="sd">                frame_spec=frame.rows_between(),</span>
+<span class="sd">                order_by=&quot;Order Id&quot;,</span>
+<span class="sd">            )[&quot;Order Id&quot;].window_extend_legend_ext(</span>
+<span class="sd">                value_func=lambda p, w, r: p.nth(w, r, 3)[&quot;Order Id&quot;],</span>
+<span class="sd">            )</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_applied_function_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiGroupbyTdsFrame</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.single_column_window_function</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">SingleColumnWindowFunction</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="o">.</span><span class="n">_base_frame</span>
+        <span class="n">base_frame_unwrapped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="o">.</span><span class="n">base_frame</span><span class="p">()</span>
+
+        <span class="n">applied_function_frame</span> <span class="o">=</span> <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">(</span>
+            <span class="n">SingleColumnWindowFunction</span><span class="p">(</span>
+                <span class="n">base_window_frame</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="p">,</span>
+                <span class="n">value_func</span><span class="o">=</span><span class="n">value_func</span><span class="p">,</span>
+                <span class="n">agg_func</span><span class="o">=</span><span class="n">agg_func</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">result_columns</span> <span class="o">=</span> <span class="n">applied_function_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">result_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;WindowSeries.window_extend_legend_ext() should produce exactly one result column&quot;</span>
+        <span class="p">)</span>
+        <span class="n">col_type</span> <span class="o">=</span> <span class="n">result_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">PandasApiGroupbyTdsFrame</span><span class="p">):</span>
+            <span class="n">gb_series_cls</span> <span class="o">=</span> <span class="n">get_groupby_series_from_col_type</span><span class="p">(</span><span class="n">col_type</span><span class="p">)</span>
+            <span class="n">new_gb_frame_or_series</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_gb_frame_or_series</span><span class="p">,</span> <span class="n">PandasApiGroupbyTdsFrame</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+                <span class="n">new_gb_frame</span> <span class="o">=</span> <span class="n">new_gb_frame_or_series</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_gb_frame</span> <span class="o">=</span> <span class="n">new_gb_frame_or_series</span><span class="o">.</span><span class="n">_base_groupby_frame</span>
+            <span class="k">return</span> <span class="n">gb_series_cls</span><span class="p">(</span><span class="n">new_gb_frame</span><span class="p">,</span> <span class="n">applied_function_frame</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">series_cls</span> <span class="o">=</span> <span class="n">get_series_from_col_type</span><span class="p">(</span><span class="n">col_type</span><span class="p">)</span>
+            <span class="n">new_series</span> <span class="o">=</span> <span class="n">series_cls</span><span class="p">(</span><span class="n">base_frame_unwrapped</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+            <span class="n">new_series</span><span class="o">.</span><span class="n">_filtered_frame</span> <span class="o">=</span> <span class="n">applied_function_frame</span>
+            <span class="k">return</span> <span class="n">new_series</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.first">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.first">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first value in the window for this column.</span>
+
+<span class="sd">        Generates ``first_value(col) OVER (...)`` in SQL.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the first value within</span>
+<span class="sd">            the window for every row.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        last : Last value in the window.</span>
+<span class="sd">        PandasApiWindowTdsFrame.first : All-column version.</span>
+<span class="sd">        shift : Lag/lead by N rows.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``first()`` is a **pylegend extension**.  There is no</span>
+<span class="sd">          ``Expanding[&#39;col&#39;].first()`` or ``Rolling[&#39;col&#39;].first()``</span>
+<span class="sd">          in pandas.</span>
+<span class="sd">        - Internally delegates to ``window_extend_legend_ext`` with</span>
+<span class="sd">          ``value_func = lambda p, w, r: p.first(w, r)[&quot;col&quot;]``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;First Order&quot;] = frame.window_frame_legend_ext(</span>
+<span class="sd">                frame_spec=frame.rows_between(),</span>
+<span class="sd">                order_by=&quot;Order Id&quot;,</span>
+<span class="sd">            )[&quot;Order Id&quot;].first()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_custom_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+            <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiTdsRow</span>
+
+        <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">value_func</span><span class="p">(</span>
+                <span class="n">p</span><span class="p">:</span> <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+                <span class="n">w</span><span class="p">:</span> <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+                <span class="n">r</span><span class="p">:</span> <span class="n">PandasApiTdsRow</span><span class="p">,</span>
+                <span class="n">_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">column</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">)[</span><span class="n">_col</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_extend_legend_ext</span><span class="p">(</span><span class="n">value_func</span><span class="o">=</span><span class="n">value_func</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.last">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.last">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the last value in the window for this column.</span>
+
+<span class="sd">        Generates ``last_value(col) OVER (...)`` in SQL.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the last value within</span>
+<span class="sd">            the window for every row.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        first : First value in the window.</span>
+<span class="sd">        PandasApiWindowTdsFrame.last : All-column version.</span>
+<span class="sd">        shift : Lag/lead by N rows.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - ``last()`` is a **pylegend extension**.  There is no</span>
+<span class="sd">          ``Expanding[&#39;col&#39;].last()`` or ``Rolling[&#39;col&#39;].last()``</span>
+<span class="sd">          in pandas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;Last Order&quot;] = frame.window_frame_legend_ext(</span>
+<span class="sd">                frame_spec=frame.rows_between(),</span>
+<span class="sd">                order_by=&quot;Order Id&quot;,</span>
+<span class="sd">            )[&quot;Order Id&quot;].last()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_custom_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+            <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiTdsRow</span>
+
+        <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">value_func</span><span class="p">(</span>
+                <span class="n">p</span><span class="p">:</span> <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+                <span class="n">w</span><span class="p">:</span> <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+                <span class="n">r</span><span class="p">:</span> <span class="n">PandasApiTdsRow</span><span class="p">,</span>
+                <span class="n">_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">column</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">last</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">)[</span><span class="n">_col</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_extend_legend_ext</span><span class="p">(</span><span class="n">value_func</span><span class="o">=</span><span class="n">value_func</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindowSeries.shift">
+<a class="viewcode-back" href="../../../../../api/pandas_window_series.html#pylegend.core.language.pandas_api.pandas_api_window_series.WindowSeries.shift">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shift</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">freq</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">fill_value</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">suffix</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="s2">&quot;Series&quot;</span><span class="p">,</span> <span class="s2">&quot;GroupbySeries&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shift (lag or lead) this column by N rows within the window.</span>
+
+<span class="sd">        Generates ``lag(col, N)`` for positive ``periods`` and</span>
+<span class="sd">        ``lead(col, N)`` for non-positive ``periods`` in SQL.</span>
+
+<span class="sd">        Because lag/lead SQL functions do not accept a frame clause,</span>
+<span class="sd">        ``shift()`` automatically strips the ``frame_spec`` when it is</span>
+<span class="sd">        the default ``RowsBetween(None, None)`` or ``None``.  If a</span>
+<span class="sd">        non-default frame spec (e.g. ``rows_between(-2, 2)``) is set,</span>
+<span class="sd">        a ``ValueError`` is raised.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        periods : int, default 1</span>
+<span class="sd">            Number of rows to shift.</span>
+
+<span class="sd">            - ``periods = 1`` - ``lag`` (look backward).</span>
+<span class="sd">            - ``periods = -1`` - ``lead`` (look forward), with</span>
+<span class="sd">              offset ``abs(periods)``.</span>
+<span class="sd">            - ``periods = 0`` &#8594; ``lead(col, 0)`` (current row).</span>
+<span class="sd">        freq : str or None, default None</span>
+<span class="sd">            **Not supported.**  Raises ``NotImplementedError``.</span>
+<span class="sd">        axis : {{0, &#39;index&#39;}}, default 0</span>
+<span class="sd">            Only ``0`` / ``&#39;index&#39;`` is supported.</span>
+<span class="sd">        fill_value : object or None, default None</span>
+<span class="sd">            **Not supported.**  Raises ``NotImplementedError``.</span>
+<span class="sd">        suffix : str or None, default None</span>
+<span class="sd">            **Not supported.**  Raises ``NotImplementedError``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Series or GroupbySeries</span>
+<span class="sd">            A single-column proxy containing the shifted values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``freq``, ``fill_value``, ``suffix`` is not ``None``,</span>
+<span class="sd">            ``axis`` is not ``0``, or ``periods`` is not an ``int``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the window has a non-default ``frame_spec`` (only</span>
+<span class="sd">            ``RowsBetween(None, None)`` or ``None`` are permitted).</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        first : First value in the window.</span>
+<span class="sd">        last : Last value in the window.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - In pandas, ``Series.shift()`` accepts ``freq``,</span>
+<span class="sd">          ``fill_value``, and ``suffix``, none of which are supported</span>
+<span class="sd">          here.</span>
+<span class="sd">        - ``shift()`` does **not** mutate the original window frame.</span>
+<span class="sd">          Internally it creates a shallow copy with</span>
+<span class="sd">          ``frame_spec=None`` so that the generated SQL omits the</span>
+<span class="sd">          ``ROWS BETWEEN`` / ``RANGE BETWEEN`` clause.</span>
+
+<span class="sd">        **Edge cases:**</span>
+
+<span class="sd">        - ``shift(periods=0)`` generates ``lead(col, 0)``, which</span>
+<span class="sd">          returns the current row&#39;s value (identity operation).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Previous row&#39;s Order Id (lag by 1)</span>
+<span class="sd">            frame[&quot;Prev Order&quot;] = frame.window_frame_legend_ext(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;,</span>
+<span class="sd">            )[&quot;Order Id&quot;].shift(periods=1)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Next row&#39;s Order Id (lead by 1)</span>
+<span class="sd">            frame[&quot;Next Order&quot;] = frame.window_frame_legend_ext(</span>
+<span class="sd">                order_by=&quot;Order Id&quot;,</span>
+<span class="sd">            )[&quot;Order Id&quot;].shift(periods=-1)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">freq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The &#39;freq&#39; argument of the shift function is not supported, but got: freq=</span><span class="si">{</span><span class="n">freq</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">axis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The &#39;axis&#39; argument of the shift function must be 0 or &#39;index&#39;, but got: axis=</span><span class="si">{</span><span class="n">axis</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The &#39;fill_value&#39; argument of the shift function is not supported, but got: fill_value=</span><span class="si">{</span><span class="n">fill_value</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">suffix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The &#39;suffix&#39; argument of the shift function is not supported for WindowSeries, but got: suffix=</span><span class="si">{</span><span class="n">suffix</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">periods</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">periods</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s2">&quot;The &#39;periods&#39; argument of the shift function must be an int (1 or -1) for WindowSeries.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_frame_spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">RowsBetween</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_custom_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+            <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_tds_row</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiTdsRow</span>
+
+        <span class="c1"># lag/lead window functions do not support a frame clause.</span>
+        <span class="c1"># Ensure frame_spec is either None or RowsBetween(None, None) (the default),</span>
+        <span class="c1"># then use a copy of the window frame with frame_spec=None</span>
+        <span class="n">frame_spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="o">.</span><span class="n">_frame_spec</span>
+        <span class="k">if</span> <span class="n">frame_spec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">shift_window_series</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">frame_spec</span><span class="p">,</span> <span class="n">RowsBetween</span><span class="p">)</span>
+              <span class="ow">and</span> <span class="n">frame_spec</span><span class="o">.</span><span class="n">_start</span> <span class="ow">is</span> <span class="kc">None</span>
+              <span class="ow">and</span> <span class="n">frame_spec</span><span class="o">.</span><span class="n">_end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="c1"># Default RowsBetween(None, None) or manually put - make a shallow copy with frame_spec=None</span>
+            <span class="n">copied_window_frame</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_window_frame</span><span class="p">)</span>
+            <span class="n">copied_window_frame</span><span class="o">.</span><span class="n">_frame_spec</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">shift_window_series</span> <span class="o">=</span> <span class="n">WindowSeries</span><span class="p">(</span>
+                <span class="n">window_frame</span><span class="o">=</span><span class="n">copied_window_frame</span><span class="p">,</span>
+                <span class="n">column_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The shift function (lag/lead) does not support a window frame clause. &quot;</span>
+                <span class="s2">&quot;frame_spec must be None or RowsBetween(None, None), &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;but got: </span><span class="si">{</span><span class="n">frame_spec</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_name</span>
+
+        <span class="k">if</span> <span class="n">periods</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">value_func</span><span class="p">(</span>
+                    <span class="n">p</span><span class="p">:</span> <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+                    <span class="n">w</span><span class="p">:</span> <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+                    <span class="n">r</span><span class="p">:</span> <span class="n">PandasApiTdsRow</span><span class="p">,</span>
+                    <span class="n">_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">column</span><span class="p">,</span>
+                    <span class="n">_periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">periods</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">lag</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">_periods</span><span class="p">)[</span><span class="n">_col</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">value_func</span><span class="p">(</span>
+                    <span class="n">p</span><span class="p">:</span> <span class="n">PandasApiPartialFrame</span><span class="p">,</span>
+                    <span class="n">w</span><span class="p">:</span> <span class="n">PandasApiWindowReference</span><span class="p">,</span>
+                    <span class="n">r</span><span class="p">:</span> <span class="n">PandasApiTdsRow</span><span class="p">,</span>
+                    <span class="n">_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">column</span><span class="p">,</span>
+                    <span class="n">_periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="n">periods</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">lead</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">_periods</span><span class="p">)[</span><span class="n">_col</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">shift_window_series</span><span class="o">.</span><span class="n">window_extend_legend_ext</span><span class="p">(</span><span class="n">value_func</span><span class="o">=</span><span class="n">value_func</span><span class="p">)</span></div>
+
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

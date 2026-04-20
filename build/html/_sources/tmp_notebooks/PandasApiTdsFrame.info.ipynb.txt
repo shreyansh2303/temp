@@ -1,0 +1,50 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "6d5fec4e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pylegend\n",
+    "frame = pylegend.samples.pandas_api.northwind_orders_frame()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "d68429e6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pylegend.extensions.tds.pandas_api.frames.pandas_api_legend_service_input_frame.PandasApiLegendServiceInputFrame'>\n",
+      "RangeIndex: 830 entries\n",
+      "Data columns (total 5 columns):\n",
+      "#  Column         Non-Null Count  Dtype     \n",
+      "-  -------------  --------------  ----------\n",
+      "0  Order Id       830 non-null    Integer   \n",
+      "1  Order Date     830 non-null    StrictDate\n",
+      "2  Required Date  830 non-null    StrictDate\n",
+      "3  Shipped Date   809 non-null    StrictDate\n",
+      "4  Ship Name      830 non-null    String    \n",
+      "dtypes: Integer(1), StrictDate(3), String(1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "frame.info()"
+   ]
+  }
+ ],
+ "metadata": {
+  "nbsphinx": {
+   "orphan": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

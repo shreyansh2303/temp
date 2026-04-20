@@ -11,7 +11,7 @@ body {
 
 
 div.document {
-    width: 1200px;
+    width: 1280px;
     margin: 30px auto 0 auto;
 }
 
@@ -21,11 +21,11 @@ div.documentwrapper {
 }
 
 div.bodywrapper {
-    margin: 0 0 0 300px;
+    margin: 0 0 0 380px;
 }
 
 div.sphinxsidebar {
-    width: 300px;
+    width: 380px;
     font-size: 14px;
     line-height: 1.5;
 }
@@ -45,7 +45,7 @@ div.body > .section {
 }
 
 div.footer {
-    width: 1200px;
+    width: 1280px;
     margin: 20px auto 30px auto;
     font-size: 14px;
     color: #888;
@@ -507,7 +507,7 @@ div.sphinxsidebar {
     margin-left: 0;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
 
     body {
         margin: 0;

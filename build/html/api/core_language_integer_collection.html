@@ -1,0 +1,1161 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PyLegendIntegerCollection &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PyLegendNumber" href="core_language_number.html" />
+    <link rel="prev" title="PyLegendInteger" href="core_language_integer.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueapi/core_language_integer_collection.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#core-language">Core Language</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core_language_boolean.html">PyLegendBoolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_boolean_collection.html">PyLegendBooleanCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_date.html">PyLegendDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_date_collection.html">PyLegendDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime.html">PyLegendDateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime_collection.html">PyLegendDateTimeCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal.html">PyLegendDecimal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal_collection.html">PyLegendDecimalCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float.html">PyLegendFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float_collection.html">PyLegendFloatCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_integer.html">PyLegendInteger</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyLegendIntegerCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#average">average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#median">median</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#percentile">percentile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#row-mapper">row_mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std-dev">std_dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std-dev-population">std_dev_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#std-dev-sample">std_dev_sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variance">variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variance-population">variance_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variance-sample">variance_sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number.html">PyLegendNumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number_collection.html">PyLegendNumberCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate.html">PyLegendStrictDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate_collection.html">PyLegendStrictDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string.html">PyLegendString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string_collection.html">PyLegendStringCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pandas-api">Pandas API</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="pylegendintegercollection">
+<h1>PyLegendIntegerCollection<a class="headerlink" href="#pylegendintegercollection" title="Link to this heading">&#61633;</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">PyLegendIntegerCollection</span></code> overrides <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">distinct_value</span></code> to return <code class="docutils literal notranslate"><span class="pre">PyLegendInteger</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">PyLegendNumber</span></code>.  All other aggregation methods are inherited from
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumberCollection</span></code>.</p>
+<section id="average">
+<h2>average<a class="headerlink" href="#average" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.average">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.average" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Arithmetic mean of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendFloat</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.mean" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">average</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/d89fc0f7887ecf058f856c4f42ea36bb/PyLegendNumberCollection.average.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>10838.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>10654.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="count">
+<h2>count<a class="headerlink" href="#count" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.count">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitiveCollection.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendPrimitiveCollection.count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.count" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Count the number of rows in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The row count for each group.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/f6c9015f99ba62a64aaabfdb47fcee00/PyLegendPrimitiveCollection.count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="distinct-count">
+<h2>distinct_count<a class="headerlink" href="#distinct-count" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.distinct_count">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitiveCollection.</span></span><span class="sig-name descname"><span class="pre">distinct_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendPrimitiveCollection.distinct_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.distinct_count" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Count the number of distinct values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The distinct value count for each group.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/09ebe11f17d6f460338fafd3ae184cca/PyLegendPrimitiveCollection.distinct_count.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">distinct_count</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="distinct-value">
+<h2>distinct_value<a class="headerlink" href="#distinct-value" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.distinct_value">
+<span class="sig-prename descclassname"><span class="pre">PyLegendIntegerCollection.</span></span><span class="sig-name descname"><span class="pre">distinct_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendIntegerCollection.distinct_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.distinct_value" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Return the single distinct integer value in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/087943f0b090c19acf66db818c2f1a53/PyLegendIntegerCollection.distinct_value.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Order Id&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">distinct_value</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>lambda_0(Order Id)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>10250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="max">
+<h2>max<a class="headerlink" href="#max" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.max">
+<span class="sig-prename descclassname"><span class="pre">PyLegendIntegerCollection.</span></span><span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendIntegerCollection.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.max" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Maximum integer value in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/fe6175b164c10520d7a1a5a7ec0393b1/PyLegendIntegerCollection.max.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>11011</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>10926</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="mean">
+<h2>mean<a class="headerlink" href="#mean" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.mean">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.mean" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.average" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.average"><code class="xref py py-meth docutils literal notranslate"><span class="pre">average()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendFloat</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="median">
+<h2>median<a class="headerlink" href="#median" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.median">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">median</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.median" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Median of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/112f1e7575c050b955b127970b5a62e4/PyLegendNumberCollection.median.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>10835.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>10692.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="min">
+<h2>min<a class="headerlink" href="#min" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.min">
+<span class="sig-prename descclassname"><span class="pre">PyLegendIntegerCollection.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendIntegerCollection.min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.min" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Minimum integer value in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/410a3132620eab29614edd27602e5110/PyLegendIntegerCollection.min.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>10692</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>10308</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="percentile">
+<h2>percentile<a class="headerlink" href="#percentile" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.percentile">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.percentile" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute a percentile of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>percentile</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) &#8211; The percentile to compute, between 0 and 1.</p></li>
+<li><p><strong>ascending</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; If <code class="docutils literal notranslate"><span class="pre">True</span></code>, values are sorted in ascending order before
+computing the percentile.</p></li>
+<li><p><strong>continuous</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) &#8211; If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use continuous (interpolated) percentile
+(<code class="docutils literal notranslate"><span class="pre">PERCENTILE_CONT</span></code>).  If <code class="docutils literal notranslate"><span class="pre">False</span></code>, use discrete
+(<code class="docutils literal notranslate"><span class="pre">PERCENTILE_DISC</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/7c21f9f5cc54c3dca14b34b459657154/PyLegendNumberCollection.percentile.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>10835.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>10692.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="row-mapper">
+<h2>row_mapper<a class="headerlink" href="#row-mapper" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.row_mapper">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">row_mapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.row_mapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.row_mapper" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Pair this collection with another numeric value for bivariate
+aggregations (correlation, covariance, weighted average).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendFloat</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDecimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumberCollection</span></code>]</span>) &#8211; The second numeric operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A paired collection supporting <code class="docutils literal notranslate"><span class="pre">corr</span></code>, <code class="docutils literal notranslate"><span class="pre">covar_sample</span></code>,
+<code class="docutils literal notranslate"><span class="pre">covar_population</span></code>, and <code class="docutils literal notranslate"><span class="pre">wavg_legend_ext</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumberPairCollection</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="std-dev">
+<h2>std_dev<a class="headerlink" href="#std-dev" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">std_dev</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.std_dev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">std_dev_sample()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="std-dev-population">
+<h2>std_dev_population<a class="headerlink" href="#std-dev-population" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_population">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">std_dev_population</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.std_dev_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_population" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Population standard deviation of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std_dev_sample</span></code></a></dt><dd><p>Sample standard deviation.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a147c473d228aef06ae35aa9706d1137/PyLegendNumberCollection.std_dev_population.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">std_dev_population</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>128.643072</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>226.696383</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="std-dev-sample">
+<h2>std_dev_sample<a class="headerlink" href="#std-dev-sample" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">std_dev_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.std_dev_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Sample standard deviation of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std_dev</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">std_dev_sample</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_population" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std_dev_population</span></code></a></dt><dd><p>Population standard deviation.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a45dd8d3ea1f95658b13e9d353229564/PyLegendNumberCollection.std_dev_sample.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">std_dev_sample</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>143.827327</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>261.766435</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="sum">
+<h2>sum<a class="headerlink" href="#sum" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.sum">
+<span class="sig-prename descclassname"><span class="pre">PyLegendIntegerCollection.</span></span><span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendIntegerCollection.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.sum" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Sum of the integer values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/c2578cfe4bdec5aa3494435a70804e6e/PyLegendIntegerCollection.sum.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>54192</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>10643</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>42618</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="variance">
+<h2>variance<a class="headerlink" href="#variance" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">variance_sample()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="variance-population">
+<h2>variance_population<a class="headerlink" href="#variance-population" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_population">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">variance_population</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.variance_population"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_population" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Population variance of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variance_sample</span></code></a></dt><dd><p>Sample variance.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/7ca586bcb78b3c24205095ab8d994bca/PyLegendNumberCollection.variance_population.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">variance_population</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>16549.04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>51391.25</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="variance-sample">
+<h2>variance_sample<a class="headerlink" href="#variance-sample" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample">
+<span class="sig-prename descclassname"><span class="pre">PyLegendNumberCollection.</span></span><span class="sig-name descname"><span class="pre">variance_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitive_collection.html#PyLegendNumberCollection.variance_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Sample variance of the values in the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendNumber</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variance</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">variance_sample</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_population" title="pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variance_population</span></code></a></dt><dd><p>Population variance.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/7fa536571ca804822df7039a6036c1a3/PyLegendNumberCollection.variance_sample.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">)[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">variance_sample</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ship Name</th>
+      <th>Order Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alfred's Futterkiste</td>
+      <td>20686.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alfreds Futterkiste</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ana Trujillo Emparedados y helados</td>
+      <td>68521.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/api/core_language_integer_collection.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

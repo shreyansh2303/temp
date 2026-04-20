@@ -1,0 +1,297 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.shared.primitives.strictdate &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/shared/primitives/strictdate.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.shared.primitives.strictdate</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.date</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.expression</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendStrictDateLiteralExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringLiteralExpression</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.sql.metamodel</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">QuerySpecification</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">grammar_method</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToSqlConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.date_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDateTimeBucketExpression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PyLegendStrictDate&quot;</span>
+<span class="p">]</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Strict-date expression type in the PyLegend expression language.</span>
+
+<span class="sd">``PyLegendStrictDate`` represents a date-only value (no time component)</span>
+<span class="sd">within a PyLegend query.  It inherits every calendar-extraction,</span>
+<span class="sd">comparison, shifting, and differencing method from</span>
+<span class="sd">:class:`~pylegend.core.language.shared.primitives.date.PyLegendDate` and</span>
+<span class="sd">adds ``time_bucket`` for grouping dates into fixed-width buckets.</span>
+
+<span class="sd">Instances are produced when a column whose Legend type is ``StrictDate``</span>
+<span class="sd">is accessed on a TDS frame, or by calling :meth:`date_part` on a</span>
+<span class="sd">``PyLegendDate`` / ``PyLegendDateTime`` expression.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendStrictDate</span><span class="p">(</span><span class="n">PyLegendDate</span><span class="p">):</span>
+    <span class="n">__value</span><span class="p">:</span> <span class="n">PyLegendExpressionStrictDateReturn</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendExpressionStrictDateReturn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_sql_expression</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">frame_name_to_base_query_map</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuerySpecification</span><span class="p">],</span>
+            <span class="n">config</span><span class="p">:</span> <span class="n">FrameToSqlConfig</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_sql_expression</span><span class="p">(</span><span class="n">frame_name_to_base_query_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span>
+
+<div class="viewcode-block" id="PyLegendStrictDate.time_bucket">
+<a class="viewcode-back" href="../../../../../../api/core_language_strictdate.html#pylegend.core.language.shared.primitives.strictdate.PyLegendStrictDate.time_bucket">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time_bucket</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">quantity</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">],</span>
+            <span class="n">duration_unit</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Group the date into fixed-width buckets.</span>
+
+<span class="sd">        Returns the start of the bucket that each date falls into.</span>
+<span class="sd">        Useful for time-series aggregation at a coarser granularity.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        quantity : int or PyLegendInteger</span>
+<span class="sd">            The width of each bucket expressed in *duration_unit*.</span>
+<span class="sd">        duration_unit : str</span>
+<span class="sd">            One of ``&#39;YEARS&#39;``, ``&#39;MONTHS&#39;``, ``&#39;WEEKS&#39;``, ``&#39;DAYS&#39;``</span>
+<span class="sd">            (case-insensitive).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDate</span>
+<span class="sd">            The bucket-start date.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *quantity* is not an ``int`` or ``PyLegendInteger``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If *duration_unit* is not one of the supported units.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;bucket&quot;] = frame[&quot;Shipped Date&quot;].date_part().time_bucket(3, &quot;MONTHS&quot;)</span>
+<span class="sd">            frame[[&quot;Shipped Date&quot;, &quot;bucket&quot;]].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_param_to_be_int_or_int_expr</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="s2">&quot;time bucket quantity parameter&quot;</span><span class="p">)</span>
+        <span class="n">quantity_op</span> <span class="o">=</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">quantity</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate_strict_date_duration_unit_param</span><span class="p">(</span><span class="n">duration_unit</span><span class="p">)</span>
+        <span class="n">duration_unit_op</span> <span class="o">=</span> <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="n">duration_unit</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">PyLegendDate</span><span class="p">(</span><span class="n">PyLegendDateTimeBucketExpression</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span>
+            <span class="n">quantity_op</span><span class="p">,</span>
+            <span class="n">duration_unit_op</span><span class="p">,</span>
+            <span class="n">PyLegendStringLiteralExpression</span><span class="p">(</span><span class="s2">&quot;STRICTDATE&quot;</span><span class="p">)]))</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__convert_to_strictdate_expr</span><span class="p">(</span>
+            <span class="n">val</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;PyLegendStrictDate&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendStrictDateLiteralExpression</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">__value</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_param_to_be_strictdate</span><span class="p">(</span>
+            <span class="n">param</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;PyLegendStrictDate&quot;</span><span class="p">],</span>
+            <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">PyLegendStrictDate</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a datetime.date or a StrictDate expression (PyLegendStrictDate).&quot;</span>
+                                   <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_strict_date_duration_unit_param</span><span class="p">(</span><span class="n">duration_unit</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">duration_unit</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="s1">&#39;months&#39;</span><span class="p">,</span> <span class="s1">&#39;weeks&#39;</span><span class="p">,</span> <span class="s1">&#39;days&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unknown duration unit - </span><span class="si">{</span><span class="n">duration_unit</span><span class="si">}</span><span class="s2">. Supported values are - YEARS, MONTHS, WEEKS, DAYS&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

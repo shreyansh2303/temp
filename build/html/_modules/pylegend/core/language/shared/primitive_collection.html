@@ -1,0 +1,1875 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.shared.primitive_collection &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/shared/primitive_collection.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../index.html">
+    <img class="logo" src="../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.shared.primitive_collection</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABCMeta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span> <span class="k">as</span> <span class="n">PythonDecimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendInteger</span><span class="p">,</span>
+    <span class="n">PyLegendFloat</span><span class="p">,</span>
+    <span class="n">PyLegendNumber</span><span class="p">,</span>
+    <span class="n">PyLegendString</span><span class="p">,</span>
+    <span class="n">PyLegendBoolean</span><span class="p">,</span>
+    <span class="n">PyLegendDate</span><span class="p">,</span>
+    <span class="n">PyLegendDateTime</span><span class="p">,</span>
+    <span class="n">PyLegendStrictDate</span><span class="p">,</span>
+    <span class="n">PyLegendDecimal</span><span class="p">,</span>
+    <span class="n">convert_literal_to_literal_expression</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.collection_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendCountExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDistinctCountExpression</span><span class="p">,</span>
+    <span class="n">PyLegendAverageExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerSumExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatSumExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberSumExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStdDevSampleExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStdDevPopulationExpression</span><span class="p">,</span>
+    <span class="n">PyLegendVarianceSampleExpression</span><span class="p">,</span>
+    <span class="n">PyLegendVariancePopulationExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDecimalMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDecimalMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDecimalSumExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDecimalUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendJoinStringsExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStrictDateMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStrictDateMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateMaxExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateMinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStrictDateUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateTimeUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanUniqueValueOnlyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendCorrExpression</span><span class="p">,</span>
+    <span class="n">PyLegendCovarPopulationExpression</span><span class="p">,</span>
+    <span class="n">PyLegendCovarSampleExpression</span><span class="p">,</span>
+    <span class="n">PyLegendWavgExpression</span><span class="p">,</span>
+    <span class="n">PyLegendMaxByExpression</span><span class="p">,</span>
+    <span class="n">PyLegendMinByExpression</span><span class="p">,</span>
+    <span class="n">PyLegendMedianExpression</span><span class="p">,</span>
+    <span class="n">PyLegendModeExpression</span><span class="p">,</span>
+    <span class="n">PyLegendPercentileContExpression</span><span class="p">,</span>
+    <span class="n">PyLegendPercentileDiscExpression</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PyLegendPrimitiveCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendIntegerCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendFloatCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendNumberCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendDecimalCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendStringCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendBooleanCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendDateCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendDateTimeCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendStrictDateCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PyLegendNumberPairCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;create_primitive_collection&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendPrimitiveCollection</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract base for all primitive collection types.</span>
+
+<span class="sd">    A *collection* wraps a single primitive expression and exposes</span>
+<span class="sd">    aggregate operations (``count``, ``distinct_count``) that are</span>
+<span class="sd">    evaluated over the group of rows produced by a ``groupby`` or</span>
+<span class="sd">    ``window`` operation.  Concrete sub-classes add type-specific</span>
+<span class="sd">    aggregations such as ``sum``, ``max``, ``min``, ``join``, etc.</span>
+
+<span class="sd">    Users never instantiate collection objects directly &#8212; they are</span>
+<span class="sd">    created internally by the framework when an aggregation function is</span>
+<span class="sd">    applied to a column inside ``groupby().agg()``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendPrimitiveCollection.count">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.count">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Count the number of rows in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The row count for each group.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.count()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)):</span>
+            <span class="n">nested_expr</span> <span class="o">=</span> <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nested_expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendCountExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendPrimitiveCollection.distinct_count">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendPrimitiveCollection.distinct_count">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Count the number of distinct values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The distinct value count for each group.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_count()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)):</span>
+            <span class="n">nested_expr</span> <span class="o">=</span> <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nested_expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendDistinctCountExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendNumberCollection</span><span class="p">(</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for generic numeric expressions.</span>
+
+<span class="sd">    ``PyLegendNumberCollection`` provides aggregate operations for</span>
+<span class="sd">    numeric columns: ``sum``, ``min``, ``max``, ``average`` / ``mean``,</span>
+<span class="sd">    standard deviation, variance, ``median``, ``mode``, ``percentile``,</span>
+<span class="sd">    and ``distinct_value``.  It also supports ``row_mapper`` for</span>
+<span class="sd">    creating paired collections used in correlation and covariance</span>
+<span class="sd">    calculations.</span>
+
+<span class="sd">    Inherits ``count`` and ``distinct_count`` from</span>
+<span class="sd">    :class:`PyLegendPrimitiveCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendNumberCollection.average">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.average">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arithmetic mean of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        mean : Alias for ``average``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.average()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendAverageExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.mean">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.mean">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :meth:`average`.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">average</span><span class="p">()</span>  <span class="c1"># pragma: no cover</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Maximum value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Minimum value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.sum">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.sum">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sum of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.sum()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSumExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.std_dev_sample">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_sample">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">std_dev_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sample standard deviation of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        std_dev : Alias for ``std_dev_sample``.</span>
+<span class="sd">        std_dev_population : Population standard deviation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.std_dev_sample()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendStdDevSampleExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.std_dev">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">std_dev</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :meth:`std_dev_sample`.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_dev_sample</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.std_dev_population">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.std_dev_population">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">std_dev_population</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Population standard deviation of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        std_dev_sample : Sample standard deviation.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.std_dev_population()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendStdDevPopulationExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.variance_sample">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_sample">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">variance_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sample variance of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        variance : Alias for ``variance_sample``.</span>
+<span class="sd">        variance_population : Population variance.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.variance_sample()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendVarianceSampleExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.variance">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">variance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :meth:`variance_sample`.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">variance_sample</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.variance_population">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.variance_population">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">variance_population</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Population variance of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        variance_sample : Sample variance.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.variance_population()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendVariancePopulationExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct value in the group.</span>
+
+<span class="sd">        Raises an error at query time if the group contains more than</span>
+<span class="sd">        one distinct value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Order Id&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.median">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.median">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Median of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.median()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendMedianExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mode (most frequent value) of the values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.mode()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendModeExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+
+<div class="viewcode-block" id="PyLegendNumberCollection.percentile">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.percentile">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">percentile</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">percentile</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">continuous</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute a percentile of the values in the group.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        percentile : float</span>
+<span class="sd">            The percentile to compute, between 0 and 1.</span>
+<span class="sd">        ascending : bool, default True</span>
+<span class="sd">            If ``True``, values are sorted in ascending order before</span>
+<span class="sd">            computing the percentile.</span>
+<span class="sd">        continuous : bool, default True</span>
+<span class="sd">            If ``True``, use continuous (interpolated) percentile</span>
+<span class="sd">            (``PERCENTILE_CONT``).  If ``False``, use discrete</span>
+<span class="sd">            (``PERCENTILE_DISC``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.percentile(0.5)</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">continuous</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span>
+                <span class="n">PyLegendPercentileContExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">,</span> <span class="n">percentile</span><span class="p">,</span> <span class="n">ascending</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span>
+                <span class="n">PyLegendPercentileDiscExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">,</span> <span class="n">percentile</span><span class="p">,</span> <span class="n">ascending</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumberCollection.row_mapper">
+<a class="viewcode-back" href="../../../../../api/core_language_number_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendNumberCollection.row_mapper">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">row_mapper</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumberCollection&quot;</span>
+        <span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumberPairCollection&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pair this collection with another numeric value for bivariate</span>
+<span class="sd">        aggregations (correlation, covariance, weighted average).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, PyLegendDecimal, PyLegendNumber, or PyLegendNumberCollection</span>
+<span class="sd">            The second numeric operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumberPairCollection</span>
+<span class="sd">            A paired collection supporting ``corr``, ``covar_sample``,</span>
+<span class="sd">            ``covar_population``, and ``wavg_legend_ext``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumberPairCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendIntegerCollection</span><span class="p">(</span><span class="n">PyLegendNumberCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for integer expressions.</span>
+
+<span class="sd">    Overrides ``max``, ``min``, ``sum``, and ``distinct_value`` to</span>
+<span class="sd">    return ``PyLegendInteger`` instead of ``PyLegendNumber``.  All</span>
+<span class="sd">    other aggregation methods are inherited from</span>
+<span class="sd">    :class:`PyLegendNumberCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendIntegerCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_integer_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Maximum integer value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendIntegerMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendIntegerCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_integer_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Minimum integer value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendIntegerMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendIntegerCollection.sum">
+<a class="viewcode-back" href="../../../../../api/core_language_integer_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.sum">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sum of the integer values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.sum()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendIntegerSumExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendIntegerCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_integer_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendIntegerCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct integer value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Order Id&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendIntegerUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendFloatCollection</span><span class="p">(</span><span class="n">PyLegendNumberCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for float expressions.</span>
+
+<span class="sd">    Overrides ``max``, ``min``, ``sum``, and ``distinct_value`` to</span>
+<span class="sd">    return ``PyLegendFloat`` instead of ``PyLegendNumber``.  All other</span>
+<span class="sd">    aggregation methods are inherited from</span>
+<span class="sd">    :class:`PyLegendNumberCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendFloatCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_float_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendFloatCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Maximum float value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;] * 1.0</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_float&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendFloatMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendFloatCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_float_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendFloatCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Minimum float value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;] * 1.0</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_float&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendFloatMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendFloatCollection.sum">
+<a class="viewcode-back" href="../../../../../api/core_language_float_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendFloatCollection.sum">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sum of the float values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;] * 1.0</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_float&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.sum()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendFloatSumExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendFloatCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_float_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendFloatCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct float value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;] * 1.0</span>
+<span class="sd">            frame.groupby(&quot;Order Id&quot;)[&quot;id_float&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendFloatUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendDecimalCollection</span><span class="p">(</span><span class="n">PyLegendNumberCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for decimal expressions.</span>
+
+<span class="sd">    Overrides ``max``, ``min``, ``sum``, and ``distinct_value`` to</span>
+<span class="sd">    return ``PyLegendDecimal`` instead of ``PyLegendNumber``.  All</span>
+<span class="sd">    other aggregation methods are inherited from</span>
+<span class="sd">    :class:`PyLegendNumberCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendDecimalCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_decimal_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDecimalCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Maximum decimal value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_dec&quot;] = frame[&quot;Order Id&quot;].to_string().parse_decimal()</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_dec&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendDecimalMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendDecimalCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_decimal_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDecimalCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Minimum decimal value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_dec&quot;] = frame[&quot;Order Id&quot;].to_string().parse_decimal()</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_dec&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendDecimalMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendDecimalCollection.sum">
+<a class="viewcode-back" href="../../../../../api/core_language_decimal_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDecimalCollection.sum">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sum of the decimal values in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_dec&quot;] = frame[&quot;Order Id&quot;].to_string().parse_decimal()</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;id_dec&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.sum()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendDecimalSumExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendDecimalCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_decimal_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDecimalCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct decimal value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_dec&quot;] = frame[&quot;Order Id&quot;].to_string().parse_decimal()</span>
+<span class="sd">            frame.groupby(&quot;Order Id&quot;)[&quot;id_dec&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendDecimalUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendStringCollection</span><span class="p">(</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for string expressions.</span>
+
+<span class="sd">    ``PyLegendStringCollection`` provides ``max``, ``min``,</span>
+<span class="sd">    ``join`` / ``join_strings``, and ``distinct_value`` aggregations</span>
+<span class="sd">    for string columns.  Inherits ``count`` and ``distinct_count``</span>
+<span class="sd">    from :class:`PyLegendPrimitiveCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendString</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendString</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendStringCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStringCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic maximum string in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Ship Name&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStringCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStringCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lexicographic minimum string in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Ship Name&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStringCollection.join">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStringCollection.join">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concatenate all strings in the group with a separator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        separator : str</span>
+<span class="sd">            The delimiter inserted between each string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        join_strings : Alias with default separator ``&quot;;&quot;``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Ship Name&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.join(&quot;, &quot;)</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">separator_expr</span> <span class="o">=</span> <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendJoinStringsExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">,</span> <span class="n">separator_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStringCollection.join_strings">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStringCollection.join_strings">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for :meth:`join` with a default separator of ``&quot;;&quot;``.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">separator</span><span class="o">=</span><span class="n">separator</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStringCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_string_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStringCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendString&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct string value in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendString</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Ship Name&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendBooleanCollection</span><span class="p">(</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for boolean expressions.</span>
+
+<span class="sd">    ``PyLegendBooleanCollection`` is used when a boolean column</span>
+<span class="sd">    participates in an aggregation context (e.g. inside</span>
+<span class="sd">    ``groupby().agg()``).  It inherits ``count`` and ``distinct_count``</span>
+<span class="sd">    from :class:`PyLegendPrimitiveCollection` and adds</span>
+<span class="sd">    ``distinct_value``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendBooleanCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_boolean_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendBooleanCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct value in the group.</span>
+
+<span class="sd">        Raises an error at query time if the group contains more than</span>
+<span class="sd">        one distinct value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            The unique boolean value for each group.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;is_large&quot;] = frame[&quot;Order Id&quot;] &gt; 11000</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;is_large&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendDateCollection</span><span class="p">(</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for date expressions.</span>
+
+<span class="sd">    ``PyLegendDateCollection`` provides ``max``, ``min``, and</span>
+<span class="sd">    ``distinct_value`` aggregations for date columns.  Inherits</span>
+<span class="sd">    ``count`` and ``distinct_count`` from</span>
+<span class="sd">    :class:`PyLegendPrimitiveCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendDate</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendDate</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendDateCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_datetime_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDateCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Latest (maximum) date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Shipped Date&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDate</span><span class="p">(</span><span class="n">PyLegendDateMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendDateCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_datetime_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDateCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Earliest (minimum) date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Shipped Date&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDate</span><span class="p">(</span><span class="n">PyLegendDateMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendDateCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_date_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDateCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Shipped Date&quot;)[&quot;Shipped Date&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDate</span><span class="p">(</span><span class="n">PyLegendDateUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendDateTimeCollection</span><span class="p">(</span><span class="n">PyLegendDateCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for datetime expressions.</span>
+
+<span class="sd">    Overrides ``distinct_value`` to return ``PyLegendDateTime``.</span>
+<span class="sd">    Inherits ``max``, ``min``, ``count``, and ``distinct_count`` from</span>
+<span class="sd">    :class:`PyLegendDateCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendDateTime</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendDateTime</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendDateTimeCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_datetime_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendDateTimeCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDateTime&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct datetime in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDateTime</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;dt&quot;] = frame[&quot;Shipped Date&quot;].first_hour_of_day()</span>
+<span class="sd">            frame.groupby(&quot;dt&quot;)[&quot;dt&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">datetime</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDateTime</span><span class="p">(</span><span class="n">PyLegendDateTimeUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendStrictDateCollection</span><span class="p">(</span><span class="n">PyLegendDateCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for strict-date (date-only) expressions.</span>
+
+<span class="sd">    Overrides ``max``, ``min``, and ``distinct_value`` to return</span>
+<span class="sd">    ``PyLegendStrictDate``.  Inherits ``count`` and ``distinct_count``</span>
+<span class="sd">    from :class:`PyLegendDateCollection`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">PyLegendStrictDate</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="n">PyLegendStrictDate</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span> <span class="o">=</span> <span class="n">nested</span>
+
+<div class="viewcode-block" id="PyLegendStrictDateCollection.max">
+<a class="viewcode-back" href="../../../../../api/core_language_strictdate_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStrictDateCollection.max">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendStrictDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Latest (maximum) strict date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendStrictDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;sd&quot;] = frame[&quot;Shipped Date&quot;].date_part()</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;sd&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.max()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendStrictDate</span><span class="p">(</span><span class="n">PyLegendStrictDateMaxExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStrictDateCollection.min">
+<a class="viewcode-back" href="../../../../../api/core_language_strictdate_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStrictDateCollection.min">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendStrictDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Earliest (minimum) strict date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendStrictDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;sd&quot;] = frame[&quot;Shipped Date&quot;].date_part()</span>
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;sd&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.min()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendStrictDate</span><span class="p">(</span><span class="n">PyLegendStrictDateMinExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="PyLegendStrictDateCollection.distinct_value">
+<a class="viewcode-back" href="../../../../../api/core_language_strictdate_collection.html#pylegend.core.language.shared.primitive_collection.PyLegendStrictDateCollection.distinct_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">distinct_value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendStrictDate&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the single distinct strict date in the group.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendStrictDate</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;sd&quot;] = frame[&quot;Shipped Date&quot;].date_part()</span>
+<span class="sd">            frame.groupby(&quot;sd&quot;)[&quot;sd&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.distinct_value()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendStrictDate</span><span class="p">(</span><span class="n">PyLegendStrictDateUniqueValueOnlyExpression</span><span class="p">(</span><span class="n">nested_expr</span><span class="p">))</span>  <span class="c1"># type: ignore[arg-type]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_primitive_collection</span><span class="p">(</span><span class="n">nested</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendPrimitiveCollection</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendIntegerCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendFloatCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimalCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">PyLegendNumberCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendString</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendStringCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendBooleanCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="n">datetime</span><span class="p">,</span> <span class="n">PyLegendDateTime</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendDateTimeCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">PyLegendStrictDate</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">PyLegendStrictDateCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="n">PyLegendDate</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">PyLegendDateCollection</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not supported type - </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendNumberPairCollection</span><span class="p">(</span><span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collection type for a pair of numeric expressions.</span>
+
+<span class="sd">    ``PyLegendNumberPairCollection`` enables bivariate aggregations such</span>
+<span class="sd">    as correlation, covariance, weighted average, and extrema-by-key</span>
+<span class="sd">    over two numeric columns.  Create one via</span>
+<span class="sd">    :meth:`PyLegendNumberCollection.row_mapper`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__nested_a</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">]</span>
+    <span class="n">__nested_b</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">nested_a</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumberCollection&quot;</span>
+        <span class="p">],</span>
+        <span class="n">nested_b</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumberCollection&quot;</span>
+        <span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">resolved_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve</span><span class="p">(</span><span class="n">nested_a</span><span class="p">)</span>
+        <span class="n">resolved_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve</span><span class="p">(</span><span class="n">nested_b</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">resolved_a</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span> <span class="o">=</span> <span class="n">resolved_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span> <span class="o">=</span> <span class="n">resolved_b</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_resolve</span><span class="p">(</span>
+        <span class="n">val</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumberCollection&quot;</span>
+        <span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">PyLegendPrimitiveCollection</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">_PyLegendPrimitiveCollection__nested</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">corr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pearson correlation coefficient between the two columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).corr()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendCorrExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_nested_exprs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># type: ignore</span>
+        <span class="n">nested_expr_a</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested_a</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">))</span>
+            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nested_b</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">covar_population</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Population covariance between the two columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).covar_population()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested_exprs</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendCovarPopulationExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">covar_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sample covariance between the two columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).covar_sample()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested_exprs</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendCovarSampleExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">wavg_legend_ext</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Weighted average using column *a* as values and column *b* as weights.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           This is a Legend extension function.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).wavg_legend_ext()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested_exprs</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendWavgExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">max_by_legend_ext</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Value of column *a* at the row where column *b* is maximum.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           This is a Legend extension function.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).max_by_legend_ext()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested_exprs</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendMaxByExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">min_by_legend_ext</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Value of column *a* at the row where column *b* is minimum.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">           This is a Legend extension function.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].aggregate(</span>
+<span class="sd">                lambda x: x.row_mapper(x).min_by_legend_ext()</span>
+<span class="sd">            ).to_pandas().head(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested_exprs</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendMinByExpression</span><span class="p">(</span><span class="n">nested_expr_a</span><span class="p">,</span> <span class="n">nested_expr_b</span><span class="p">))</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

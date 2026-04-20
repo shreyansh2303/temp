@@ -22,7 +22,7 @@
     <title>PyLegend &#8212; PyLegend 0.16.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=2fedd6bc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=ea671f29" />
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=7de89ed4"></script>
@@ -191,6 +191,600 @@ analysis ecosystem.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/api.html#core-language">Core Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_boolean.html">PyLegendBoolean</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#and">__and__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#invert">__invert__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#or">__or__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#rand">__rand__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#ror">__ror__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#rxor">__rxor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#xor">__xor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#case">case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean.html#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_boolean_collection.html">PyLegendBooleanCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_boolean_collection.html#distinct-value">distinct_value</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_date.html">PyLegendDate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#adjust">adjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#date-diff">date_diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#date-part">date_part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#datepart">datePart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#day">day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#day-of-week">day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#day-of-year">day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#dayofmonth">dayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#dayofweeknumber">dayOfWeekNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#diff">diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#epoch-value">epoch_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-day-of-month">first_day_of_month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-day-of-quarter">first_day_of_quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-day-of-week">first_day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-day-of-year">first_day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-hour-of-day">first_hour_of_day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-millisecond-of-second">first_millisecond_of_second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-minute-of-hour">first_minute_of_hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#first-second-of-minute">first_second_of_minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#firstdayofmonth">firstDayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#firstdayofquarter">firstDayOfQuarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#firstdayofweek">firstDayOfWeek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#firstdayofyear">firstDayOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#hour">hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#minute">minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#month">month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#monthnumber">monthNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#quarter">quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#quarternumber">quarterNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#second">second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#timedelta">timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#tostring">toString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#week-of-year">week_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#weekofyear">weekOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date.html#year">year</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_date_collection.html">PyLegendDateCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_date_collection.html#min">min</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_datetime.html">PyLegendDateTime</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#adjust">adjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#date-diff">date_diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#date-part">date_part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#datepart">datePart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#day">day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#day-of-week">day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#day-of-year">day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#dayofmonth">dayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#dayofweeknumber">dayOfWeekNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#diff">diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#epoch-value">epoch_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-day-of-month">first_day_of_month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-day-of-quarter">first_day_of_quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-day-of-week">first_day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-day-of-year">first_day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-hour-of-day">first_hour_of_day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-millisecond-of-second">first_millisecond_of_second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-minute-of-hour">first_minute_of_hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#first-second-of-minute">first_second_of_minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#firstdayofmonth">firstDayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#firstdayofquarter">firstDayOfQuarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#firstdayofweek">firstDayOfWeek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#firstdayofyear">firstDayOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#hour">hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#minute">minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#month">month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#monthnumber">monthNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#quarter">quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#quarternumber">quarterNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#second">second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#time-bucket">time_bucket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#timedelta">timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#tostring">toString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#week-of-year">week_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#weekofyear">weekOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime.html#year">year</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_datetime_collection.html">PyLegendDateTimeCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_datetime_collection.html#min">min</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_decimal.html">PyLegendDecimal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#abs">__abs__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#add">__add__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#ceil">__ceil__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#floor">__floor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#mul">__mul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#neg">__neg__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#pos">__pos__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#pow">__pow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#radd">__radd__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#rmul">__rmul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#round">__round__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#rpow">__rpow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#rsub">__rsub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#rtruediv">__rtruediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#sub">__sub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#truediv">__truediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#acos">acos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#asin">asin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#atan">atan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#atan2">atan2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#cbrt">cbrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#id1">ceil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#cos">cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#cosh">cosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#cot">cot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#degrees">degrees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#divide">divide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#exp">exp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#id2">floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#log">log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#log10">log10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#radians">radians</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#rem">rem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#id3">round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#sign">sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#sin">sin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#sinh">sinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#sqrt">sqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#tan">tan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#tanh">tanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#to-decimal">to_decimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#to-float">to_float</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal.html#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_decimal_collection.html">PyLegendDecimalCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#average">average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#median">median</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#percentile">percentile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#row-mapper">row_mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#std-dev">std_dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#std-dev-population">std_dev_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#std-dev-sample">std_dev_sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#variance">variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#variance-population">variance_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_decimal_collection.html#variance-sample">variance_sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_float.html">PyLegendFloat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#abs">__abs__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#add">__add__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#ceil">__ceil__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#floor">__floor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#mul">__mul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#neg">__neg__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#pos">__pos__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#pow">__pow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#radd">__radd__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#rmul">__rmul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#round">__round__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#rpow">__rpow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#rsub">__rsub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#rtruediv">__rtruediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#sub">__sub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#truediv">__truediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#acos">acos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#asin">asin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#atan">atan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#atan2">atan2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#cbrt">cbrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#id1">ceil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#cos">cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#cosh">cosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#cot">cot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#degrees">degrees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#exp">exp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#id2">floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#log">log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#log10">log10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#radians">radians</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#rem">rem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#id3">round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#sign">sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#sin">sin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#sinh">sinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#sqrt">sqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#tan">tan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#tanh">tanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#to-decimal">to_decimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#to-float">to_float</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float.html#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_float_collection.html">PyLegendFloatCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#average">average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#median">median</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#percentile">percentile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#row-mapper">row_mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#std-dev">std_dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#std-dev-population">std_dev_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#std-dev-sample">std_dev_sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#variance">variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#variance-population">variance_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_float_collection.html#variance-sample">variance_sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_integer.html">PyLegendInteger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#abs">__abs__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#add">__add__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#and">__and__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#ceil">__ceil__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#floor">__floor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#invert">__invert__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#lshift">__lshift__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#mod">__mod__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#mul">__mul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#neg">__neg__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#or">__or__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#pos">__pos__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#pow">__pow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#radd">__radd__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rand">__rand__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rlshift">__rlshift__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rmod">__rmod__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rmul">__rmul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#ror">__ror__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#round">__round__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rpow">__rpow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rrshift">__rrshift__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rshift">__rshift__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rsub">__rsub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rtruediv">__rtruediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rxor">__rxor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#sub">__sub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#truediv">__truediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#xor">__xor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#acos">acos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#asin">asin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#atan">atan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#atan2">atan2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#cbrt">cbrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#id1">ceil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#cos">cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#cosh">cosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#cot">cot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#degrees">degrees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#exp">exp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#id2">floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#log">log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#log10">log10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#radians">radians</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#rem">rem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#id3">round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#sign">sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#sin">sin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#sinh">sinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#sqrt">sqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#tan">tan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#tanh">tanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#to-decimal">to_decimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#to-float">to_float</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer.html#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_integer_collection.html">PyLegendIntegerCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#average">average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#median">median</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#percentile">percentile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#row-mapper">row_mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#std-dev">std_dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#std-dev-population">std_dev_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#std-dev-sample">std_dev_sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#variance">variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#variance-population">variance_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_integer_collection.html#variance-sample">variance_sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_number.html">PyLegendNumber</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#abs">__abs__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#add">__add__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#ceil">__ceil__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#floor">__floor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#mul">__mul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#neg">__neg__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#pos">__pos__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#pow">__pow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#radd">__radd__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#rmul">__rmul__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#round">__round__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#rpow">__rpow__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#rsub">__rsub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#rtruediv">__rtruediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#sub">__sub__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#truediv">__truediv__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#acos">acos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#asin">asin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#atan">atan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#atan2">atan2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#cbrt">cbrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#id1">ceil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#cos">cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#cosh">cosh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#cot">cot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#degrees">degrees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#exp">exp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#id2">floor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#log">log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#log10">log10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#radians">radians</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#rem">rem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#id3">round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#sign">sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#sin">sin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#sinh">sinh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#sqrt">sqrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#tan">tan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#tanh">tanh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#to-decimal">to_decimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#to-float">to_float</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number.html#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_number_collection.html">PyLegendNumberCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#average">average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#median">median</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#percentile">percentile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#row-mapper">row_mapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#std-dev">std_dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#std-dev-population">std_dev_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#std-dev-sample">std_dev_sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#variance">variance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#variance-population">variance_population</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_number_collection.html#variance-sample">variance_sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_strictdate.html">PyLegendStrictDate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#adjust">adjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#date-diff">date_diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#date-part">date_part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#datepart">datePart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#day">day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#day-of-week">day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#day-of-year">day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#dayofmonth">dayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#dayofweeknumber">dayOfWeekNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#diff">diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#epoch-value">epoch_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-day-of-month">first_day_of_month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-day-of-quarter">first_day_of_quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-day-of-week">first_day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-day-of-year">first_day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-hour-of-day">first_hour_of_day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-millisecond-of-second">first_millisecond_of_second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-minute-of-hour">first_minute_of_hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#first-second-of-minute">first_second_of_minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#firstdayofmonth">firstDayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#firstdayofquarter">firstDayOfQuarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#firstdayofweek">firstDayOfWeek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#firstdayofyear">firstDayOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#hour">hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#minute">minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#month">month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#monthnumber">monthNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#quarter">quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#quarternumber">quarterNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#second">second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#time-bucket">time_bucket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#timedelta">timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#tostring">toString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#week-of-year">week_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#weekofyear">weekOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate.html#year">year</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_strictdate_collection.html">PyLegendStrictDateCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_strictdate_collection.html#min">min</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_string.html">PyLegendString</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#add">__add__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#radd">__radd__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#ascii">ascii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#coalesce">coalesce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#contains">contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#endswith">endswith</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#equals">equals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#full-match">full_match</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#index">index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#index-of">index_of</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#left">left</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#len">len</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#length">length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#ljust">ljust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#lower">lower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#lstrip">lstrip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#match">match</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-boolean">parse_boolean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-datetime">parse_datetime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-decimal">parse_decimal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-float">parse_float</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-int">parse_int</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#parse-integer">parse_integer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#repeat-string">repeat_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#replace">replace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#reverse">reverse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#right">right</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#rjust">rjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#rstrip">rstrip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#split-part">split_part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#startswith">startswith</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#string-contains">string_contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#strip">strip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#substring">substring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#to-lower-first-character">to_lower_first_character</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#tostring">toString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#to-upper-first-character">to_upper_first_character</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string.html#upper">upper</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core_language_string_collection.html">PyLegendStringCollection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#distinct-count">distinct_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#distinct-value">distinct_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#join">join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#join-strings">join_strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core_language_string_collection.html#min">min</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api/api.html#legendql-api">LegendQL API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/legendql_tds_frame.html">LegendQL TDS Frame</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/legendql_tds_frame.html#cast">cast</a></li>
@@ -225,22 +819,32 @@ analysis ecosystem.</p>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#apply">apply</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#assign">assign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#cast">cast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#concat-legend-ext">concat_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#cume-dist-legend-ext">cume_dist_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#drop">drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#drop-duplicates">drop_duplicates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#dropna">dropna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#expanding">expanding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#fillna">fillna</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#filter">filter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#groupby">groupby</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#head">head</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#iloc">iloc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#info">info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#join">join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#loc">loc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#mean">mean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#merge">merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#ntile-legend-ext">ntile_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#range-between">range_between</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#rank">rank</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#rename">rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#rolling">rolling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#rows-between">rows_between</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#shape">shape</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#shift">shift</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#sort-values">sort_values</a></li>
@@ -248,48 +852,97 @@ analysis ecosystem.</p>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#sum">sum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#truncate">truncate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_tds_frame.html#window-frame-legend-ext">window_frame_legend_ext</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/pandas_series.html">Pandas Series</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#pylegend.core.language.pandas_api.pandas_api_series.Series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#agg">agg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#concat-legend-ext">concat_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#cume-dist-legend-ext">cume_dist_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#expanding">expanding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#mean">mean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#ntile-legend-ext">ntile_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#rolling">rolling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#std">std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#sum">sum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_series.html#window-frame-legend-ext">window_frame_legend_ext</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/pandas_groupby_tds_frame.html">Pandas Groupby TDS Frame</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#agg">agg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#aggregate">aggregate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#cume-dist-legend-ext">cume_dist_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#expanding">expanding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#median">median</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#ntile-legend-ext">ntile_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#rolling">rolling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#shift">shift</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#std">std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#sum">sum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_tds_frame.html#window-frame-legend-ext">window_frame_legend_ext</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/pandas_groupby_series.html">Pandas Groupby Series</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#pylegend.core.language.pandas_api.pandas_api_groupby_series.GroupbySeries"><code class="docutils literal notranslate"><span class="pre">GroupbySeries</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#agg">agg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#corr">corr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#cov">cov</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#cume-dist-legend-ext">cume_dist_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#expanding">expanding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#max">max</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#median">median</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#ntile-legend-ext">ntile_legend_ext</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#rolling">rolling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#std">std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#transform">transform</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#wavg-legend-ext">wavg_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#window-frame-legend-ext">window_frame_legend_ext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_groupby_series.html#zscore-legend-ext">zscore_legend_ext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/pandas_window_tds_frame.html">Pandas Window TDS Frame</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#obtaining-a-pandasapiwindowtdsframe">Obtaining a PandasApiWindowTdsFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#selecting-a-single-column">Selecting a single column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#order-by-resolution">Order-by resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#agg">agg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#first">first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#last">last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_tds_frame.html#window-extend-legend-ext">window_extend_legend_ext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/pandas_window_series.html">Pandas Window Series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#agg">agg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#aggregate">aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#first">first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#last">last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#max">max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#mean">mean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#min">min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#shift">shift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#std">std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#sum">sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/pandas_window_series.html#window-extend-legend-ext">window_extend_legend_ext</a></li>
 </ul>
 </li>
 </ul>

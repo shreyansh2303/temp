@@ -3,7 +3,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "b877e50d",
+   "id": "ea888688",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -14,7 +14,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "f40bd302",
+   "id": "ff0f3095",
    "metadata": {},
    "outputs": [
     {
@@ -87,7 +87,7 @@
     }
    ],
    "source": [
-    "frame.groupby(\"Ship Name\")[\"Order Id\"].mean().head(5).to_pandas()"
+    "frame.groupby(\"Ship Name\")[\"Order Id\"].mean().to_pandas().head(5)"
    ]
   }
  ],

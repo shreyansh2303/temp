@@ -21,7 +21,7 @@
     <title>pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame &#8212; PyLegend 0.16.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=2fedd6bc" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=ea671f29" />
     <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
@@ -148,13 +148,16 @@
     <span class="n">TYPE_CHECKING</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_aggregate_specification</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendAggInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_frame_spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameSpec</span><span class="p">,</span> <span class="n">RowsBetween</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_groupby_series_from_col_type</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_base_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiBaseTdsFrame</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_column</span><span class="w"> </span><span class="kn">import</span> <span class="n">TdsColumn</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiTdsFrame</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupbySeries</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiWindowTdsFrame</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">PandasApiGroupbyTdsFrame</span><span class="p">:</span>
@@ -341,36 +344,8 @@
         <span class="k">if</span> <span class="n">selected_columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">column</span><span class="p">:</span> <span class="n">TdsColumn</span> <span class="o">=</span> <span class="n">selected_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">col_type</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">col_type</span> <span class="o">==</span> <span class="s2">&quot;Boolean&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover (Boolean column not supported in PURE)</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">BooleanGroupbySeries</span>
-                <span class="k">return</span> <span class="n">BooleanGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;String&quot;</span><span class="p">,</span> <span class="s2">&quot;Varchar&quot;</span><span class="p">):</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringGroupbySeries</span>
-                <span class="k">return</span> <span class="n">StringGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="o">==</span> <span class="s2">&quot;Number&quot;</span><span class="p">:</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">NumberGroupbySeries</span>
-                <span class="k">return</span> <span class="n">NumberGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Integer&quot;</span><span class="p">,</span> <span class="s2">&quot;TinyInt&quot;</span><span class="p">,</span> <span class="s2">&quot;UTinyInt&quot;</span><span class="p">,</span> <span class="s2">&quot;SmallInt&quot;</span><span class="p">,</span> <span class="s2">&quot;USmallInt&quot;</span><span class="p">,</span>
-                              <span class="s2">&quot;Int&quot;</span><span class="p">,</span> <span class="s2">&quot;UInt&quot;</span><span class="p">,</span> <span class="s2">&quot;BigInt&quot;</span><span class="p">,</span> <span class="s2">&quot;UBigInt&quot;</span><span class="p">):</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntegerGroupbySeries</span>
-                <span class="k">return</span> <span class="n">IntegerGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Float&quot;</span><span class="p">,</span> <span class="s2">&quot;Float4&quot;</span><span class="p">,</span> <span class="s2">&quot;Double&quot;</span><span class="p">):</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">FloatGroupbySeries</span>
-                <span class="k">return</span> <span class="n">FloatGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Decimal&quot;</span><span class="p">,</span> <span class="s2">&quot;Numeric&quot;</span><span class="p">):</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecimalGroupbySeries</span>
-                <span class="k">return</span> <span class="n">DecimalGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="o">==</span> <span class="s2">&quot;Date&quot;</span><span class="p">:</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">DateGroupbySeries</span>
-                <span class="k">return</span> <span class="n">DateGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;DateTime&quot;</span><span class="p">,</span> <span class="s2">&quot;Timestamp&quot;</span><span class="p">):</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">DateTimeGroupbySeries</span>
-                <span class="k">return</span> <span class="n">DateTimeGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">col_type</span> <span class="o">==</span> <span class="s2">&quot;StrictDate&quot;</span><span class="p">:</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_groupby_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrictDateGroupbySeries</span>
-                <span class="k">return</span> <span class="n">StrictDateGroupbySeries</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported column type &#39;</span><span class="si">{</span><span class="n">col_type</span><span class="si">}</span><span class="s2">&#39; for column &#39;</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+            <span class="n">groupby_series_cls</span> <span class="o">=</span> <span class="n">get_groupby_series_from_col_type</span><span class="p">(</span><span class="n">col_type</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">groupby_series_cls</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">new_frame</span>
 
@@ -432,6 +407,17 @@
 <span class="sd">        PandasApiTdsFrame</span>
 <span class="sd">            A new TDS frame with one row per group and the aggregated</span>
 <span class="sd">            columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If ``func`` is not a valid aggregation specification.</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If a column name in a dict-based ``func`` does not exist in</span>
+<span class="sd">            the frame.</span>
+<span class="sd">        NotImplementedError</span>
+<span class="sd">            If ``axis`` is not ``0`` / ``&#39;index&#39;``, or if extra</span>
+<span class="sd">            ``*args`` / ``**kwargs`` are passed.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -586,7 +572,7 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine parameter is not supported in sum function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">engine_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine_kwargs parameter is not supported in sum function.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_numeric_only_func_map</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PandasApiGroupbyTdsFrame.mean">
@@ -643,7 +629,7 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine parameter is not supported in mean function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">engine_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine_kwargs parameter is not supported in mean function.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_numeric_only_func_map</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PandasApiGroupbyTdsFrame.min">
@@ -792,17 +778,19 @@
         <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute the sample standard deviation within each group.</span>
+<span class="sd">        Compute the standard deviation within each group.</span>
 
 <span class="sd">        Convenience method equivalent to ``aggregate(&#39;std&#39;)`` on the</span>
-<span class="sd">        groupby object. Uses ``ddof=1`` (sample standard deviation),</span>
-<span class="sd">        mapping to ``STDDEV_SAMP`` at the SQL level.</span>
+<span class="sd">        groupby object. Supports both ``ddof=1`` (sample, maps to</span>
+<span class="sd">        ``STDDEV_SAMP``) and ``ddof=0`` (population, maps to</span>
+<span class="sd">        ``STDDEV_POP``) at the SQL level.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        ddof : int, default 1</span>
-<span class="sd">            Degrees of freedom. Must be ``1``. Population standard</span>
-<span class="sd">            deviation (``ddof=0``) is not supported.</span>
+<span class="sd">            Degrees of freedom. ``1`` for sample standard deviation</span>
+<span class="sd">            (``STDDEV_SAMP``), ``0`` for population standard deviation</span>
+<span class="sd">            (``STDDEV_POP``).</span>
 <span class="sd">        engine : None</span>
 <span class="sd">            Not supported. Must be ``None``.</span>
 <span class="sd">        engine_kwargs : None</span>
@@ -818,14 +806,24 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        NotImplementedError</span>
-<span class="sd">            If ``ddof != 1``, or if ``engine``, ``engine_kwargs``, or</span>
-<span class="sd">            ``numeric_only`` are set to unsupported values.</span>
+<span class="sd">            If ``ddof`` is not ``0`` or ``1``, or if ``engine``,</span>
+<span class="sd">            ``engine_kwargs``, or ``numeric_only`` are set to unsupported</span>
+<span class="sd">            values.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        var : Compute group variances.</span>
 <span class="sd">        aggregate : General grouped aggregation.</span>
 <span class="sd">        PandasApiTdsFrame.std : Frame-level std (no grouping).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=0`` and ``ddof=1`` are supported. Other values</span>
+<span class="sd">          raise ``NotImplementedError``.</span>
+<span class="sd">        - ``engine``, ``engine_kwargs``, and ``numeric_only`` are</span>
+<span class="sd">          **not supported**.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -837,15 +835,17 @@
 <span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].std().head(5).to_pandas()</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">ddof</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only ddof=1 (Sample Standard Deviation) is supported in std function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ddof</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only ddof=0 (Population) and ddof=1 (Sample) are supported in std function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
         <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine parameter is not supported in std function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">engine_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine_kwargs parameter is not supported in std function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in std function.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;std_dev_sample&quot;</span> <span class="k">if</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;std_dev_population&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PandasApiGroupbyTdsFrame.var">
@@ -858,17 +858,18 @@
         <span class="n">numeric_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute the sample variance within each group.</span>
+<span class="sd">        Compute the variance within each group.</span>
 
 <span class="sd">        Convenience method equivalent to ``aggregate(&#39;var&#39;)`` on the</span>
-<span class="sd">        groupby object. Uses ``ddof=1`` (sample variance), mapping</span>
-<span class="sd">        to ``VAR_SAMP`` at the SQL level.</span>
+<span class="sd">        groupby object. Supports both ``ddof=1`` (sample, maps to</span>
+<span class="sd">        ``VAR_SAMP``) and ``ddof=0`` (population, maps to ``VAR_POP``)</span>
+<span class="sd">        at the SQL level.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        ddof : int, default 1</span>
-<span class="sd">            Degrees of freedom. Must be ``1``. Population variance</span>
-<span class="sd">            (``ddof=0``) is not supported.</span>
+<span class="sd">            Degrees of freedom. ``1`` for sample variance</span>
+<span class="sd">            (``VAR_SAMP``), ``0`` for population variance (``VAR_POP``).</span>
 <span class="sd">        engine : None</span>
 <span class="sd">            Not supported. Must be ``None``.</span>
 <span class="sd">        engine_kwargs : None</span>
@@ -884,14 +885,24 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        NotImplementedError</span>
-<span class="sd">            If ``ddof != 1``, or if ``engine``, ``engine_kwargs``, or</span>
-<span class="sd">            ``numeric_only`` are set to unsupported values.</span>
+<span class="sd">            If ``ddof`` is not ``0`` or ``1``, or if ``engine``,</span>
+<span class="sd">            ``engine_kwargs``, or ``numeric_only`` are set to unsupported</span>
+<span class="sd">            values.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        std : Compute group standard deviations.</span>
 <span class="sd">        aggregate : General grouped aggregation.</span>
 <span class="sd">        PandasApiTdsFrame.var : Frame-level var (no grouping).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only ``ddof=0`` and ``ddof=1`` are supported. Other values</span>
+<span class="sd">          raise ``NotImplementedError``.</span>
+<span class="sd">        - ``engine``, ``engine_kwargs``, and ``numeric_only`` are</span>
+<span class="sd">          **not supported**.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -903,15 +914,17 @@
 <span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].var().head(5).to_pandas()</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">ddof</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only ddof=1 (Sample Variance) is supported in var function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ddof</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only ddof=0 (Population) and ddof=1 (Sample) are supported in var function, but got: </span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
         <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine parameter is not supported in var function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">engine_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;engine_kwargs parameter is not supported in var function.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">numeric_only</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;numeric_only=True is not currently supported in var function.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;variance_sample&quot;</span> <span class="k">if</span> <span class="n">ddof</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;variance_population&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PandasApiGroupbyTdsFrame.count">
@@ -955,6 +968,108 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.median">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.median">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the median of each numeric column within each group.</span>
+
+<span class="sd">        Applies ``PERCENTILE_CONT(0.5)`` at the SQL level for each</span>
+<span class="sd">        numeric column. Non-numeric columns are excluded automatically.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with one row per group.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        mean : Compute group means.</span>
+<span class="sd">        aggregate : General grouped aggregation.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only numeric columns are included; non-numeric columns are</span>
+<span class="sd">          silently skipped.</span>
+<span class="sd">        - The pandas ``numeric_only`` parameter is not available; the</span>
+<span class="sd">          behaviour is always ``numeric_only=True``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].median().head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">numeric_func_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numeric_only_func_map</span><span class="p">(</span><span class="s2">&quot;median&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">numeric_func_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the mode of each numeric column within each group.</span>
+
+<span class="sd">        Returns the most frequently occurring value per numeric column</span>
+<span class="sd">        within each group. Maps to ``MODE()`` at the SQL level.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasApiTdsFrame</span>
+<span class="sd">            A new TDS frame with one row per group.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        median : Compute group medians.</span>
+<span class="sd">        aggregate : General grouped aggregation.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        **Differences from pandas:**</span>
+
+<span class="sd">        - Only numeric columns are included; non-numeric columns are</span>
+<span class="sd">          silently skipped.</span>
+<span class="sd">        - Returns a single value per group (SQL ``MODE``). Pandas may</span>
+<span class="sd">          return multiple rows when there are ties.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame.groupby(&quot;Ship Name&quot;)[&quot;Order Id&quot;].mode().head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">numeric_func_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numeric_only_func_map</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">numeric_func_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_numeric_only_func_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendAggInput</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a {col: func_name} dict for numeric non-groupby columns only.&quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_column</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimitiveTdsColumn</span>
+        <span class="n">grouping_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_grouping_columns</span><span class="p">()}</span>
+        <span class="n">numeric_types</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Integer&quot;</span><span class="p">,</span> <span class="s2">&quot;Float&quot;</span><span class="p">,</span> <span class="s2">&quot;Number&quot;</span><span class="p">,</span> <span class="s2">&quot;Decimal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;TinyInt&quot;</span><span class="p">,</span> <span class="s2">&quot;UTinyInt&quot;</span><span class="p">,</span> <span class="s2">&quot;SmallInt&quot;</span><span class="p">,</span> <span class="s2">&quot;USmallInt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Int&quot;</span><span class="p">,</span> <span class="s2">&quot;UInt&quot;</span><span class="p">,</span> <span class="s2">&quot;BigInt&quot;</span><span class="p">,</span> <span class="s2">&quot;UBigInt&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">result</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="n">PyLegendHashable</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">selected</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_selected_columns</span><span class="p">()</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">selected</span> <span class="k">if</span> <span class="n">selected</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_frame</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="c1"># Skip groupby columns only when no explicit column selection was made</span>
+            <span class="c1"># If user explicitly selected a groupby column, allow aggregation on it</span>
+            <span class="k">if</span> <span class="n">selected</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">col</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span> <span class="ow">in</span> <span class="n">grouping_names</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">PrimitiveTdsColumn</span><span class="p">)</span> <span class="ow">and</span> <span class="n">col</span><span class="o">.</span><span class="n">get_type</span><span class="p">()</span> <span class="ow">in</span> <span class="n">numeric_types</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">get_name</span><span class="p">()]</span> <span class="o">=</span> <span class="n">func_name</span>
+        <span class="k">return</span> <span class="n">result</span>
 
 <div class="viewcode-block" id="PandasApiGroupbyTdsFrame.rank">
 <a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.rank">[docs]</a>
@@ -1074,6 +1189,64 @@
             <span class="n">na_option</span><span class="o">=</span><span class="n">na_option</span><span class="p">,</span>
             <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
             <span class="n">pct</span><span class="o">=</span><span class="n">pct</span>
+        <span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.cume_dist_legend_ext">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.cume_dist_legend_ext">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cume_dist_legend_ext</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PyLegend extension (not present in pandas).</span>
+
+<span class="sd">        Compute the cumulative distribution within each group, equivalent to</span>
+<span class="sd">        SQL ``CUME_DIST() OVER (PARTITION BY ... ORDER BY col)`` and Pure</span>
+<span class="sd">        ``cumulativeDistribution``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_applied_function_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiAppliedFunctionTdsFrame</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.rank_function</span><span class="w"> </span><span class="kn">import</span> <span class="n">RankFunction</span>
+        <span class="k">return</span> <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">(</span><span class="n">RankFunction</span><span class="p">(</span>
+            <span class="n">base_frame</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cume_dist&#39;</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">na_option</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+            <span class="n">pct</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.ntile_legend_ext">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.ntile_legend_ext">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ntile_legend_ext</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">num_buckets</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PyLegend extension (not present in pandas).</span>
+
+<span class="sd">        Compute the NTILE bucket within each group, equivalent to</span>
+<span class="sd">        SQL ``NTILE(n) OVER (PARTITION BY ... ORDER BY col)`` and Pure</span>
+<span class="sd">        ``ntile``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_applied_function_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PandasApiAppliedFunctionTdsFrame</span>
+        <span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.functions.rank_function</span><span class="w"> </span><span class="kn">import</span> <span class="n">RankFunction</span>
+        <span class="k">return</span> <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">(</span><span class="n">RankFunction</span><span class="p">(</span>
+            <span class="n">base_frame</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ntile&#39;</span><span class="p">,</span>
+            <span class="n">numeric_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">na_option</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+            <span class="n">pct</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">num_buckets</span><span class="o">=</span><span class="n">num_buckets</span><span class="p">,</span>
         <span class="p">))</span></div>
 
 
@@ -1217,6 +1390,130 @@
             <span class="n">freq</span><span class="o">=</span><span class="n">freq</span>
         <span class="p">))</span>
         <span class="k">return</span> <span class="n">PandasApiAppliedFunctionTdsFrame</span><span class="p">(</span><span class="n">PctChangeFunction</span><span class="p">(</span><span class="n">shift_extended_frame</span><span class="p">))</span>
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.expanding">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.expanding">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">expanding</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">min_periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">method</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiWindowTdsFrame&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiWindowTdsFrame</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_frame_spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">RowsBetween</span>
+
+        <span class="k">if</span> <span class="n">min_periods</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The expanding function is only supported for min_periods=1, but got: min_periods=</span><span class="si">{</span><span class="n">min_periods</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The expanding function does not support the &#39;method&#39; parameter, but got: method=</span><span class="si">{</span><span class="n">method</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">PandasApiWindowTdsFrame</span><span class="p">(</span>
+            <span class="n">base_frame</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="o">=</span><span class="n">order_by</span><span class="p">,</span>
+            <span class="n">frame_spec</span><span class="o">=</span><span class="n">RowsBetween</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.rolling">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.rolling">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rolling</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">window</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">min_periods</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">win_type</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">on</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">closed</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">step</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">method</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiWindowTdsFrame&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiWindowTdsFrame</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.pandas_api.pandas_api_frame_spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">RowsBetween</span>
+
+        <span class="k">if</span> <span class="n">min_periods</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">min_periods</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function is only supported for min_periods=1 or None, but got: min_periods=</span><span class="si">{</span><span class="n">min_periods</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support center=True, but got: center=</span><span class="si">{</span><span class="n">center</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">win_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support the &#39;win_type&#39; parameter, but got: win_type=</span><span class="si">{</span><span class="n">win_type</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">on</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support the &#39;on&#39; parameter, but got: on=</span><span class="si">{</span><span class="n">on</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">closed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support the &#39;closed&#39; parameter, but got: closed=</span><span class="si">{</span><span class="n">closed</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support the &#39;step&#39; parameter, but got: step=</span><span class="si">{</span><span class="n">step</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The rolling function does not support the &#39;method&#39; parameter, but got: method=</span><span class="si">{</span><span class="n">method</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">PandasApiWindowTdsFrame</span><span class="p">(</span>
+            <span class="n">base_frame</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="o">=</span><span class="n">order_by</span><span class="p">,</span>
+            <span class="n">frame_spec</span><span class="o">=</span><span class="n">RowsBetween</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">window</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PandasApiGroupbyTdsFrame.window_frame_legend_ext">
+<a class="viewcode-back" href="../../../../../../api/pandas_groupby_tds_frame.html#pylegend.core.tds.pandas_api.frames.pandas_api_groupby_tds_frame.PandasApiGroupbyTdsFrame.window_frame_legend_ext">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window_frame_legend_ext</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">frame_spec</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">FrameSpec</span><span class="p">]</span> <span class="o">=</span> <span class="n">RowsBetween</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">order_by</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendSequence[bool]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PandasApiWindowTdsFrame&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PyLegend extension (not present in pandas).</span>
+
+<span class="sd">        Create a custom window specification with explicit control over the</span>
+<span class="sd">        window frame.  When called on a groupby frame the grouping columns</span>
+<span class="sd">        are automatically used as PARTITION BY columns.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        frame_spec:</span>
+<span class="sd">            A ``RowsBetween`` or ``RangeBetween`` specification object.</span>
+<span class="sd">            ``None`` means no frame clause (just PARTITION BY + ORDER BY).</span>
+<span class="sd">        order_by:</span>
+<span class="sd">            Column name(s) to use for ORDER BY within the window.</span>
+<span class="sd">        ascending:</span>
+<span class="sd">            Sort direction(s) for the ORDER BY columns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.pandas_api_window_tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasApiWindowTdsFrame</span>
+
+        <span class="k">if</span> <span class="n">frame_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">frame_spec</span><span class="p">,</span> <span class="n">FrameSpec</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;frame_spec must be a RowsBetween or RangeBetween, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">frame_spec</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">PandasApiWindowTdsFrame</span><span class="p">(</span>
+            <span class="n">base_frame</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="o">=</span><span class="n">order_by</span><span class="p">,</span>
+            <span class="n">frame_spec</span><span class="o">=</span><span class="n">frame_spec</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
 </pre></div>
 
       </div>

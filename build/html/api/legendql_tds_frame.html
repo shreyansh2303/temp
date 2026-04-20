@@ -22,7 +22,7 @@
     <title>LegendQL TDS Frame &#8212; PyLegend 0.16.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=2fedd6bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=7de89ed4"></script>
@@ -33,7 +33,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pandas TDS Frame" href="pandas_tds_frame.html" />
-    <link rel="prev" title="API Reference" href="api.html" />
+    <link rel="prev" title="PyLegendStringCollection" href="core_language_string_collection.html" />
  
 <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
@@ -103,6 +103,7 @@
 <h3>Table of Contents</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#core-language">Core Language</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">LegendQL TDS Frame</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#cast">cast</a></li>
@@ -2576,7 +2577,7 @@ Used with <a class="reference internal" href="#pylegend.core.tds.legendql_api.fr
 <dd class="field-even"><p>A window frame specification for use with window functions.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowFrame</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowFrame</span></code></span></p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> &#8211; If neither numeric nor duration range is provided, or if both are provided.</p>
@@ -2901,7 +2902,7 @@ Used with <a class="reference internal" href="#pylegend.core.tds.legendql_api.fr
 <dd class="field-even"><p>A window frame specification for use with window functions.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowFrame</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowFrame</span></code></span></p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -3463,10 +3464,10 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
   <tbody>
     <tr>
       <th>0</th>
-      <td>11011</td>
-      <td>1998-04-09</td>
-      <td>1998-05-07</td>
-      <td>1998-04-13</td>
+      <td>10702</td>
+      <td>1997-10-13</td>
+      <td>1997-11-24</td>
+      <td>1997-10-21</td>
       <td>Alfred's Futterkiste</td>
     </tr>
     <tr>
@@ -3479,26 +3480,26 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
     </tr>
     <tr>
       <th>2</th>
-      <td>10702</td>
-      <td>1997-10-13</td>
-      <td>1997-11-24</td>
-      <td>1997-10-21</td>
-      <td>Alfred's Futterkiste</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10835</td>
-      <td>1998-01-15</td>
-      <td>1998-02-12</td>
-      <td>1998-01-21</td>
-      <td>Alfred's Futterkiste</td>
-    </tr>
-    <tr>
-      <th>4</th>
       <td>10952</td>
       <td>1998-03-16</td>
       <td>1998-04-27</td>
       <td>1998-03-24</td>
+      <td>Alfred's Futterkiste</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11011</td>
+      <td>1998-04-09</td>
+      <td>1998-05-07</td>
+      <td>1998-04-13</td>
+      <td>Alfred's Futterkiste</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10835</td>
+      <td>1998-01-15</td>
+      <td>1998-02-12</td>
+      <td>1998-01-21</td>
       <td>Alfred's Futterkiste</td>
     </tr>
   </tbody>
@@ -3607,22 +3608,14 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
   <tbody>
     <tr>
       <th>0</th>
-      <td>10906</td>
-      <td>1998-02-25</td>
-      <td>1998-03-11</td>
-      <td>1998-03-03</td>
+      <td>11044</td>
+      <td>1998-04-23</td>
+      <td>1998-05-21</td>
+      <td>1998-05-01</td>
       <td>Wolski Zajazd</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10870</td>
-      <td>1998-02-04</td>
-      <td>1998-03-04</td>
-      <td>1998-02-13</td>
-      <td>Wolski Zajazd</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>10998</td>
       <td>1998-04-03</td>
       <td>1998-04-17</td>
@@ -3630,11 +3623,19 @@ or <code class="docutils literal notranslate"><span class="pre">.descending()</s
       <td>Wolski Zajazd</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>10906</td>
+      <td>1998-02-25</td>
+      <td>1998-03-11</td>
+      <td>1998-03-03</td>
+      <td>Wolski Zajazd</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>10792</td>
-      <td>1997-12-23</td>
-      <td>1998-01-20</td>
-      <td>1997-12-31</td>
+      <td>10870</td>
+      <td>1998-02-04</td>
+      <td>1998-03-04</td>
+      <td>1998-02-13</td>
       <td>Wolski Zajazd</td>
     </tr>
     <tr>
@@ -3753,7 +3754,7 @@ independently for window calculations.</p>
 <code class="docutils literal notranslate"><span class="pre">.ascending()</span></code> or <code class="docutils literal notranslate"><span class="pre">.descending()</span></code> direction.</p></li>
 </ul>
 </p></li>
-<li><p><strong>frame</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowFrame</span></code>]</span>) &#8211; Window frame specification created by <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rows()</span></code></a> or <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range"><code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code></a>.
+<li><p><strong>frame</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowFrame</span></code>]</span>) &#8211; Window frame specification created by <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.rows"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rows()</span></code></a> or <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.range"><code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code></a>.
 Defines which rows relative to the current row are included
 in the calculation.</p></li>
 </ul>
@@ -3762,7 +3763,7 @@ in the calculation.</p></li>
 <dd class="field-even"><p>A window specification for use with <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window_extend" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window_extend"><code class="xref py py-meth docutils literal notranslate"><span class="pre">window_extend()</span></code></a>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindow</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindow</span></code></span></p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -3790,8 +3791,8 @@ functions over the specified window.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>window</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindow</span></code></span>) &#8211; Window specification created by <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window"><code class="xref py py-meth docutils literal notranslate"><span class="pre">window()</span></code></a>.</p></li>
-<li><p><strong>extend_columns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitiveCollection</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitiveCollection</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]]]]</span>) &#8211; <p>Column specification(s) as:</p>
+<li><p><strong>window</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindow</span></code></span>) &#8211; Window specification created by <a class="reference internal" href="#pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window" title="pylegend.core.tds.legendql_api.frames.legendql_api_tds_frame.LegendQLApiTdsFrame.window"><code class="xref py py-meth docutils literal notranslate"><span class="pre">window()</span></code></a>.</p></li>
+<li><p><strong>extend_columns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitiveCollection</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiPartialFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendWindowReference</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LegendQLApiTdsRow</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitiveCollection</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]]]]</span>) &#8211; <p>Column specification(s) as:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">tuple</span> <span class="pre">(name,</span> <span class="pre">func)</span></code> : Column name and function that receives
 (partial_frame, window_ref, row) and returns a value.</p></li>

@@ -1,0 +1,257 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Truetmp_notebooks/PyLegendDecimal.divide.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>import pylegend
+from decimal import Decimal
+frame = pylegend.samples.pandas_api.northwind_orders_frame()
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>frame[&quot;id_div&quot;] = frame[&quot;Order Id&quot;].to_decimal().divide(Decimal(&quot;3&quot;), 4)
+frame.head(3).to_pandas()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[684]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> frame[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">id_div</span><span class="ansi-yellow-fg">&#34;</span>] = frame[<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Order Id</span><span class="ansi-yellow-fg">&#34;</span>].to_decimal().divide(Decimal(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">3</span><span class="ansi-yellow-fg">&#34;</span>), <span class="ansi-green-fg">4</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">frame</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">head</span><span class="ansi-yellow-bg">(</span><span class="ansi-green-fg ansi-yellow-bg">3</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_pandas</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/tds_frame.py:141</span>, in <span class="ansi-cyan-fg">PyLegendTdsFrame.to_pandas</span><span class="ansi-blue-fg">(self, chunk_size, pandas_df_read_config)</span>
+<span class="ansi-green-fg">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">to_pandas</span>(
+<span class="ansi-green-fg">    137</span>         <span style="color: rgb(0,135,0)">self</span>,
+<span class="ansi-green-fg">    138</span>         chunk_size: PyLegendOptional[<span style="color: rgb(0,135,0)">int</span>] = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+<span class="ansi-green-fg">    139</span>         pandas_df_read_config: PandasDfReadConfig = PandasDfReadConfig()
+<span class="ansi-green-fg">    140</span> ) -&gt; pd.DataFrame:
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">141</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">execute_frame_to_pandas_df</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">chunk_size</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">pandas_df_read_config</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_base_tds_frame.py:1474</span>, in <span class="ansi-cyan-fg">PandasApiBaseTdsFrame.execute_frame_to_pandas_df</span><span class="ansi-blue-fg">(self, chunk_size, pandas_df_read_config)</span>
+<span class="ansi-green-fg">   1469</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">execute_frame_to_pandas_df</span>(
+<span class="ansi-green-fg">   1470</span>         <span style="color: rgb(0,135,0)">self</span>,
+<span class="ansi-green-fg">   1471</span>         chunk_size: PyLegendOptional[<span style="color: rgb(0,135,0)">int</span>] = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+<span class="ansi-green-fg">   1472</span>         pandas_df_read_config: PandasDfReadConfig = PandasDfReadConfig()
+<span class="ansi-green-fg">   1473</span> ) -&gt; pd.DataFrame:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1474</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">execute_frame</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">   1475</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">ToPandasDfResultHandler</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">pandas_df_read_config</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   1476</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">chunk_size</span>
+<span class="ansi-green-fg">   1477</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_base_tds_frame.py:1460</span>, in <span class="ansi-cyan-fg">PandasApiBaseTdsFrame.execute_frame</span><span class="ansi-blue-fg">(self, result_handler, chunk_size)</span>
+<span class="ansi-green-fg">   1455</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">   1456</span>         <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Found tds frames with multiple legend_clients (which is not supported): [</span><span class="ansi-yellow-fg">&#34;</span> +
+<span class="ansi-green-fg">   1457</span>         (<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">, </span><span class="ansi-yellow-fg">&#34;</span>.join([<span style="color: rgb(0,135,0)">str</span>(f) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> f <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> all_legend_clients]) + <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">]</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">   1458</span>     )
+<span class="ansi-green-fg">   1459</span> legend_client = all_legend_clients[<span class="ansi-green-fg">0</span>]
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1460</span> result = legend_client.execute_sql_string(<span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql_query</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>, chunk_size=chunk_size)
+<span class="ansi-green-fg">   1461</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> result_handler.handle_result(<span style="color: rgb(0,135,0)">self</span>, result)
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_base_tds_frame.py:1420</span>, in <span class="ansi-cyan-fg">PandasApiBaseTdsFrame.to_sql_query</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">   1419</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">to_sql_query</span>(<span style="color: rgb(0,135,0)">self</span>, config: FrameToSqlConfig = FrameToSqlConfig()) -&gt; <span style="color: rgb(0,135,0)">str</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1420</span>     query = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql_query_object</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">config</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1421</span>     sql_to_string_config = SqlToStringConfig(
+<span class="ansi-green-fg">   1422</span>         format_=SqlToStringFormat(
+<span class="ansi-green-fg">   1423</span>             pretty=config.pretty
+<span class="ansi-green-fg">   1424</span>         )
+<span class="ansi-green-fg">   1425</span>     )
+<span class="ansi-green-fg">   1426</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> config.sql_to_string_generator().generate_sql_string(query, sql_to_string_config)
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_applied_function_tds_frame.py:79</span>, in <span class="ansi-cyan-fg">PandasApiAppliedFunctionTdsFrame.to_sql_query_object</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">     77</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span>._transformed_frame <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">     78</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span>._transformed_frame.to_sql_query_object(config)
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">79</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">__applied_function</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">config</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/functions/truncate_function.py:58</span>, in <span class="ansi-cyan-fg">TruncateFunction.to_sql</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">     57</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">to_sql</span>(<span style="color: rgb(0,135,0)">self</span>, config: FrameToSqlConfig) -&gt; QuerySpecification:
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">58</span>     base_query: QuerySpecification = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">__base_frame</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql_query_object</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">config</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">     59</span>     should_create_sub_query = (base_query.offset <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> (base_query.limit <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-fg">     60</span>     new_query = create_sub_query(base_query, config, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">root</span><span class="ansi-yellow-fg">&#34;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> should_create_sub_query <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> copy_query(base_query)
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_base_tds_frame.py:1404</span>, in <span class="ansi-cyan-fg">PandasApiBaseTdsFrame.to_sql_query_object</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">   1402</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span>.get_super_type().to_sql_query_object(<span style="color: rgb(0,135,0)">self</span>, config)  <span style="color: rgb(95,135,135)"># type: ignore</span>
+<span class="ansi-green-fg">   1403</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1404</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_transformed_frame</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql_query_object</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">config</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/pandas_api_applied_function_tds_frame.py:79</span>, in <span class="ansi-cyan-fg">PandasApiAppliedFunctionTdsFrame.to_sql_query_object</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">     77</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span>._transformed_frame <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">     78</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span>._transformed_frame.to_sql_query_object(config)
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">79</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">__applied_function</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">to_sql</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">config</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/functions/assign_function.py:167</span>, in <span class="ansi-cyan-fg">AssignFunction.to_sql</span><span class="ansi-blue-fg">(self, config)</span>
+<span class="ansi-green-fg">    165</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">    166</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(res, (Series, GroupbySeries)):
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">167</span>             alias = (db_extension.quote_identifier(col + temp_column_name_suffix) <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-yellow-bg">has_window_function</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">res</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    168</span>                      <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> alias)
+<span class="ansi-green-fg">    169</span>         new_query.select.selectItems.append(SingleColumn(alias=alias, expression=new_col_expr))
+<span class="ansi-green-fg">    171</span> expr_contains_window_func = <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/gs/pylegend/pylegend/core/tds/pandas_api/frames/helpers/series_helper.py:311</span>, in <span class="ansi-cyan-fg">has_window_function</span><span class="ansi-blue-fg">(series)</span>
+<span class="ansi-green-fg">    309</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> series.expr <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">    310</span>     core_series = assert_and_find_core_series(series.expr)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">311</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> core_series <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-fg">    312</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> has_window_function(core_series)
+<span class="ansi-green-fg">    314</span> considered_window_functions = [
+<span class="ansi-green-fg">    315</span>     RankFunction, WindowAggregateFunction, TwoColumnWindowFunction,
+<span class="ansi-green-fg">    316</span>     ZScoreWindowFunction, SingleColumnWindowFunction,
+<span class="ansi-green-fg">    317</span> ]
+
+<span class="ansi-red-fg">AssertionError</span>:
+</pre></div></div>
+</div>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/tmp_notebooks/PyLegendDecimal.divide.ipynb.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

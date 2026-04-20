@@ -1,0 +1,1728 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.shared.primitives.number &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/shared/primitives/number.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.shared.primitives.number</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Numeric expression type in the PyLegend expression language.</span>
+
+<span class="sd">``PyLegendNumber`` is the base class for all numeric column expressions</span>
+<span class="sd">(``PyLegendInteger``, ``PyLegendFloat``, ``PyLegendDecimal``). It</span>
+<span class="sd">supports the standard arithmetic operators (``+``, ``-``, ``*``, ``/``,</span>
+<span class="sd">``**``), comparison operators (``&lt;``, ``&lt;=``, ``&gt;``, ``&gt;=``), unary</span>
+<span class="sd">operators (``+``, ``-``, ``abs()``), rounding/ceiling/floor, and a wide</span>
+<span class="sd">range of mathematical functions (trigonometric, logarithmic, hyperbolic,</span>
+<span class="sd">etc.).</span>
+
+<span class="sd">Instances are never constructed directly. They are produced by accessing</span>
+<span class="sd">a numeric column on a TDS frame &#8212; for example,</span>
+<span class="sd">``frame[&quot;Order Id&quot;]`` &#8212; or by arithmetic on existing numeric</span>
+<span class="sd">expressions.</span>
+
+<span class="sd">``PyLegendNumber`` also inherits general-purpose methods from</span>
+<span class="sd">``PyLegendPrimitive``, including equality / inequality tests, null checks,</span>
+<span class="sd">string conversion, and ``in_list``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+    <span class="n">PyLegendOptional</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span> <span class="k">as</span> <span class="n">PythonDecimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.boolean</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendBoolean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.expression</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendExpressionNumberReturn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatLiteralExpression</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.number_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendNumberAddExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberMultiplyExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberDivideExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberSubtractExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberLessThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberLessThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberGreaterThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberGreaterThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberNegativeExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberAbsoluteExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberPowerExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberCeilExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberFloorExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberSqrtExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberCbrtExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberExpExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberLogExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberRemainderExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberRoundExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberSineExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberArcSineExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberCosineExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberArcCosineExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberTanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberArcTanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberArcTan2Expression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberCotExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberLog10Expression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberDegreesExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberRadiansExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberSignExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberHyperbolicSinExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberHyperbolicCosExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberHyperbolicTanExpression</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.sql.metamodel</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">QuerySpecification</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">grammar_method</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToSqlConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToPureConfig</span>
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.float</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendFloat</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDecimal</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitive_collection</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendNumberPairCollection</span>
+
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PyLegendNumber&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendPrimitive</span><span class="p">):</span>
+    <span class="n">__value</span><span class="p">:</span> <span class="n">PyLegendExpressionNumberReturn</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendExpressionNumberReturn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_sql_expression</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">frame_name_to_base_query_map</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuerySpecification</span><span class="p">],</span>
+            <span class="n">config</span><span class="p">:</span> <span class="n">FrameToSqlConfig</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_sql_expression</span><span class="p">(</span><span class="n">frame_name_to_base_query_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_pure_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">FrameToPureConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_pure_expression</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionNumberReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span>
+
+<div class="viewcode-block" id="PyLegendNumber.__add__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__add__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Addition (``+``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The sum expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_plus_10&quot;] = frame[&quot;Order Id&quot;] + 10</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number plus (+) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberAddExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__radd__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__radd__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected addition (``int + expr``).</span>
+
+<span class="sd">        Called when a Python literal is on the left side of ``+``.</span>
+<span class="sd">        Behaves identically to :meth:`__add__` with swapped operand</span>
+<span class="sd">        order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The left-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The sum expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number plus (+) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberAddExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__mul__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__mul__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Multiplication (``*``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The product expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_times_2&quot;] = frame[&quot;Order Id&quot;] * 2</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number multiply (*) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberMultiplyExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__rmul__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__rmul__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rmul__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected multiplication (``int * expr``).</span>
+
+<span class="sd">        Called when a Python literal is on the left side of ``*``.</span>
+<span class="sd">        Behaves identically to :meth:`__mul__` with swapped operand</span>
+<span class="sd">        order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The left-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The product expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number multiply (*) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberMultiplyExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__truediv__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__truediv__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__truediv__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        True division (``/``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The divisor.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The quotient expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_half&quot;] = frame[&quot;Order Id&quot;] / 2</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number divide (/) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberDivideExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__rtruediv__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__rtruediv__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rtruediv__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected true division (``int / expr``).</span>
+
+<span class="sd">        Called when a Python literal is on the left side of ``/``.</span>
+<span class="sd">        Behaves identically to :meth:`__truediv__` with swapped operand</span>
+<span class="sd">        order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The dividend (left-hand operand).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The quotient expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number divide (/) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberDivideExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__sub__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__sub__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subtraction (``-``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The difference expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_minus_10000&quot;] = frame[&quot;Order Id&quot;] - 10000</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number subtract (-) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSubtractExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__rsub__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__rsub__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rsub__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected subtraction (``int - expr``).</span>
+
+<span class="sd">        Called when a Python literal is on the left side of ``-``.</span>
+<span class="sd">        Behaves identically to :meth:`__sub__` with swapped operand</span>
+<span class="sd">        order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The left-hand operand (minuend).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The difference expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number subtract (-) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSubtractExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__lt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__lt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Less than comparison (``&lt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt; other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Order Id&quot;] &lt; 10250].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number less than (&lt;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendNumberLessThanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__le__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__le__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Less than or equal comparison (``&lt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt;= other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Order Id&quot;] &lt;= 10250].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number less than equal (&lt;=) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendNumberLessThanEqualExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__gt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__gt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Greater than comparison (``&gt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt; other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Order Id&quot;] &gt; 10250].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number greater than (&gt;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendNumberGreaterThanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__ge__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__ge__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Greater than or equal comparison (``&gt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt;= other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[frame[&quot;Order Id&quot;] &gt;= 10250].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number greater than equal (&gt;=) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendNumberGreaterThanEqualExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__pos__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__pos__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__pos__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unary positive (``+expr``).</span>
+
+<span class="sd">        Returns the expression unchanged. Included for operator</span>
+<span class="sd">        completeness.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The same expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__neg__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__neg__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unary negation (``-expr``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The negated expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;neg_id&quot;] = -frame[&quot;Order Id&quot;]</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberNegativeExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__abs__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__abs__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Absolute value (``abs(expr)``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The absolute value expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;abs_id&quot;] = abs(frame[&quot;Order Id&quot;])</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberAbsoluteExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__pow__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__pow__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__pow__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Power / exponentiation (``**``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The exponent.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The power expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_squared&quot;] = frame[&quot;Order Id&quot;] ** 2</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number power (**) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberPowerExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__rpow__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__rpow__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rpow__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected power (``int ** expr``).</span>
+
+<span class="sd">        Called when a Python literal is on the left side of ``**``.</span>
+<span class="sd">        Behaves identically to :meth:`__pow__` with swapped operand</span>
+<span class="sd">        order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The base (left-hand operand).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The power expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number power (**) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberPowerExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.ceil">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.ceil">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ceil</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ceiling &#8212; smallest integer greater than or equal to the value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The ceiling expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        floor : The opposite rounding direction.</span>
+<span class="sd">        __ceil__ : Alias called by ``math.ceil()``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_ceil&quot;] = (frame[&quot;Order Id&quot;] / 3).ceil()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendNumberCeilExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__ceil__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__ceil__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__ceil__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ceiling via ``math.ceil()``.</span>
+
+<span class="sd">        Alias for :meth:`ceil`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The ceiling expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ceil : Canonical ceiling method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ceil</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.floor">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.floor">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Floor &#8212; largest integer less than or equal to the value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The floor expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ceil : The opposite rounding direction.</span>
+<span class="sd">        __floor__ : Alias called by ``math.floor()``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_floor&quot;] = (frame[&quot;Order Id&quot;] / 3).floor()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+        <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendNumberFloorExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__floor__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__floor__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__floor__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Floor via ``math.floor()``.</span>
+
+<span class="sd">        Alias for :meth:`floor`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendInteger</span>
+<span class="sd">            The floor expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        floor : Canonical floor method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.sqrt">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.sqrt">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Square root.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The square-root expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_sqrt&quot;] = frame[&quot;Order Id&quot;].sqrt()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSqrtExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.cbrt">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.cbrt">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cbrt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cube root.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The cube-root expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_cbrt&quot;] = frame[&quot;Order Id&quot;].cbrt()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberCbrtExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.exp">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.exp">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Natural exponential (``e ** x``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The exponential expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_exp&quot;] = (frame[&quot;Order Id&quot;] - 10248).exp()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberExpExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.log">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.log">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Natural logarithm (``ln(x)``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The natural-log expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        log10 : Base-10 logarithm.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_log&quot;] = frame[&quot;Order Id&quot;].log()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberLogExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.rem">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.rem">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rem</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remainder (modulo for numeric expressions).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The divisor.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The remainder expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_rem_3&quot;] = frame[&quot;Order Id&quot;].rem(3)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number remainder (rem) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberRemainderExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.sin">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.sin">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sine (input in radians).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The sine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_sin&quot;] = frame[&quot;Order Id&quot;].sin()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSineExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.asin">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.asin">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">asin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arc-sine (inverse sine). Result in radians.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The arc-sine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_asin&quot;] = (frame[&quot;Order Id&quot;] - 10248).asin()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberArcSineExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.cos">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.cos">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cosine (input in radians).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The cosine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_cos&quot;] = frame[&quot;Order Id&quot;].cos()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberCosineExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.acos">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.acos">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arc-cosine (inverse cosine). Result in radians.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The arc-cosine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_acos&quot;] = (frame[&quot;Order Id&quot;] - 10248).acos()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberArcCosineExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.tan">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.tan">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tangent (input in radians).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The tangent expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_tan&quot;] = frame[&quot;Order Id&quot;].tan()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberTanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.atan">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.atan">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">atan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arc-tangent (inverse tangent). Result in radians.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The arc-tangent expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_atan&quot;] = frame[&quot;Order Id&quot;].atan()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberArcTanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.atan2">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.atan2">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">atan2</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Two-argument arc-tangent (``atan2(self, other)``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : int, float, PyLegendInteger, PyLegendFloat, or PyLegendNumber</span>
+<span class="sd">            The second argument (x-coordinate).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The arc-tangent expression (result in radians).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a supported numeric type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_atan2&quot;] = frame[&quot;Order Id&quot;].atan2(10000)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">validate_param_to_be_number</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Number atan2 parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendNumber</span><span class="o">.</span><span class="n">__convert_to_number_expr</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberArcTan2Expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.cot">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.cot">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cotangent (input in radians).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The cotangent expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_cot&quot;] = frame[&quot;Order Id&quot;].cot()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberCotExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.round">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.round">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">n</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Round to *n* decimal places.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n : int, optional</span>
+<span class="sd">            Number of decimal places. Defaults to ``0`` (round to</span>
+<span class="sd">            nearest integer).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The rounded expression.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *n* is not an ``int``.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        __round__ : Alias called by ``round()``.</span>
+<span class="sd">        ceil : Round up.</span>
+<span class="sd">        floor : Round down.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_round&quot;] = (frame[&quot;Order Id&quot;] / 3).round(2)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberRoundExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Round parameter should be an int. Passed - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+            <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberRoundExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.log10">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.log10">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log10</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base-10 logarithm.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The base-10 logarithm expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        log : Natural logarithm.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_log10&quot;] = frame[&quot;Order Id&quot;].log10()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberLog10Expression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.degrees">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.degrees">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">degrees</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert radians to degrees.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The value in degrees.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        radians : The inverse conversion.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_deg&quot;] = frame[&quot;Order Id&quot;].degrees()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberDegreesExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.radians">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.radians">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">radians</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert degrees to radians.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The value in radians.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        degrees : The inverse conversion.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_rad&quot;] = frame[&quot;Order Id&quot;].radians()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberRadiansExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.sign">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.sign">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sign of the value (``-1``, ``0``, or ``1``).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            ``-1`` for negative, ``0`` for zero, ``1`` for positive.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_sign&quot;] = (frame[&quot;Order Id&quot;] - 10255).sign()</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberSignExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.sinh">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.sinh">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sinh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hyperbolic sine.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The hyperbolic sine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_sinh&quot;] = (frame[&quot;Order Id&quot;] - 10248).sinh()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberHyperbolicSinExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.cosh">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.cosh">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cosh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hyperbolic cosine.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The hyperbolic cosine expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_cosh&quot;] = (frame[&quot;Order Id&quot;] - 10248).cosh()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberHyperbolicCosExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.tanh">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.tanh">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tanh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hyperbolic tangent.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The hyperbolic tangent expression.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_tanh&quot;] = (frame[&quot;Order Id&quot;] - 10248).tanh()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberHyperbolicTanExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.__round__">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.__round__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__round__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">PyLegendOptional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Round via built-in ``round()``.</span>
+
+<span class="sd">        Alias for :meth:`round`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n : int, optional</span>
+<span class="sd">            Number of decimal places.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendNumber</span>
+<span class="sd">            The rounded expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        round : Canonical rounding method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.to_decimal">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.to_decimal">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_decimal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendDecimal&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cast the value to a decimal expression.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendDecimal</span>
+<span class="sd">            The value as a decimal expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        to_float : Cast to float instead.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_decimal&quot;] = frame[&quot;Order Id&quot;].to_decimal()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDecimal</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.decimal_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PyLegendNumberToDecimalExpression</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendNumberToDecimalExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendNumber.to_float">
+<a class="viewcode-back" href="../../../../../../api/core_language_number.html#pylegend.core.language.shared.primitives.number.PyLegendNumber.to_float">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_float</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cast the value to a float expression.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendFloat</span>
+<span class="sd">            The value as a float expression.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        to_decimal : Cast to decimal instead.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;id_float&quot;] = frame[&quot;Order Id&quot;].to_float()</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.float</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendFloat</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.decimal_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PyLegendNumberToFloatExpression</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendNumberToFloatExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">row_mapper</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendNumberPairCollection&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitive_collection</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendNumberPairCollection</span>
+        <span class="k">return</span> <span class="n">PyLegendNumberPairCollection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__convert_to_number_expr</span><span class="p">(</span>
+            <span class="n">val</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionNumberReturn</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendIntegerLiteralExpression</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">):</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDecimalLiteralExpression</span>
+            <span class="k">return</span> <span class="n">PyLegendDecimalLiteralExpression</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendFloatLiteralExpression</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">__value</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_param_to_be_number</span><span class="p">(</span>
+            <span class="n">param</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">,</span> <span class="s2">&quot;PyLegendInteger&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendFloat&quot;</span><span class="p">,</span> <span class="s2">&quot;PyLegendNumber&quot;</span><span class="p">],</span>
+            <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.integer</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendInteger</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.float</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendFloat</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendDecimal</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">PythonDecimal</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span>
+                                  <span class="n">PyLegendNumber</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>  <span class="c1"># pragma: no cover</span>
+                <span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a int/float/decimal.Decimal or a int/float/decimal/number expression&quot;</span>
+                       <span class="s2">&quot; (PyLegendInteger/PyLegendFloat/PyLegendDecimal/PyLegendNumber).&quot;</span>
+                       <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">))</span>
+            <span class="p">)</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "15965123",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pylegend\n",
+    "frame = pylegend.samples.pandas_api.northwind_orders_frame()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "90968d08",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'NumberGroupbySeries' object has no attribute 'head'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mAttributeError\u001b[39m                            Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[96]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m \u001b[43mframe\u001b[49m\u001b[43m.\u001b[49m\u001b[43mgroupby\u001b[49m\u001b[43m(\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mShip Name\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m)\u001b[49m\u001b[43m[\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mOrder Id\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m]\u001b[49m\u001b[43m.\u001b[49m\u001b[43mmedian\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m.\u001b[49m\u001b[43mhead\u001b[49m(\u001b[32m5\u001b[39m).to_pandas()\n",
+      "\u001b[31mAttributeError\u001b[39m: 'NumberGroupbySeries' object has no attribute 'head'"
+     ]
+    }
+   ],
+   "source": [
+    "frame.groupby(\"Ship Name\")[\"Order Id\"].median().head(5).to_pandas()"
+   ]
+  }
+ ],
+ "metadata": {
+  "nbsphinx": {
+   "orphan": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,790 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../../../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pylegend.core.language.shared.primitives.boolean &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/alabaster.css?v=ea671f29" />
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+ 
+<link rel="stylesheet" href="../../../../../../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="True_modules/pylegend/core/language/shared/primitives/boolean.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../../../../../../_static/js/ag_grid_init.js"></script>
+<script src="../../../../../../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../../../../index.html">
+    <img class="logo" src="../../../../../../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/api.html">API Reference</a></li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../../../../../../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <h1>Source code for pylegend.core.language.shared.primitives.boolean</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2023 Goldman Sachs</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Boolean expression type in the PyLegend expression language.</span>
+
+<span class="sd">``PyLegendBoolean`` represents a boolean-valued column or computed</span>
+<span class="sd">expression within a PyLegend query. It supports the standard logical</span>
+<span class="sd">operators (``&amp;``, ``|``, ``~``, ``^``), comparison operators</span>
+<span class="sd">(``&lt;``, ``&lt;=``, ``&gt;``, ``&gt;=``), and conditional branching via</span>
+<span class="sd">:meth:`~PyLegendBoolean.case`.</span>
+
+<span class="sd">Instances are never constructed directly. They are produced by</span>
+<span class="sd">operations on TDS frame columns &#8212; for example, comparing a column</span>
+<span class="sd">to a literal (``frame[&quot;Age&quot;] &gt; 30``) or accessing a boolean column</span>
+<span class="sd">through a row accessor (``row.get_boolean(&quot;is_active&quot;)``).</span>
+
+<span class="sd">``PyLegendBoolean`` also inherits general-purpose methods from</span>
+<span class="sd">``PyLegendPrimitive``, including equality / inequality tests, null checks,</span>
+<span class="sd">string conversion, and ``in_list``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendSequence</span><span class="p">,</span>
+    <span class="n">PyLegendDict</span><span class="p">,</span>
+    <span class="n">PyLegendUnion</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives.primitive</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLegendPrimitive</span><span class="p">,</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.expression</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendExpression</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionBooleanReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionStringReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionNumberReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionIntegerReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionFloatReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionDecimalReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionDateReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionDateTimeReturn</span><span class="p">,</span>
+    <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.literal_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">,</span>
+    <span class="n">convert_literal_to_literal_expression</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.boolean_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PyLegendBooleanOrExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanAndExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanNotExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanLessThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanLessThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanGreaterThanExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanGreaterThanEqualExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanXorExpression</span><span class="p">,</span>
+    <span class="n">PyLegendBooleanCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendNumberCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendIntegerCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendFloatCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDecimalCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStringCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendDateTimeCaseExpression</span><span class="p">,</span>
+    <span class="n">PyLegendStrictDateCaseExpression</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.sql.metamodel</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Expression</span><span class="p">,</span>
+    <span class="n">QuerySpecification</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.pandas_api.frames.helpers.series_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">grammar_method</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToSqlConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.tds.tds_frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">FrameToPureConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+
+<span class="n">__all__</span><span class="p">:</span> <span class="n">PyLegendSequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PyLegendBoolean&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendPrimitive</span><span class="p">):</span>
+    <span class="n">__value</span><span class="p">:</span> <span class="n">PyLegendExpressionBooleanReturn</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="n">PyLegendExpressionBooleanReturn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_sql_expression</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">frame_name_to_base_query_map</span><span class="p">:</span> <span class="n">PyLegendDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuerySpecification</span><span class="p">],</span>
+            <span class="n">config</span><span class="p">:</span> <span class="n">FrameToSqlConfig</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_sql_expression</span><span class="p">(</span><span class="n">frame_name_to_base_query_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_pure_expression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">FrameToPureConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="o">.</span><span class="n">to_pure_expression</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendExpressionBooleanReturn</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span>
+
+<div class="viewcode-block" id="PyLegendBoolean.case">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.case">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">case</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">if_true</span><span class="p">:</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">,</span>
+            <span class="n">if_false</span><span class="p">:</span> <span class="s2">&quot;PyLegendPrimitiveOrPythonPrimitive&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PyLegendPrimitive</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Conditional expression &#8212; SQL ``CASE WHEN &#8230; THEN &#8230; ELSE &#8230; END``.</span>
+
+<span class="sd">        Evaluate this boolean expression and return *if_true* where it</span>
+<span class="sd">        is ``True``, or *if_false* where it is ``False``.</span>
+
+<span class="sd">        Both branches must resolve to the **same type family** (e.g.</span>
+<span class="sd">        both numeric, both string, both date). The return type of the</span>
+<span class="sd">        resulting expression matches that family.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        if_true : int, float, bool, str, date, datetime, Decimal, or PyLegendPrimitive</span>
+<span class="sd">            Value returned when the condition is ``True``.</span>
+<span class="sd">        if_false : int, float, bool, str, date, datetime, Decimal, or PyLegendPrimitive</span>
+<span class="sd">            Value returned when the condition is ``False``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendPrimitive</span>
+<span class="sd">            An expression whose concrete type depends on the branch</span>
+<span class="sd">            values (e.g. ``PyLegendInteger`` if both branches are</span>
+<span class="sd">            integers, ``PyLegendString`` if both are strings).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *if_true* or *if_false* is not a supported primitive</span>
+<span class="sd">            type, or if the two branches have incompatible types.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Classify orders by size</span>
+<span class="sd">            frame[&quot;size&quot;] = (frame[&quot;Order Id&quot;] &gt; 10250).case(&quot;large&quot;, &quot;small&quot;)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">            # Numeric branch &#8212; compute a bonus</span>
+<span class="sd">            frame[&quot;bonus&quot;] = (frame[&quot;Order Id&quot;] &gt; 10250).case(100, 0)</span>
+<span class="sd">            frame.head(5).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+            <span class="n">PyLegendString</span><span class="p">,</span> <span class="n">PyLegendNumber</span><span class="p">,</span> <span class="n">PyLegendInteger</span><span class="p">,</span> <span class="n">PyLegendFloat</span><span class="p">,</span> <span class="n">PyLegendDecimal</span><span class="p">,</span>
+            <span class="n">PyLegendDate</span><span class="p">,</span> <span class="n">PyLegendDateTime</span><span class="p">,</span> <span class="n">PyLegendStrictDate</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">resolve_param</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">PyLegendPrimitiveOrPythonPrimitive</span><span class="p">,</span>
+                          <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendExpression&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="n">convert_literal_to_literal_expression</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">PyLegendPrimitive</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">param</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;case </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> parameter should be a primitive value or PyLegendPrimitive expression.&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; Got value </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2"> of type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+        <span class="n">true_expr</span> <span class="o">=</span> <span class="n">resolve_param</span><span class="p">(</span><span class="n">if_true</span><span class="p">,</span> <span class="s2">&quot;if_true&quot;</span><span class="p">)</span>
+        <span class="n">false_expr</span> <span class="o">=</span> <span class="n">resolve_param</span><span class="p">(</span><span class="n">if_false</span><span class="p">,</span> <span class="s2">&quot;if_false&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionBooleanReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionBooleanReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionStringReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionStringReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendString</span><span class="p">(</span><span class="n">PyLegendStringCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDateTimeReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDateTimeReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendDateTime</span><span class="p">(</span><span class="n">PyLegendDateTimeCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionStrictDateReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendStrictDate</span><span class="p">(</span><span class="n">PyLegendStrictDateCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDateReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDateReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendDate</span><span class="p">(</span><span class="n">PyLegendDateCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDecimalReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionDecimalReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendDecimal</span><span class="p">(</span><span class="n">PyLegendDecimalCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionFloatReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionFloatReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendFloat</span><span class="p">(</span><span class="n">PyLegendFloatCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionIntegerReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionIntegerReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendInteger</span><span class="p">(</span><span class="n">PyLegendIntegerCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">true_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionNumberReturn</span><span class="p">)</span> \
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">false_expr</span><span class="p">,</span> <span class="n">PyLegendExpressionNumberReturn</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">PyLegendNumber</span><span class="p">(</span><span class="n">PyLegendNumberCaseExpression</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">true_expr</span><span class="p">,</span> <span class="n">false_expr</span>
+            <span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;case if_true and if_false parameters must be of the same type.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Got if_true of type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">if_true</span><span class="p">)</span><span class="si">}</span><span class="s2"> and if_false of type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">if_false</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Supported types are: bool, int, float, Decimal, str, date, datetime, PyLegendPrimitive&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__or__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__or__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logical OR (``|``).</span>
+
+<span class="sd">        Combine two boolean expressions with a logical OR.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where either operand is ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Orders with id &lt; 10250 OR id &gt; 10260</span>
+<span class="sd">            cond = (frame[&quot;Order Id&quot;] &lt; 10250) | (frame[&quot;Order Id&quot;] &gt; 10260)</span>
+<span class="sd">            frame[cond].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendBoolean</span><span class="o">.</span><span class="n">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Boolean OR (|) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanOrExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__ror__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ror__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ror__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected logical OR (``bool | expr``).</span>
+
+<span class="sd">        Called when a Python ``bool`` literal is on the left side of</span>
+<span class="sd">        ``|``. Behaves identically to :meth:`__or__` with swapped</span>
+<span class="sd">        operand order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The left-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where either operand is ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendBoolean</span><span class="o">.</span><span class="n">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Boolean OR (|) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanOrExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__and__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__and__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logical AND (``&amp;``).</span>
+
+<span class="sd">        Combine two boolean expressions with a logical AND.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where both operands are ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Orders with id &gt;= 10250 AND id &lt;= 10260</span>
+<span class="sd">            cond = (frame[&quot;Order Id&quot;] &gt;= 10250) &amp; (frame[&quot;Order Id&quot;] &lt;= 10260)</span>
+<span class="sd">            frame[cond].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendBoolean</span><span class="o">.</span><span class="n">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Boolean AND (&amp;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanAndExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__rand__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rand__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rand__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected logical AND (``bool &amp; expr``).</span>
+
+<span class="sd">        Called when a Python ``bool`` literal is on the left side of</span>
+<span class="sd">        ``&amp;``. Behaves identically to :meth:`__and__` with swapped</span>
+<span class="sd">        operand order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The left-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where both operands are ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PyLegendBoolean</span><span class="o">.</span><span class="n">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;Boolean AND (&amp;) parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanAndExpression</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__invert__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__invert__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logical NOT (``~``).</span>
+
+<span class="sd">        Negate this boolean expression.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where the original expression is ``False``, and</span>
+<span class="sd">            vice-versa.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Negate a condition</span>
+<span class="sd">            frame[~(frame[&quot;Order Id&quot;] &gt; 10255)].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">PyLegendBooleanNotExpression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__lt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__lt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Less than comparison (``&lt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt; other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # Compare two boolean expressions: is (id &gt; 10260) &lt; (id &gt; 10250)?</span>
+<span class="sd">            frame[&quot;lt_check&quot;] = (frame[&quot;Order Id&quot;] &gt; 10260) &lt; (frame[&quot;Order Id&quot;] &gt; 10250)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PyLegendBooleanLessThanExpression</span><span class="p">,</span> <span class="s2">&quot;less than (&lt;)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__le__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__le__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Less than or equal comparison (``&lt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &lt;= other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;le_check&quot;] = (frame[&quot;Order Id&quot;] &gt; 10260) &lt;= (frame[&quot;Order Id&quot;] &gt; 10250)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PyLegendBooleanLessThanEqualExpression</span><span class="p">,</span> <span class="s2">&quot;less than equal (&lt;=)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__gt__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__gt__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Greater than comparison (``&gt;``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt; other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;gt_check&quot;] = (frame[&quot;Order Id&quot;] &gt; 10250) &gt; (frame[&quot;Order Id&quot;] &gt; 10260)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PyLegendBooleanGreaterThanExpression</span><span class="p">,</span> <span class="s2">&quot;greater than (&gt;)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__ge__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ge__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Greater than or equal comparison (``&gt;=``).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where ``self &gt;= other``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            frame[&quot;ge_check&quot;] = (frame[&quot;Order Id&quot;] &gt; 10250) &gt;= (frame[&quot;Order Id&quot;] &gt; 10260)</span>
+<span class="sd">            frame.head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span>
+            <span class="n">other</span><span class="p">,</span>
+            <span class="n">PyLegendBooleanGreaterThanEqualExpression</span><span class="p">,</span>
+            <span class="s2">&quot;greater than equal (&gt;=)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__xor__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__xor__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logical XOR (``^``).</span>
+
+<span class="sd">        Exclusive OR &#8212; ``True`` when exactly one operand is ``True``.</span>
+<span class="sd">        Translates to SQL ``&lt;&gt;`` and Pure ``-&gt;xor()``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The right-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where exactly one operand is ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        .. ipython:: python</span>
+
+<span class="sd">            import pylegend</span>
+<span class="sd">            frame = pylegend.samples.pandas_api.northwind_orders_frame()</span>
+
+<span class="sd">            # XOR two conditions</span>
+<span class="sd">            cond = (frame[&quot;Order Id&quot;] &gt; 10255) ^ (frame[&quot;Order Id&quot;] &lt; 10250)</span>
+<span class="sd">            frame[cond].head(3).to_pandas()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PyLegendBooleanXorExpression</span><span class="p">,</span> <span class="s2">&quot;xor (^)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyLegendBoolean.__rxor__">
+<a class="viewcode-back" href="../../../../../../api/core_language_boolean.html#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rxor__">[docs]</a>
+    <span class="nd">@grammar_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rxor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reflected logical XOR (``bool ^ expr``).</span>
+
+<span class="sd">        Called when a Python ``bool`` literal is on the left side of</span>
+<span class="sd">        ``^``. Behaves identically to :meth:`__xor__` with swapped</span>
+<span class="sd">        operand order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : bool or PyLegendBoolean</span>
+<span class="sd">            The left-hand operand.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PyLegendBoolean</span>
+<span class="sd">            ``True`` where exactly one operand is ``True``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If *other* is not a ``bool`` or ``PyLegendBoolean``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_binary_expression</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PyLegendBooleanXorExpression</span><span class="p">,</span> <span class="s2">&quot;xor (^)&quot;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_binary_expression</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">other</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">],</span>
+            <span class="n">expression_class</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+            <span class="n">operation_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">reverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">:</span>
+        <span class="n">PyLegendBoolean</span><span class="o">.</span><span class="n">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Boolean </span><span class="si">{</span><span class="n">operation_name</span><span class="si">}</span><span class="s2"> parameter&quot;</span><span class="p">)</span>
+        <span class="n">other_op</span> <span class="o">=</span> <span class="n">PyLegendBooleanLiteralExpression</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="o">.</span><span class="n">__value</span>
+
+        <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">expression_class</span><span class="p">(</span><span class="n">other_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">PyLegendBoolean</span><span class="p">(</span><span class="n">expression_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__value</span><span class="p">,</span> <span class="n">other_op</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__validate__param_to_be_bool</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">PyLegendUnion</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="s2">&quot;PyLegendBoolean&quot;</span><span class="p">],</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">PyLegendBoolean</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">desc</span> <span class="o">+</span> <span class="s2">&quot; should be a bool or a boolean expression (PyLegendBoolean).&quot;</span>
+                                   <span class="s2">&quot; Got value &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)))</span>
+</pre></div>
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+</div>
+
+
+
+
+  </body>
+</html>

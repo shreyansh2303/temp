@@ -1,0 +1,1812 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PyLegendBoolean &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PyLegendBooleanCollection" href="core_language_boolean_collection.html" />
+    <link rel="prev" title="API Reference" href="api.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueapi/core_language_boolean.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#core-language">Core Language</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyLegendBoolean</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#and">__and__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#invert">__invert__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#or">__or__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rand">__rand__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ror">__ror__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rxor">__rxor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xor">__xor__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case">case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tostring">toString</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_boolean_collection.html">PyLegendBooleanCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_date.html">PyLegendDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_date_collection.html">PyLegendDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime.html">PyLegendDateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime_collection.html">PyLegendDateTimeCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal.html">PyLegendDecimal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal_collection.html">PyLegendDecimalCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float.html">PyLegendFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float_collection.html">PyLegendFloatCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_integer.html">PyLegendInteger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_integer_collection.html">PyLegendIntegerCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number.html">PyLegendNumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number_collection.html">PyLegendNumberCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate.html">PyLegendStrictDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate_collection.html">PyLegendStrictDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string.html">PyLegendString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string_collection.html">PyLegendStringCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pandas-api">Pandas API</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="module-pylegend.core.language.shared.primitives.boolean">
+<span id="pylegendboolean"></span><h1>PyLegendBoolean<a class="headerlink" href="#module-pylegend.core.language.shared.primitives.boolean" title="Link to this heading">&#61633;</a></h1>
+<p>Boolean expression type in the PyLegend expression language.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code> represents a boolean-valued column or computed
+expression within a PyLegend query. It supports the standard logical
+operators (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>), comparison operators
+(<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>), and conditional branching via
+<a class="reference internal" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.case" title="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.case"><code class="xref py py-meth docutils literal notranslate"><span class="pre">case()</span></code></a>.</p>
+<p>Instances are never constructed directly. They are produced by
+operations on TDS frame columns &#8212; for example, comparing a column
+to a literal (<code class="docutils literal notranslate"><span class="pre">frame[&quot;Age&quot;]</span> <span class="pre">&gt;</span> <span class="pre">30</span></code>) or accessing a boolean column
+through a row accessor (<code class="docutils literal notranslate"><span class="pre">row.get_boolean(&quot;is_active&quot;)</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code> also inherits general-purpose methods from
+<code class="docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>, including equality / inequality tests, null checks,
+string conversion, and <code class="docutils literal notranslate"><span class="pre">in_list</span></code>.</p>
+<section id="and">
+<h2>__and__<a class="headerlink" href="#and" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__and__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__and__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__and__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__and__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Logical AND (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>).</p>
+<p>Combine two boolean expressions with a logical AND.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where both operands are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/076dec1ef9b1f889837342188323259f/PyLegendBoolean.__and__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Orders with id &gt;= 10250 AND id &lt;= 10260</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">10250</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">10260</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="eq">
+<h2>__eq__<a class="headerlink" href="#eq" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__eq__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__eq__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test element-wise equality (<code class="docutils literal notranslate"><span class="pre">==</span></code>).</p>
+<p>Compare this expression against another primitive value or
+expression. Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where
+the values are equal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; The value or expression to compare against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean expression representing the equality test.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a supported primitive type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/62ce5c99d1a86958b80aa4019185b70c/PyLegendPrimitive.__eq__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where Ship Name equals a literal</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Around the Horn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10355</td>
+      <td>1996-11-15</td>
+      <td>1996-12-13</td>
+      <td>1996-11-20</td>
+      <td>Around the Horn</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10383</td>
+      <td>1996-12-16</td>
+      <td>1997-01-13</td>
+      <td>1996-12-18</td>
+      <td>Around the Horn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10453</td>
+      <td>1997-02-21</td>
+      <td>1997-03-21</td>
+      <td>1997-02-26</td>
+      <td>Around the Horn</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="ge">
+<h2>__ge__<a class="headerlink" href="#ge" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ge__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__ge__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__ge__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ge__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Greater than or equal comparison (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&gt;=</span> <span class="pre">other</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/430a06474eaa503cf24e502184b59f5c/PyLegendBoolean.__ge__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ge_check&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10260</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>ge_check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="gt">
+<h2>__gt__<a class="headerlink" href="#gt" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__gt__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__gt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__gt__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__gt__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Greater than comparison (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&gt;</span> <span class="pre">other</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/0a5940938f636e205fdbfe86d8477151/PyLegendBoolean.__gt__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;gt_check&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10260</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>gt_check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="invert">
+<h2>__invert__<a class="headerlink" href="#invert" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__invert__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__invert__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__invert__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__invert__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Logical NOT (<code class="docutils literal notranslate"><span class="pre">~</span></code>).</p>
+<p>Negate this boolean expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the original expression is <code class="docutils literal notranslate"><span class="pre">False</span></code>, and
+vice-versa.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/258436670ddbbebd7429c8e9fb480aff/PyLegendBoolean.__invert__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Negate a condition</span>
+<span class="n">frame</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10255</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="le">
+<h2>__le__<a class="headerlink" href="#le" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__le__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__le__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__le__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__le__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Less than or equal comparison (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&lt;=</span> <span class="pre">other</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/1ce4d09bb097bf6d29a747490a38bf15/PyLegendBoolean.__le__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;le_check&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10260</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>le_check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="lt">
+<h2>__lt__<a class="headerlink" href="#lt" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__lt__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__lt__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__lt__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Less than comparison (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&lt;</span> <span class="pre">other</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/e6d795e806ca41d417c6a1dfd77a7396/PyLegendBoolean.__lt__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare two boolean expressions: is (id &gt; 10260) &lt; (id &gt; 10250)?</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;lt_check&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10260</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>lt_check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="ne">
+<h2>__ne__<a class="headerlink" href="#ne" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__ne__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.__ne__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__ne__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test element-wise inequality (<code class="docutils literal notranslate"><span class="pre">!=</span></code>).</p>
+<p>Compare this expression against another primitive value or
+expression. Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where
+the values differ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; The value or expression to compare against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean expression representing the inequality test.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a supported primitive type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/95f14e6afb97483bf8a4199d0222aaa0/PyLegendPrimitive.__ne__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where Ship Name is not a specific value</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Ship1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="or">
+<h2>__or__<a class="headerlink" href="#or" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__or__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__or__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__or__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Logical OR (<code class="docutils literal notranslate"><span class="pre">|</span></code>).</p>
+<p>Combine two boolean expressions with a logical OR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where either operand is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/2f2f0915f452ae7dcdaca4e828d5b985/PyLegendBoolean.__or__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Orders with id &lt; 10250 OR id &gt; 10260</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10250</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10260</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10261</td>
+      <td>1996-07-19</td>
+      <td>1996-08-16</td>
+      <td>1996-07-30</td>
+      <td>Que Del&#237;cia</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="rand">
+<h2>__rand__<a class="headerlink" href="#rand" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rand__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__rand__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__rand__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rand__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Reflected logical AND (<code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">&amp;</span> <span class="pre">expr</span></code>).</p>
+<p>Called when a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> literal is on the left side of
+<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. Behaves identically to <a class="reference internal" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__and__" title="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__and__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__and__()</span></code></a> with swapped
+operand order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The left-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where both operands are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="ror">
+<h2>__ror__<a class="headerlink" href="#ror" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ror__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__ror__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__ror__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__ror__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Reflected logical OR (<code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">|</span> <span class="pre">expr</span></code>).</p>
+<p>Called when a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> literal is on the left side of
+<code class="docutils literal notranslate"><span class="pre">|</span></code>. Behaves identically to <a class="reference internal" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__or__" title="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__or__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__or__()</span></code></a> with swapped
+operand order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The left-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where either operand is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="rxor">
+<h2>__rxor__<a class="headerlink" href="#rxor" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rxor__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__rxor__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__rxor__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__rxor__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Reflected logical XOR (<code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">^</span> <span class="pre">expr</span></code>).</p>
+<p>Called when a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> literal is on the left side of
+<code class="docutils literal notranslate"><span class="pre">^</span></code>. Behaves identically to <a class="reference internal" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__xor__" title="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__xor__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__xor__()</span></code></a> with swapped
+operand order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The left-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where exactly one operand is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="xor">
+<h2>__xor__<a class="headerlink" href="#xor" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__xor__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">__xor__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.__xor__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.__xor__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Logical XOR (<code class="docutils literal notranslate"><span class="pre">^</span></code>).</p>
+<p>Exclusive OR &#8212; <code class="docutils literal notranslate"><span class="pre">True</span></code> when exactly one operand is <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+Translates to SQL <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> and Pure <code class="docutils literal notranslate"><span class="pre">-&gt;xor()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where exactly one operand is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/829510fb8017242d3c4e2def57b46ec6/PyLegendBoolean.__xor__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># XOR two conditions</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10255</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10250</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="case">
+<h2>case<a class="headerlink" href="#case" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.case">
+<span class="sig-prename descclassname"><span class="pre">PyLegendBoolean.</span></span><span class="sig-name descname"><span class="pre">case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">if_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">if_false</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/boolean.html#PyLegendBoolean.case"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.boolean.PyLegendBoolean.case" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Conditional expression &#8212; SQL <code class="docutils literal notranslate"><span class="pre">CASE</span> <span class="pre">WHEN</span> <span class="pre">&#8230;</span> <span class="pre">THEN</span> <span class="pre">&#8230;</span> <span class="pre">ELSE</span> <span class="pre">&#8230;</span> <span class="pre">END</span></code>.</p>
+<p>Evaluate this boolean expression and return <em>if_true</em> where it
+is <code class="docutils literal notranslate"><span class="pre">True</span></code>, or <em>if_false</em> where it is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Both branches must resolve to the <strong>same type family</strong> (e.g.
+both numeric, both string, both date). The return type of the
+resulting expression matches that family.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>if_true</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; Value returned when the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>if_false</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; Value returned when the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An expression whose concrete type depends on the branch
+values (e.g. <code class="docutils literal notranslate"><span class="pre">PyLegendInteger</span></code> if both branches are
+integers, <code class="docutils literal notranslate"><span class="pre">PyLegendString</span></code> if both are strings).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>if_true</em> or <em>if_false</em> is not a supported primitive
+    type, or if the two branches have incompatible types.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/4e8f40996c2bfbf4dcc9b583a47c2308/PyLegendBoolean.case.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classify orders by size</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span><span class="o">.</span><span class="n">case</span><span class="p">(</span><span class="s2">&quot;large&quot;</span><span class="p">,</span> <span class="s2">&quot;small&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>small</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>small</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>small</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>large</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>large</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numeric branch &#8212; compute a bonus</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;bonus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10250</span><span class="p">)</span><span class="o">.</span><span class="n">case</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>size</th>
+      <th>bonus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>small</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>small</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>small</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+      <td>large</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+      <td>large</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="in-list">
+<h2>in_list<a class="headerlink" href="#in-list" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.in_list">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">in_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.in_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.in_list" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is contained in a list of values.</p>
+<p>Returns a boolean expression equivalent to SQL <code class="docutils literal notranslate"><span class="pre">IN</span> <span class="pre">(...)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]</span>) &#8211; A <strong>non-empty</strong> list of literal values or expressions to
+check membership against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value matches any element in <em>lst</em>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> &#8211; If <em>lst</em> is not a list or is empty.</p></li>
+<li><p><strong>TypeError</strong> &#8211; If any element in <em>lst</em> is not a supported primitive type.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/85c8fe4da31af2261e66828e83bc3cae/PyLegendPrimitive.in_list.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep rows where Ship Name is one of several values</span>
+<span class="n">frame</span><span class="p">[</span>
+    <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">in_list</span><span class="p">([</span><span class="s2">&quot;Hanari Carnes&quot;</span><span class="p">,</span> <span class="s2">&quot;Victuailles en stock&quot;</span><span class="p">,</span> <span class="s2">&quot;Supr&#234;mes d&#233;lices&quot;</span><span class="p">])</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-empty">
+<h2>is_empty<a class="headerlink" href="#is-empty" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is null / empty.</p>
+<p>Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where the
+underlying column value is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_empty</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_null</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">is_empty</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a38fb62205cde704367af3e1ce84e1a1/PyLegendPrimitive.is_empty.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only rows where Ship Name is null</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11008</td>
+      <td>1998-04-08</td>
+      <td>1998-05-06</td>
+      <td>NaT</td>
+      <td>Ernst Handel</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11019</td>
+      <td>1998-04-13</td>
+      <td>1998-05-11</td>
+      <td>NaT</td>
+      <td>Rancho grande</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11039</td>
+      <td>1998-04-21</td>
+      <td>1998-05-19</td>
+      <td>NaT</td>
+      <td>LINO-Delicateses</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-not-empty">
+<h2>is_not_empty<a class="headerlink" href="#is-not-empty" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_not_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_not_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is not null / not empty.</p>
+<p>Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where the
+underlying column value is not <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is not null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_empty</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_null</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">is_not_empty</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/ca8d46ebf5ca5d53ce8b15087edef95a/PyLegendPrimitive.is_not_empty.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only rows where Ship Name is present</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">is_not_empty</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-not-null">
+<h2>is_not_null<a class="headerlink" href="#is-not-null" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_not_null</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_not_null"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is not null.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_not_empty()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is not null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_empty</span></code></a></dt><dd><p>Canonical not-null-check method.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_null</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="is-null">
+<h2>is_null<a class="headerlink" href="#is-null" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_null</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_null"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is null.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_empty()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_empty</span></code></a></dt><dd><p>Canonical null-check method.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_null</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="to-string">
+<h2>to_string<a class="headerlink" href="#to-string" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">to_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.to_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Convert the value to its string representation.</p>
+<p>Returns a string expression produced by applying the database&#8217;s
+<code class="docutils literal notranslate"><span class="pre">CAST(...</span> <span class="pre">AS</span> <span class="pre">TEXT)</span></code> (SQL) or <code class="docutils literal notranslate"><span class="pre">-&gt;toString()</span></code> (Pure).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The stringified expression.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendString</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toString</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">to_string</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/e4d8deac4aae072ff82cc072d214e226/PyLegendPrimitive.to_string.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert an integer column to a string</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;order_str&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>order_str</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="tostring">
+<h2>toString<a class="headerlink" href="#tostring" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Convert the value to its string representation.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_string()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The stringified expression.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendString</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_string</span></code></a></dt><dd><p>Canonical string-conversion method.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/api/core_language_boolean.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

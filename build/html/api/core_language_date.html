@@ -1,0 +1,2864 @@
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+--><!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PyLegendDate &#8212; PyLegend 0.16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ea671f29" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7de89ed4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PyLegendDateCollection" href="core_language_date_collection.html" />
+    <link rel="prev" title="PyLegendBooleanCollection" href="core_language_boolean_collection.html" />
+ 
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.2/styles/ag-theme-alpine.css">
+
+
+<link rel="canonical" href="Trueapi/core_language_date.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+<div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+<div class="theme-toggle-container" id="theme-toggle-container">
+  <span class="theme-toggle-label">&#127769;</span>
+  <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+</div>
+
+<div class="theme-switch-overlay" id="theme-switch-overlay" style="display: none;">
+  <div class="theme-dots-container">
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+    <div class="theme-dot"></div>
+  </div>
+</div>
+
+
+<script src="../_static/js/ag_grid_init.js"></script>
+<script src="../_static/js/custom.js"></script>
+<div class="document">
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static//img/logo.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">PyLegend</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<!--
+# Copyright 2026 Goldman Sachs
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+
+<h3>Table of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#core-language">Core Language</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core_language_boolean.html">PyLegendBoolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_boolean_collection.html">PyLegendBooleanCollection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyLegendDate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eq">__eq__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ge">__ge__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gt">__gt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#le">__le__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lt">__lt__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ne">__ne__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adjust">adjust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-diff">date_diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-part">date_part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datepart">datePart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#day">day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#day-of-week">day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#day-of-year">day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dayofmonth">dayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dayofweeknumber">dayOfWeekNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diff">diff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#epoch-value">epoch_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-day-of-month">first_day_of_month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-day-of-quarter">first_day_of_quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-day-of-week">first_day_of_week</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-day-of-year">first_day_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-hour-of-day">first_hour_of_day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-millisecond-of-second">first_millisecond_of_second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-minute-of-hour">first_minute_of_hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-second-of-minute">first_second_of_minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firstdayofmonth">firstDayOfMonth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firstdayofquarter">firstDayOfQuarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firstdayofweek">firstDayOfWeek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firstdayofyear">firstDayOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hour">hour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-list">in_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-empty">is_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-not-empty">is_not_empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-not-null">is_not_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#is-null">is_null</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minute">minute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#month">month</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monthnumber">monthNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quarter">quarter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quarternumber">quarterNumber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second">second</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timedelta">timedelta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-string">to_string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tostring">toString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#week-of-year">week_of_year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#weekofyear">weekOfYear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#year">year</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_date_collection.html">PyLegendDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime.html">PyLegendDateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_datetime_collection.html">PyLegendDateTimeCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal.html">PyLegendDecimal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_decimal_collection.html">PyLegendDecimalCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float.html">PyLegendFloat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_float_collection.html">PyLegendFloatCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_integer.html">PyLegendInteger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_integer_collection.html">PyLegendIntegerCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number.html">PyLegendNumber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_number_collection.html">PyLegendNumberCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate.html">PyLegendStrictDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_strictdate_collection.html">PyLegendStrictDateCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string.html">PyLegendString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core_language_string_collection.html">PyLegendStringCollection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#legendql-api">LegendQL API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pandas-api">Pandas API</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h3>Quick Search</h3>
+<div id="searchbox" role="search">
+  <form class="search" action="../search.html" method="get" style="display: flex; gap: 5px;">
+    <input type="text" name="q" placeholder="Search docs..." style="flex: 1;" />
+    <input type="submit" value="Go" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+      </div>
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      
+
+      <div class="body" role="main">
+        
+  <section id="module-pylegend.core.language.shared.primitives.date">
+<span id="pylegenddate"></span><h1>PyLegendDate<a class="headerlink" href="#module-pylegend.core.language.shared.primitives.date" title="Link to this heading">&#61633;</a></h1>
+<section id="eq">
+<h2>__eq__<a class="headerlink" href="#eq" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__eq__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__eq__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test element-wise equality (<code class="docutils literal notranslate"><span class="pre">==</span></code>).</p>
+<p>Compare this expression against another primitive value or
+expression. Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where
+the values are equal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; The value or expression to compare against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean expression representing the equality test.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a supported primitive type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/62ce5c99d1a86958b80aa4019185b70c/PyLegendPrimitive.__eq__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where Ship Name equals a literal</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Around the Horn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10355</td>
+      <td>1996-11-15</td>
+      <td>1996-12-13</td>
+      <td>1996-11-20</td>
+      <td>Around the Horn</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10383</td>
+      <td>1996-12-16</td>
+      <td>1997-01-13</td>
+      <td>1996-12-18</td>
+      <td>Around the Horn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10453</td>
+      <td>1997-02-21</td>
+      <td>1997-03-21</td>
+      <td>1997-02-26</td>
+      <td>Around the Horn</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="ge">
+<h2>__ge__<a class="headerlink" href="#ge" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.__ge__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">__ge__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.__ge__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.__ge__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Date greater than or equal (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/748a179500f10b9b4e2ee9653eb5610e/PyLegendDate.__ge__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1998</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10924</td>
+      <td>1998-03-04</td>
+      <td>1998-04-01</td>
+      <td>1998-04-08</td>
+      <td>Berglunds snabbk&#246;p</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10927</td>
+      <td>1998-03-05</td>
+      <td>1998-04-02</td>
+      <td>1998-04-08</td>
+      <td>La corne d'abondance</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10951</td>
+      <td>1998-03-16</td>
+      <td>1998-04-27</td>
+      <td>1998-04-07</td>
+      <td>Richter Supermarkt</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="gt">
+<h2>__gt__<a class="headerlink" href="#gt" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.__gt__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">__gt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.__gt__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.__gt__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Date greater than (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/e011927e0698634191f43e847d49e1c5/PyLegendDate.__gt__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">date</span><span class="p">(</span><span class="mi">1998</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10924</td>
+      <td>1998-03-04</td>
+      <td>1998-04-01</td>
+      <td>1998-04-08</td>
+      <td>Berglunds snabbk&#246;p</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10927</td>
+      <td>1998-03-05</td>
+      <td>1998-04-02</td>
+      <td>1998-04-08</td>
+      <td>La corne d'abondance</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10951</td>
+      <td>1998-03-16</td>
+      <td>1998-04-27</td>
+      <td>1998-04-07</td>
+      <td>Richter Supermarkt</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="le">
+<h2>__le__<a class="headerlink" href="#le" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.__le__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">__le__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.__le__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.__le__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Date less than or equal (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/f4a4f2aa0da0aaa478c384805116281f/PyLegendDate.__le__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1996</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="lt">
+<h2>__lt__<a class="headerlink" href="#lt" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.__lt__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.__lt__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.__lt__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Date less than (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The right-hand operand.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/787f74cbd02fe69578504076bb271a97/PyLegendDate.__lt__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">date</span><span class="p">(</span><span class="mi">1996</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="ne">
+<h2>__ne__<a class="headerlink" href="#ne" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__ne__">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.__ne__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.__ne__" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test element-wise inequality (<code class="docutils literal notranslate"><span class="pre">!=</span></code>).</p>
+<p>Compare this expression against another primitive value or
+expression. Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where
+the values differ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]</span>) &#8211; The value or expression to compare against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean expression representing the inequality test.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a supported primitive type.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/95f14e6afb97483bf8a4199d0222aaa0/PyLegendPrimitive.__ne__.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where Ship Name is not a specific value</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Ship1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="adjust">
+<h2>adjust<a class="headerlink" href="#adjust" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.adjust">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">adjust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.adjust"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.adjust" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta" title="pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timedelta()</span></code></a> that also accepts a <code class="docutils literal notranslate"><span class="pre">DurationUnit</span></code> enum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code>]</span>) &#8211; How many units to shift.</p></li>
+<li><p><strong>duration_unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DurationUnit</span></code>]</span>) &#8211; The duration unit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/7740d36c63afd92c84e019177761dd8f/PyLegendDate.adjust.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylegend.core.language.shared.operations.date_operation_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DurationUnit</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;plus_1m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">DurationUnit</span><span class="o">.</span><span class="n">MONTHS</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;plus_1m&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>plus_1m</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-08-16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-08-10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-08-12</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="date-diff">
+<h2>date_diff<a class="headerlink" href="#date-diff" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.date_diff">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">date_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.date_diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.date_diff" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.diff" title="pylegend.core.language.shared.primitives.date.PyLegendDate.diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">diff()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The date to subtract.</p></li>
+<li><p><strong>duration_unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) &#8211; The unit for the result.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="date-part">
+<h2>date_part<a class="headerlink" href="#date-part" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.date_part">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">date_part</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.date_part"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.date_part" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the date portion, discarding any time component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/ee64db04247bfbbf3d5efaf7e43c2e0b/PyLegendDate.date_part.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">date_part</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>dt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:00+00:00</td>
+      <td>1996-07-16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:00+00:00</td>
+      <td>1996-07-10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:00+00:00</td>
+      <td>1996-07-12</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="datepart">
+<h2>datePart<a class="headerlink" href="#datepart" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.datePart">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">datePart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.datePart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.datePart" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.date_part" title="pylegend.core.language.shared.primitives.date.PyLegendDate.date_part"><code class="xref py py-meth docutils literal notranslate"><span class="pre">date_part()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="day">
+<h2>day<a class="headerlink" href="#day" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.day">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">day</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.day" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the day of the month (1&#8211;31).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/bfa6e0ca760adf1525fd90bfd69ae2b9/PyLegendDate.day.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">day</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="day-of-week">
+<h2>day_of_week<a class="headerlink" href="#day-of-week" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_week">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">day_of_week</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.day_of_week"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_week" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the day of the week (1 = Monday &#8230; 7 = Sunday).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/bd3b727886a3183178d682aab4f6e0ea/PyLegendDate.day_of_week.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;dow&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">day_of_week</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;dow&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>dow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="day-of-year">
+<h2>day_of_year<a class="headerlink" href="#day-of-year" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_year">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">day_of_year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.day_of_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_year" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the day of the year (1&#8211;366).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/6a480dd72d9c4f2e997aa26cc3211949/PyLegendDate.day_of_year.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;doy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">day_of_year</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;doy&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>doy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>192</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>194</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="dayofmonth">
+<h2>dayOfMonth<a class="headerlink" href="#dayofmonth" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.dayOfMonth">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">dayOfMonth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.dayOfMonth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.dayOfMonth" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.day" title="pylegend.core.language.shared.primitives.date.PyLegendDate.day"><code class="xref py py-meth docutils literal notranslate"><span class="pre">day()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="dayofweeknumber">
+<h2>dayOfWeekNumber<a class="headerlink" href="#dayofweeknumber" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.dayOfWeekNumber">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">dayOfWeekNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.dayOfWeekNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.dayOfWeekNumber" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_week" title="pylegend.core.language.shared.primitives.date.PyLegendDate.day_of_week"><code class="xref py py-meth docutils literal notranslate"><span class="pre">day_of_week()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="diff">
+<h2>diff<a class="headerlink" href="#diff" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.diff">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.diff" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Compute the difference between two dates in the given unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendStrictDate</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code>]</span>) &#8211; The date to subtract.</p></li>
+<li><p><strong>duration_unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) &#8211; The unit for the result (see <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta" title="pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timedelta()</span></code></a> for allowed
+values).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&#8722;</span> <span class="pre">other</span></code> expressed in <em>duration_unit</em>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> &#8211; If <em>other</em> is not a date expression or literal.</p></li>
+<li><p><strong>ValueError</strong> &#8211; If <em>duration_unit</em> is not a recognised unit.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/14dbc51b5224a869e865c317fb9e955b/PyLegendDate.diff.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;lag&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">],</span> <span class="s2">&quot;DAYS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;lag&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>lag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="epoch-value">
+<h2>epoch_value<a class="headerlink" href="#epoch-value" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.epoch_value">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">epoch_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.epoch_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.epoch_value" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Seconds since the Unix epoch (1970-01-01 00:00:00 UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/9a47549057a2da70510bd6a041f8445d/PyLegendDate.epoch_value.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;epoch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">epoch_value</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>epoch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>837475200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>836956800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>837129600</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-day-of-month">
+<h2>first_day_of_month<a class="headerlink" href="#first-day-of-month" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_month">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_day_of_month</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_day_of_month"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_month" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First day of the month for each date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A date set to the 1st of the same month.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/150cfe6abb68545b60f0ffebc0732062/PyLegendDate.first_day_of_month.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;mo_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_day_of_month</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;mo_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>mo_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-07-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-07-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-07-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-day-of-quarter">
+<h2>first_day_of_quarter<a class="headerlink" href="#first-day-of-quarter" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_quarter">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_day_of_quarter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_day_of_quarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_quarter" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First day of the quarter for each date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A date set to the first day of the quarter.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/3c517326b95f8bbeef3e3b21f4de7dae/PyLegendDate.first_day_of_quarter.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;qtr_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_day_of_quarter</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;qtr_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>qtr_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-07-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-07-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-07-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-day-of-week">
+<h2>first_day_of_week<a class="headerlink" href="#first-day-of-week" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_week">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_day_of_week</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_day_of_week"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_week" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First day of the ISO week for each date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A date set to the Monday of the same ISO week.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/5826626117cef2822993f00071112e2b/PyLegendDate.first_day_of_week.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;wk_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_day_of_week</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;wk_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>wk_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-07-14</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-07-07</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-07-07</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-day-of-year">
+<h2>first_day_of_year<a class="headerlink" href="#first-day-of-year" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_year">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_day_of_year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_day_of_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_year" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First day of the year for each date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A date set to January 1 of the same year.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/54d8c5441b560240b26805baa3e35b0f/PyLegendDate.first_day_of_year.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;yr_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_day_of_year</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;yr_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>yr_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-01-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-01-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-01-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-hour-of-day">
+<h2>first_hour_of_day<a class="headerlink" href="#first-hour-of-day" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_hour_of_day">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_hour_of_day</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_hour_of_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_hour_of_day" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First hour (midnight) of the day as a datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A datetime set to 00:00:00 of the same day.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a4b25fc7fd48c32b10a34a6ae47dce7a/PyLegendDate.first_hour_of_day.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;midnight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;midnight&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>midnight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>1996-07-16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>1996-07-10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>1996-07-12</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-millisecond-of-second">
+<h2>first_millisecond_of_second<a class="headerlink" href="#first-millisecond-of-second" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_millisecond_of_second">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_millisecond_of_second</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_millisecond_of_second"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_millisecond_of_second" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First millisecond of the second as a datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A datetime with milliseconds set to zero.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/f64fc9ab5efde62f2c6aaa1dc2cdcf27/PyLegendDate.first_millisecond_of_second.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;sec_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_millisecond_of_second</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;sec_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>sec_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>1996-07-16 14:35:22+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>1996-07-10 14:35:22+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>1996-07-12 14:35:22+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-minute-of-hour">
+<h2>first_minute_of_hour<a class="headerlink" href="#first-minute-of-hour" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_minute_of_hour">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_minute_of_hour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_minute_of_hour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_minute_of_hour" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First minute of the hour as a datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A datetime with minutes and seconds set to zero.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/1e6ee936e8fc4d5b5fdd8067b1d709e6/PyLegendDate.first_minute_of_hour.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;hr_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_minute_of_hour</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;hr_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>hr_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>1996-07-16 14:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>1996-07-10 14:00:00+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>1996-07-12 14:00:00+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="first-second-of-minute">
+<h2>first_second_of_minute<a class="headerlink" href="#first-second-of-minute" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.first_second_of_minute">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">first_second_of_minute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.first_second_of_minute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.first_second_of_minute" title="Link to this definition">&#61633;</a></dt>
+<dd><p>First second of the minute as a datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A datetime with seconds set to zero.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDateTime</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/40f68c69ce1d44c67a1c1460050a673c/PyLegendDate.first_second_of_minute.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;min_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_second_of_minute</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;min_start&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>min_start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>1996-07-16 14:35:00+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>1996-07-10 14:35:00+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>1996-07-12 14:35:00+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="firstdayofmonth">
+<h2>firstDayOfMonth<a class="headerlink" href="#firstdayofmonth" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfMonth">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">firstDayOfMonth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.firstDayOfMonth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfMonth" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_month" title="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_month"><code class="xref py py-meth docutils literal notranslate"><span class="pre">first_day_of_month()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="firstdayofquarter">
+<h2>firstDayOfQuarter<a class="headerlink" href="#firstdayofquarter" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfQuarter">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">firstDayOfQuarter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.firstDayOfQuarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfQuarter" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_quarter" title="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_quarter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">first_day_of_quarter()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="firstdayofweek">
+<h2>firstDayOfWeek<a class="headerlink" href="#firstdayofweek" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfWeek">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">firstDayOfWeek</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.firstDayOfWeek"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfWeek" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_week" title="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_week"><code class="xref py py-meth docutils literal notranslate"><span class="pre">first_day_of_week()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="firstdayofyear">
+<h2>firstDayOfYear<a class="headerlink" href="#firstdayofyear" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfYear">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">firstDayOfYear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.firstDayOfYear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.firstDayOfYear" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_year" title="pylegend.core.language.shared.primitives.date.PyLegendDate.first_day_of_year"><code class="xref py py-meth docutils literal notranslate"><span class="pre">first_day_of_year()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="hour">
+<h2>hour<a class="headerlink" href="#hour" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.hour">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">hour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.hour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.hour" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the hour (0&#8211;23).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/3909527243b738fe21fdb19de098c52d/PyLegendDate.hour.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;hr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hour</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;hr&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>hr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="in-list">
+<h2>in_list<a class="headerlink" href="#in-list" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.in_list">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">in_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.in_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.in_list" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is contained in a list of values.</p>
+<p>Returns a boolean expression equivalent to SQL <code class="docutils literal notranslate"><span class="pre">IN</span> <span class="pre">(...)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendPrimitive</span></code>]]</span>) &#8211; A <strong>non-empty</strong> list of literal values or expressions to
+check membership against.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value matches any element in <em>lst</em>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> &#8211; If <em>lst</em> is not a list or is empty.</p></li>
+<li><p><strong>TypeError</strong> &#8211; If any element in <em>lst</em> is not a supported primitive type.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/85c8fe4da31af2261e66828e83bc3cae/PyLegendPrimitive.in_list.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep rows where Ship Name is one of several values</span>
+<span class="n">frame</span><span class="p">[</span>
+    <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">in_list</span><span class="p">([</span><span class="s2">&quot;Hanari Carnes&quot;</span><span class="p">,</span> <span class="s2">&quot;Victuailles en stock&quot;</span><span class="p">,</span> <span class="s2">&quot;Supr&#234;mes d&#233;lices&quot;</span><span class="p">])</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10251</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-15</td>
+      <td>Victuailles en stock</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10252</td>
+      <td>1996-07-09</td>
+      <td>1996-08-06</td>
+      <td>1996-07-11</td>
+      <td>Supr&#234;mes d&#233;lices</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-empty">
+<h2>is_empty<a class="headerlink" href="#is-empty" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is null / empty.</p>
+<p>Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where the
+underlying column value is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_empty</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_null</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">is_empty</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a38fb62205cde704367af3e1ce84e1a1/PyLegendPrimitive.is_empty.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only rows where Ship Name is null</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11008</td>
+      <td>1998-04-08</td>
+      <td>1998-05-06</td>
+      <td>NaT</td>
+      <td>Ernst Handel</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11019</td>
+      <td>1998-04-13</td>
+      <td>1998-05-11</td>
+      <td>NaT</td>
+      <td>Rancho grande</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11039</td>
+      <td>1998-04-21</td>
+      <td>1998-05-19</td>
+      <td>NaT</td>
+      <td>LINO-Delicateses</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-not-empty">
+<h2>is_not_empty<a class="headerlink" href="#is-not-empty" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_not_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_not_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is not null / not empty.</p>
+<p>Returns a boolean expression that is <code class="docutils literal notranslate"><span class="pre">True</span></code> where the
+underlying column value is not <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is not null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_empty</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_null</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">is_not_empty</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/ca8d46ebf5ca5d53ce8b15087edef95a/PyLegendPrimitive.is_not_empty.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only rows where Ship Name is present</span>
+<span class="n">frame</span><span class="p">[</span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Ship Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">is_not_empty</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="is-not-null">
+<h2>is_not_null<a class="headerlink" href="#is-not-null" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_not_null</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_not_null"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is not null.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_not_empty()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is not null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_empty</span></code></a></dt><dd><p>Canonical not-null-check method.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_null</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="is-null">
+<h2>is_null<a class="headerlink" href="#is-null" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">is_null</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.is_null"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_null" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Test whether the value is null.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_empty()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> where the value is null.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendBoolean</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_empty</span></code></a></dt><dd><p>Canonical null-check method.</p>
+</dd>
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.is_not_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_not_null</span></code></a></dt><dd><p>The inverse test.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="minute">
+<h2>minute<a class="headerlink" href="#minute" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.minute">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">minute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.minute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.minute" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the minute (0&#8211;59).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/7fa4437c185754222c24637d84113fc9/PyLegendDate.minute.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">minute</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="month">
+<h2>month<a class="headerlink" href="#month" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.month">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">month</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.month"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.month" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the month (1&#8211;12).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/f1c9d9808dce7c778dcf8f0bcd6f3603/PyLegendDate.month.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;mo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;mo&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>mo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="monthnumber">
+<h2>monthNumber<a class="headerlink" href="#monthnumber" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.monthNumber">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">monthNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.monthNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.monthNumber" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.month" title="pylegend.core.language.shared.primitives.date.PyLegendDate.month"><code class="xref py py-meth docutils literal notranslate"><span class="pre">month()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="quarter">
+<h2>quarter<a class="headerlink" href="#quarter" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.quarter">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">quarter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.quarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.quarter" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the quarter (1&#8211;4).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/4193acb9a163cef0adb878c24884701c/PyLegendDate.quarter.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;qtr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quarter</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;qtr&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>qtr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="quarternumber">
+<h2>quarterNumber<a class="headerlink" href="#quarternumber" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.quarterNumber">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">quarterNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.quarterNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.quarterNumber" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.quarter" title="pylegend.core.language.shared.primitives.date.PyLegendDate.quarter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">quarter()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="second">
+<h2>second<a class="headerlink" href="#second" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.second">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">second</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.second"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.second" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the second (0&#8211;59).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/a1940f95e8310ff5cd80d3b04fe87e42/PyLegendDate.second.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">first_hour_of_day</span><span class="p">()</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;HOURS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;MINUTES&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;SECONDS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;sec&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">second</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="s2">&quot;sec&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ts</th>
+      <th>sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16 14:35:22+00:00</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10 14:35:22+00:00</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12 14:35:22+00:00</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="timedelta">
+<h2>timedelta<a class="headerlink" href="#timedelta" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">timedelta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.timedelta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.timedelta" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Shift the date by a given amount.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code>]</span>) &#8211; How many units to shift (negative values shift backwards).</p></li>
+<li><p><strong>duration_unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) &#8211; One of <code class="docutils literal notranslate"><span class="pre">'YEARS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MONTHS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'WEEKS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'DAYS'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'HOURS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MINUTES'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SECONDS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'MILLISECONDS'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'MICROSECONDS'</span></code>, <code class="docutils literal notranslate"><span class="pre">'NANOSECONDS'</span></code> (case-insensitive).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The shifted date.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendDate</span></code></span></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> &#8211; If <em>number</em> is not an <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">PyLegendInteger</span></code>.</p></li>
+<li><p><strong>ValueError</strong> &#8211; If <em>duration_unit</em> is not a recognised unit.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/8cd79761d604e2f25bb55fe6ae51f4f5/PyLegendDate.timedelta.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;plus_7d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;DAYS&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;plus_7d&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>plus_7d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996-07-23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996-07-17</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996-07-19</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="to-string">
+<h2>to_string<a class="headerlink" href="#to-string" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">to_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.to_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Convert the value to its string representation.</p>
+<p>Returns a string expression produced by applying the database&#8217;s
+<code class="docutils literal notranslate"><span class="pre">CAST(...</span> <span class="pre">AS</span> <span class="pre">TEXT)</span></code> (SQL) or <code class="docutils literal notranslate"><span class="pre">-&gt;toString()</span></code> (Pure).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The stringified expression.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendString</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toString</span></code></a></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">to_string</span></code>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/e4d8deac4aae072ff82cc072d214e226/PyLegendPrimitive.to_string.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert an integer column to a string</span>
+<span class="n">frame</span><span class="p">[</span><span class="s2">&quot;order_str&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Order Id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Required Date</th>
+      <th>Shipped Date</th>
+      <th>Ship Name</th>
+      <th>order_str</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10248</td>
+      <td>1996-07-04</td>
+      <td>1996-08-01</td>
+      <td>1996-07-16</td>
+      <td>Vins et alcools Chevalier</td>
+      <td>10248</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10249</td>
+      <td>1996-07-05</td>
+      <td>1996-08-16</td>
+      <td>1996-07-10</td>
+      <td>Toms Spezialit&#228;ten</td>
+      <td>10249</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10250</td>
+      <td>1996-07-08</td>
+      <td>1996-08-05</td>
+      <td>1996-07-12</td>
+      <td>Hanari Carnes</td>
+      <td>10250</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="tostring">
+<h2>toString<a class="headerlink" href="#tostring" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString">
+<span class="sig-prename descclassname"><span class="pre">PyLegendPrimitive.</span></span><span class="sig-name descname"><span class="pre">toString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/primitive.html#PyLegendPrimitive.toString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.toString" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Convert the value to its string representation.</p>
+<p>Alias for <a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_string()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The stringified expression.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendString</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="core_language_string.html#pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string" title="pylegend.core.language.shared.primitives.primitive.PyLegendPrimitive.to_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_string</span></code></a></dt><dd><p>Canonical string-conversion method.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="week-of-year">
+<h2>week_of_year<a class="headerlink" href="#week-of-year" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.week_of_year">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">week_of_year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.week_of_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.week_of_year" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the ISO week number (1&#8211;53).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/9a0783cd2165d60d56649749091ad583/PyLegendDate.week_of_year.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;wk&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">week_of_year</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;wk&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>wk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>28</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+<section id="weekofyear">
+<h2>weekOfYear<a class="headerlink" href="#weekofyear" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.weekOfYear">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">weekOfYear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.weekOfYear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.weekOfYear" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Alias for <a class="reference internal" href="core_language_strictdate.html#pylegend.core.language.shared.primitives.date.PyLegendDate.week_of_year" title="pylegend.core.language.shared.primitives.date.PyLegendDate.week_of_year"><code class="xref py py-meth docutils literal notranslate"><span class="pre">week_of_year()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="year">
+<h2>year<a class="headerlink" href="#year" title="Link to this heading">&#61633;</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="pylegend.core.language.shared.primitives.date.PyLegendDate.year">
+<span class="sig-prename descclassname"><span class="pre">PyLegendDate.</span></span><span class="sig-name descname"><span class="pre">year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pylegend/core/language/shared/primitives/date.html#PyLegendDate.year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pylegend.core.language.shared.primitives.date.PyLegendDate.year" title="Link to this definition">&#61633;</a></dt>
+<dd><p>Extract the year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLegendInteger</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference download internal" download="" href="../_downloads/6da7b3a393f9d0fc67d1523e3e2acacd/PyLegendDate.year.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Interactive</span> <span class="pre">Notebook</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pylegend</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pylegend</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">pandas_api</span><span class="o">.</span><span class="n">northwind_orders_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="p">[</span><span class="s2">&quot;yr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">()</span>
+<span class="n">frame</span><span class="p">[[</span><span class="s2">&quot;Shipped Date&quot;</span><span class="p">,</span> <span class="s2">&quot;yr&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Shipped Date</th>
+      <th>yr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1996-07-16</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1996-07-10</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1996-07-12</td>
+      <td>1996</td>
+    </tr>
+  </tbody>
+</table>
+</div></dd></dl>
+
+</section>
+</section>
+
+
+      </div>
+      
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="footer">
+  
+  
+  
+  <a href="../_sources/api/core_language_date.rst.txt" rel="nofollow">Page source</a>
+</div>
+
+
+
+
+  </body>
+</html>

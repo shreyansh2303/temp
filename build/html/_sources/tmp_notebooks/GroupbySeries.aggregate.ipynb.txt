@@ -3,7 +3,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "a8f88c97",
+   "id": "76b21757",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -14,7 +14,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "126ba555",
+   "id": "d7f6df6d",
    "metadata": {},
    "outputs": [
     {
@@ -90,13 +90,13 @@
     "# Single named aggregation\n",
     "frame.groupby(\"Ship Name\")[\"Order Id\"].aggregate(\n",
     "    \"sum\"\n",
-    ").head(5).to_pandas()"
+    ").to_pandas().head(5)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "0d317393",
+   "id": "438fe918",
    "metadata": {},
    "outputs": [
     {
